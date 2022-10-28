@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
@@ -9,6 +10,15 @@ const FormUsers = (props) => {
   const formhandle = (e) => {
     e.preventDefault();
     console.log(name, email, password, confirmPassword);
+
+    axios
+      .post("/user", {
+        name,
+        email,
+        password,
+        confirmPassword,
+      })
+      .then((data) => console.log("this works", data));
   };
 
   return (
