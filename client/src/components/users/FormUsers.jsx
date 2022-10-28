@@ -8,17 +8,17 @@ const FormUsers = (props) => {
         <div className="card rounded flex flex-col items-center p-20">
           {props.children === "Register" && (
             <>
-              <label htmlFor="name">User Name</label>
-              <input type="text" placeholder="User Name" />
+              <label>User Name</label>
+              <input type="text" name="user" placeholder="User Name" />
             </>
           )}
-          <label htmlFor="name">Email</label>
-          <input type="text" placeholder="Email" />
-          <label htmlFor="name">Password</label>
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+          <label>Password</label>
           <input type="text" placeholder="Password" />
           {props.children === "Register" && (
             <>
-              <label htmlFor="name">Confirm Password</label>
+              <label>Confirm Password</label>
               <input type="text" placeholder="Confirm Password" />
             </>
           )}
