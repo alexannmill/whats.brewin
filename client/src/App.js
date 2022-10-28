@@ -3,16 +3,7 @@ import "./App.css";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import axios from "axios";
-
-function App() {
-  axios
-    .get(
-      "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=50"
-    )
-    .then((res) => {
-      console.log("res.data:", res.data);
-    });
+export default function App() {
   return (
     <div className="App">
       <div>
@@ -30,5 +21,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
