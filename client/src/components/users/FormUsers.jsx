@@ -12,7 +12,7 @@ const FormUsers = (props) => {
     console.log(name, email, password, confirmPassword);
 
     axios
-      .post("/user", {
+      .post("/users", {
         name,
         email,
         password,
