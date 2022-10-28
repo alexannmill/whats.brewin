@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-
+import FormUsers from "./components/users/FormUsers";
 function App() {
   return (
     <div className="App">
@@ -9,6 +9,7 @@ function App() {
         <p className="text-red-900">
           Edit <code>src/App.js</code> and save to reload.
         </p>
+
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <FormUsers>Register</FormUsers>
       </header>
     </div>
   );
