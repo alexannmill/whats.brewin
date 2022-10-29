@@ -9,8 +9,8 @@ export default function App() {
     <div className="App">
       <div>
         <h1>Whats brewin</h1>
-        <FormUsers>Register</FormUsers>
-        <FormUsers>Log in</FormUsers>
+        {/* <FormUsers>Register</FormUsers>
+        <FormUsers>Log in</FormUsers> */}
         <MapComponent />
       </div>
     </div>
