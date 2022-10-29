@@ -1,15 +1,17 @@
+// ----- React and Utils -----
 import { useEffect, useState } from "react";
-// For react-map-gl
+import axios from "axios";
+// ----- For react-map-gl -----
 import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import axios from "axios";
 // Components
 import Markers from "./Markers";
+
 
 // 
 // ----- Component -----
 // 
-const MapComponent = () => {
+const MapComponent = (props) => {
   const [viewState, setViewState] = useState({
     latitude: 37.774929,
     longitude: -122.419416,
@@ -25,7 +27,7 @@ const MapComponent = () => {
         "https://api.openbrewerydb.org/breweries?by_city=san_francisco&per_page=50"
       )
       .then((res) => {
-        console.log("brewery array: ", res.data);
+        // console.log("brewery array: ", res.data);
         setBreweries(() => res.data)
       })
       .catch((e) => {
@@ -35,7 +37,7 @@ const MapComponent = () => {
 
   return (
     <div>
-      <Map
+      <Map id="mainMap"
         // Prevents re-mounting map each time
         reuseMaps
         {...viewState}
@@ -43,8 +45,10 @@ const MapComponent = () => {
         onMove={(e) => setViewState(e.viewState)}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
+
         <GeolocateControl />
         <Markers breweries={breweries}/>
+
       </Map>
     </div>
   );
