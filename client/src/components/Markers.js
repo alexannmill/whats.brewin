@@ -7,6 +7,7 @@ const Markers = (props) => {
   const renderMarker = props.breweries.map((brewery) => {
     return (
       <Marker
+        key={brewery.id}
         longitude={brewery.longitude}
         latitude={brewery.latitude}
         anchor="bottom"
