@@ -19,7 +19,9 @@ const MapComponent = (props) => {
   });
 
   const [breweries, setBreweries] = useState([]);
-  const geolocate = useRef(null);
+
+  // Can decide later if we want to geolocate the user by default or only if they click the little button
+  // const geolocate = useRef(null);
 
   useEffect(() => {
     axios
@@ -48,7 +50,7 @@ const MapComponent = (props) => {
         onMove={(e) => setViewState(e.viewState)}
         // onLoad={() => geolocate.current.trigger()}
       >
-        <GeolocateControl ref={geolocate} />
+        <GeolocateControl />
         <Markers breweries={breweries} />
 
       </Map>
