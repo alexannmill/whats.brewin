@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Select from "react-select";
+// import Select from "react-select";
 
 
 // //props breweryName
@@ -9,46 +9,50 @@ export default function SearchBar(props) {
 
 
   const [city, setCity] = useState()
-  const [select, setSelect] = useState([])
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState([])
+  const [select, setSelect] = useState("")
   
-  // input - onChange axios for drop down
-  // Find breweries for dropdown
+
+  // input - onChange axios  to cities db for drop down
   useEffect(() => {
+    console.log('select:', select)
     axios
-      .get(
-        `https://api.openbrewerydb.org/breweries/autocomplete?query=${city}`
-      )
+      .get(`/cities/${select}`)
       .then((res) => {
         console.log('res:', res)
-        const incomingData = res.data.map((opt) => {
+        // const incomingData = res.data.map((opt) => {
           
-          return {label:opt.name, value:opt.name}
-        })
-        console.log('incomingData:', incomingData)
-        setSelect(incomingData)
+        //   return {label:[opt.city, opt.state], value:[opt.city, opt.state]}
+        // })
+
+        // console.log('incomingData:', incomingData)
+        // setSearch(incomingData)
       });
-    }, []);
+    }, [select]);
 
 
   //handler for search bar input set search and suggestions 
-    const searchBarHandler = (e) => {
-      setSelect(e.target.value)
-      setSearch(e.target.value)
-    }
+    // const searchBarHandler = (e) => {
+    //   setSearch(e.target.value)
+    //   setSelect(e.target.value)
+    // }
 
   return (
     <div>
-      <form>
+      <form >
+        {/* <Select
+        options={search}
+        /> */}
         <input
           type="text"
-          value={search}
-          onChange={(e) =>searchBarHandler(e)}
+          value={select}
+          onChange={(e) => {
+            console.log('e:', e.target)
+            e.preventDefault()
+            setSelect(e.target.value)}}
           onSubmit={(e) => setCity(e.target.value)}
         ></input>
-        <Select
-        options={select}
-        />
+        <input type={"submit"} value={"Submit"}></input>
       </form>
     </div>
   );

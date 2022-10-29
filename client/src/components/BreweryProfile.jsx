@@ -33,7 +33,6 @@ export default function BreweryProfile(props) {
 
   return (
     <div>
-      <h1>hello brewery profile</h1>
      <h1>{brewery.name}</h1>
      <h1>{brewery.street}</h1>
      <h1>{brewery.brewery_type}</h1>
