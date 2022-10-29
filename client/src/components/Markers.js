@@ -54,7 +54,7 @@ const Markers = (props) => {
           anchor="bottom"
           onClose={() => setPopupInfo(null)}
         >
-          <h1>Hello this is a pop up</h1>
+          <h1>{popupInfo.name}</h1>
         </Popup>
       )}
     </>
