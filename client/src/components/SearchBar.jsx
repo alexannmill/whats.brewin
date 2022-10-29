@@ -6,9 +6,7 @@ import axios from "axios";
 // //props breweryName
 export default function SearchBar(props) {
 
-
-
-  const [city, setCity] = useState()
+  const [city, setCity] = useState(props.geolocation)
   const [search, setSearch] = useState([])
   const [select, setSelect] = useState("")
   
@@ -17,25 +15,25 @@ export default function SearchBar(props) {
   useEffect(() => {
     console.log('select:', select)
     axios
-      .get(`/api/cities`)
+      .get(`/cities/${select}`)
       .then((res) => {
         console.log('res:', res)
-        // const incomingData = res.data.map((opt) => {
+        const incomingData = res.data.map((opt) => {
           
-        //   return {label:[opt.city, opt.state], value:[opt.city, opt.state]}
-        // })
+          return {label:[opt.city, opt.state], value:[opt.city, opt.state]}
+        })
 
-        // console.log('incomingData:', incomingData)
-        // setSearch(incomingData)
+        console.log('incomingData:', incomingData)
+        setSearch(incomingData)
       });
     }, [select]);
 
 
   //handler for search bar input set search and suggestions 
-    // const searchBarHandler = (e) => {
-    //   setSearch(e.target.value)
-    //   setSelect(e.target.value)
-    // }
+    const searchBarHandler = (e) => {
+      setSearch(e.target.value)
+      setSelect(e.target.value)
+    }
 
   return (
     <div>
@@ -49,7 +47,7 @@ export default function SearchBar(props) {
           onChange={(e) => {
             console.log('e:', e.target)
             e.preventDefault()
-            setSelect(e.target.value)}}
+            searchBarHandler(e)}}
           onSubmit={(e) => setCity(e.target.value)}
         ></input>
         <input type={"submit"} value={"Submit"}></input>
