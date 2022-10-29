@@ -11,7 +11,7 @@ const Markers = (props) => {
         latitude={brewery.latitude}
         anchor="bottom"
       >
-        <img src="https://img.icons8.com/fluency/344/beer.png" alt="Beer Icon" width={50} height={36}/>
+        <img src="https://img.icons8.com/fluency/344/beer.png" alt="Beer Icon" width={40} height={36}/>
       </Marker>
     );
   });
