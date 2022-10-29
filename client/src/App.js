@@ -1,13 +1,18 @@
 import "./App.css";
-// Components
+// For react-map-gl
+import "mapbox-gl/dist/mapbox-gl.css";
+import FormUsers from "./components/users/FormUsers";
 import MapComponent from "./components/MapComponent";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <MapComponent />
+    <div className="App">
+      <div>
+        <h1>Whats brewin</h1>
+        <FormUsers>Register</FormUsers>
+        <FormUsers>Log in</FormUsers>
+        <MapComponent />
+      </div>
     </div>
   );
 }
-
-export default App;
