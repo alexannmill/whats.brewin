@@ -17,7 +17,7 @@ export default function SearchBar(props) {
   useEffect(() => {
     console.log('select:', select)
     axios
-      .get(`/cities/${select}`)
+      .get(`/cities/newyork`)
       .then((res) => {
         console.log('res:', res)
         // const incomingData = res.data.map((opt) => {

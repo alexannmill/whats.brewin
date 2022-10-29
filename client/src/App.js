@@ -29,8 +29,8 @@ export default function App() {
         <FormUsers>Register</FormUsers>
         <FormUsers>Log in</FormUsers>
         {/* <MapComponent /> */}
-        {/* <BreweryProfile breweryName="barrel-and-beam-marquette" /> */}
-        {/* <SearchBar defaultLocation={geolocation} /> */}
+        {/* <BreweryProfile breweryName="barrel-and-beam-marquette" />
+        <SearchBar defaultLocation={geolocation} /> */}
       </div>
     </div>
   );
