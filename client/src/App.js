@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="App">
       <div>
-        <h1>Whats brewin</h1>
+        <h1>What's Brewin'</h1>
         <BreweryProfile breweryName="barrel-brothers-brewing-company" />
         {/* <FormUsers>Register</FormUsers>
         <FormUsers>Log in</FormUsers> */}
