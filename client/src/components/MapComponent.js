@@ -1,8 +1,8 @@
 // ----- React and Utils -----
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 // ----- For react-map-gl -----
-import Map, { GeolocateControl, Popup } from "react-map-gl";
+import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // Components
 import Markers from "./Markers";
@@ -10,7 +10,7 @@ import Markers from "./Markers";
 //
 // ----- Component -----
 //
-const MapComponent = (props) => {
+const MapComponent = () => {
   const [viewState, setViewState] = useState({
     latitude: 37.774929,
     longitude: -122.419416,
