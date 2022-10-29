@@ -14,6 +14,10 @@ const FormUsers = (props) => {
       setAlert(100);
       return;
     }
+
+    if (name === "") {
+      return setName("Ducky Loco");
+    }
     setAlert(false);
     axios
       .post("/users", {
