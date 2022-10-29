@@ -1,12 +1,18 @@
+// ----- React and Utility Libs -----
 import "./App.css";
-// For react-map-gl
-import "mapbox-gl/dist/mapbox-gl.css";
-// import FormUsers from "./components/users/FormUsers";
-import MapComponent from "./components/MapComponent";
 import { useEffect, useState } from "react";
 import axios from "axios";
+// ----- react-map-gl -----
+import "mapbox-gl/dist/mapbox-gl.css";
+// ----- Components -----
+import MapComponent from "./components/MapComponent";
+// import FormUsers from "./components/users/FormUsers";
 import BreweryProfile from "./components/BreweryProfile";
 
+
+// 
+// ----- App Component -----
+// 
 export default function App() {
   //getting geolocation
   const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
