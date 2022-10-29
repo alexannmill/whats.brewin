@@ -1,38 +1,54 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Select from "react-select";
+
 
 // //props breweryName
-export default function BreweryProfile(props) {
-  //fina
-  const [city, setCity] = useState(props.defaultLocation);
-  const [search, setSearch] = useState([]);
+export default function SearchBar(props) {
+
+
+
+  const [city, setCity] = useState()
+  const [select, setSelect] = useState([])
+  const [search, setSearch] = useState("")
   
+  // input - onChange axios for drop down
   // Find breweries for dropdown
-  //input - onChange axios for drop down
   useEffect(() => {
     axios
-    .get(
-      `https://api.openbrewerydb.org/breweries/autocomplete?query=${search}`
+      .get(
+        `https://api.openbrewerydb.org/breweries/autocomplete?query=${city}`
       )
       .then((res) => {
         console.log('res:', res)
-        const incomingData = res.data
+        const incomingData = res.data.map((opt) => {
+          
+          return {label:opt.name, value:opt.name}
+        })
         console.log('incomingData:', incomingData)
+        setSelect(incomingData)
       });
-    }, [search]);
-    
-    //onSubmit - query for single brewery
+    }, []);
+
+
+  //handler for search bar input set search and suggestions 
+    const searchBarHandler = (e) => {
+      setSelect(e.target.value)
+      setSearch(e.target.value)
+    }
 
   return (
     <div>
       <form>
-        <label>Search: </label>
         <input
           type="text"
-          name="search"
           value={search}
-          onChange={(e) => {setSearch(e.target.value)}}  
+          onChange={(e) =>searchBarHandler(e)}
+          onSubmit={(e) => setCity(e.target.value)}
         ></input>
+        <Select
+        options={select}
+        />
       </form>
     </div>
   );
