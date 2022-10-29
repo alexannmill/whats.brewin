@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
+// Components
+import Markers from "./Markers";
 
+// 
+// ----- Component -----
+// 
 const MapComponent = () => {
   const [viewState, setViewState] = useState({
     latitude: 37.774929,
@@ -12,14 +17,16 @@ const MapComponent = () => {
     pitch: 25,
   });
 
+  const [breweries, setBreweries] = useState([])
+
   useEffect(() => {
     axios
       .get(
-        "https://api.openbrewerydb.org/breweries?by_city=san_francisco&per_page=3"
+        "https://api.openbrewerydb.org/breweries?by_city=san_francisco&per_page=50"
       )
       .then((res) => {
         console.log("brewery array: ", res.data);
-        const breweriesArray = res.data;
+        setBreweries(() => res.data)
       })
       .catch((e) => {
         console.log("Error during Axios req: ", e);
@@ -37,6 +44,7 @@ const MapComponent = () => {
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
         <GeolocateControl />
+        <Markers breweries={breweries}/>
       </Map>
     </div>
   );
