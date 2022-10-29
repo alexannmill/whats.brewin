@@ -12,10 +12,10 @@ import Markers from "./Markers";
 //
 const MapComponent = () => {
   const [viewState, setViewState] = useState({
-    latitude: 37.774929,
-    longitude: -122.419416,
-    zoom: 10,
-    pitch: 15,
+    latitude: 47.6050,
+    longitude: -122.3344,
+    zoom: 11,
+    pitch: 10,
   });
 
   const [breweries, setBreweries] = useState([]);
@@ -26,7 +26,7 @@ const MapComponent = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.openbrewerydb.org/breweries?by_city=san_francisco&per_page=50"
+        "https://api.openbrewerydb.org/breweries?by_city=seattle&per_page=50"
       )
       .then((res) => {
         // console.log("brewery array: ", res.data);
