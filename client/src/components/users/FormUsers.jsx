@@ -6,19 +6,26 @@ const FormUsers = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [alert, setAlert] = useState(false);
 
   const formhandle = (e) => {
     e.preventDefault();
-    console.log(name, email, password, confirmPassword);
+    if (email === "" || password.length < 5 || password === confirmPassword) {
+      setAlert(100);
+      return;
+    }
 
+    if (name === "") {
+      return setName("Ducky Loco");
+    }
+    setAlert(false);
     axios
       .post("/users", {
         name,
         email,
         password,
-        confirmPassword,
       })
-      .then((data) => console.log("this works", data));
+      .then((data) => console.log("Welcome"));
   };
 
   return (
@@ -26,6 +33,13 @@ const FormUsers = (props) => {
       <h1 className="text-black">Please {props.children}</h1>
       <form onSubmit={(e) => formhandle(e)}>
         <div className="card rounded flex flex-col items-center p-20">
+          {alert && (
+            <div className="  border-2 border-red-500 p-3">
+              🍺 It seems like we are missing some information in order to
+              continue 🍺
+            </div>
+          )}
+
           {props.children === "Register" && (
             <>
               <label>User Name</label>
@@ -38,7 +52,7 @@ const FormUsers = (props) => {
               />
             </>
           )}
-          <label>Email</label>
+          <label className="mt-3">Email</label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -46,7 +60,7 @@ const FormUsers = (props) => {
             name="email"
             placeholder="Email"
           />
-          <label>Password</label>
+          <label className="mt-3">Password</label>
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -55,7 +69,7 @@ const FormUsers = (props) => {
           />
           {props.children === "Register" && (
             <>
-              <label>Confirm Password</label>
+              <label className="mt-3">Confirm Password</label>
               <input
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
