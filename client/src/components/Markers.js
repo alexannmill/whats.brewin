@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 // ----- react-map-gl -----
 import { Marker, Popup, useMap } from "react-map-gl";
+// ----- Components -----
+import BreweryPopup from "./BreweryPopup";
 
 //
 // ----- Markers Component -----
@@ -54,7 +56,7 @@ const Markers = (props) => {
           anchor="bottom"
           onClose={() => setPopupInfo(null)}
         >
-          <h1>{popupInfo.name}</h1>
+          <BreweryPopup popupInfo={popupInfo}/>
         </Popup>
       )}
     </>
