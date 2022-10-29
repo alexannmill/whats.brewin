@@ -8,7 +8,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const PORT = process.env.PORT;
 const app = express();
-var cookieSession = require("cookie-session");
+const cookieSession = require("cookie-session");
 
 app.use(logger("dev"));
 app.use(express.json());
