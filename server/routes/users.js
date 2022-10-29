@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { createUser } = require("../db/queries/users");
+
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
@@ -15,7 +16,11 @@ router.post("/", function (req, res) {
     email: req.body.email,
     password: hashedPassword,
   };
-  createUser(newUser).then((e) => res.json(e));
+  createUser(newUser).then((e) => {
+    console.log(e[0].id);
+    req.session.user_id = e[0].id;
+    res.json("yes");
+  });
 });
 
 module.exports = router;
