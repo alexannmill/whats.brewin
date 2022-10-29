@@ -15,8 +15,7 @@ router.post("/", function (req, res) {
     email: req.body.email,
     password: hashedPassword,
   };
-  console.log(newUser);
-  createUser(newUser).then((e) => console.log("newuser?", e));
+  createUser(newUser).then((e) => res.json(e));
 });
 
 module.exports = router;

@@ -9,7 +9,6 @@ const FormUsers = (props) => {
 
   const formhandle = (e) => {
     e.preventDefault();
-    console.log(name, email, password, confirmPassword);
 
     axios
       .post("/users", {
