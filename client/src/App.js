@@ -14,7 +14,7 @@ export default function App() {
   });
 
   //will need to be set to geolocation
-  // const [city, setCity] = useState(geolocation);
+  const [city, setCity] = useState(geolocation);
 
   //Find breweries for map by city
   // useEffect((city) => {
@@ -32,7 +32,7 @@ export default function App() {
     <div className="App">
       <div>
         <h1>Whats brewin</h1>
-        <BreweryProfile breweryName="San Dieago" />
+        <BreweryProfile breweryName="barrel-brothers-brewing-company" />
         {/* <Map
           initialViewState={{
             longitude: -122.4,
