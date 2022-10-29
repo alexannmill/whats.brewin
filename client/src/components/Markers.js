@@ -5,12 +5,11 @@ import { Marker, Popup, useMap } from "react-map-gl";
 // ----- Components -----
 import Popups from "./Popups";
 
-
 //
 // ----- Markers Component -----
 //
 const Markers = (props) => {
-  const [selectedBrewery, setSelectedBrewery] = useState(null);
+  const [selectedBrewery, setSelectedBrewery] = useState(false);
   const { current: map } = useMap();
 
   const handleClick = (brewery) => {
@@ -20,7 +19,8 @@ const Markers = (props) => {
       duration: 1500,
     });
 
-    setSelectedBrewery(brewery);
+    // setSelectedBrewery(brewery);
+    setSelectedBrewery(true);
   };
 
   const renderMarker = props.breweries.map((brewery) => {
@@ -43,10 +43,16 @@ const Markers = (props) => {
   });
 
   return (
-    <Fragment>
+    <>
       {renderMarker}
-      {selectedBrewery && <Popups selectedBrewery={selectedBrewery} />}
-    </Fragment>
+      {selectedBrewery !== false && <Popups></Popups>}
+      {/* <Popup 
+        latitude={0}
+        longitude={0}
+      >
+        <h1 style={{height:"400px", width:"400px"}}>HELLLLLOOOOOO</h1>
+      </Popup> */}
+    </>
   );
 };
 
