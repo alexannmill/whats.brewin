@@ -22,5 +22,9 @@ router.post("/", function (req, res) {
     res.json("yes");
   });
 });
+router.post("/logout", (req, res) => {
+  req.session = null;
+  res.json();
+});
 
 module.exports = router;
