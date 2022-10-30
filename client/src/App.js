@@ -42,7 +42,7 @@ export default function App() {
         {/* <BreweryProfile breweryName="barrel-brothers-brewing-company" /> */}
         {/* <FormUsers>Register</FormUsers>
         <FormUsers>Log in</FormUsers> */}
-        {/* <MapComponent /> */}
+        <MapComponent />
         <LikeButton />
       </div>
     </div>
