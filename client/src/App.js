@@ -1,14 +1,15 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import LogOut from "./components/users/LogOut";
 import FormUsers from "./components/users/FormUsers";
 import Footer from "./components/nav & footer/Footer";
+import Navbar from "./components/nav & footer/Navbar";
 
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<FormUsers>Register</FormUsers>} />
