@@ -7,11 +7,11 @@ const BreweryPopup = (props) => {
   return (
     <>
       <a href={`${brewery.website_url}`} target="_blank" rel="noopener noreferrer">
-        <h1>{brewery.name}</h1>
+        <h3>{brewery.name}</h3>
       </a>
-      <h3>
+      <p>
         Address: {brewery.street}, {brewery.city}, {brewery.state}
-      </h3>
+      </p>
     </>
   );
 };
