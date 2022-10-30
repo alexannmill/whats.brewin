@@ -8,6 +8,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapComponent from "./components/MapComponent";
 // import FormUsers from "./components/users/FormUsers";
 import BreweryProfile from "./components/BreweryProfile";
+import LikeButton from "./components/LikeButton";
 
 //
 // ----- App Component -----
@@ -38,10 +39,11 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
-        <BreweryProfile breweryName="barrel-brothers-brewing-company" />
+        {/* <BreweryProfile breweryName="barrel-brothers-brewing-company" /> */}
         {/* <FormUsers>Register</FormUsers>
         <FormUsers>Log in</FormUsers> */}
-        <MapComponent />
+        {/* <MapComponent /> */}
+        <LikeButton />
       </div>
     </div>
   );
