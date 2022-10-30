@@ -1,14 +1,15 @@
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useState } from "react";
 // ----- Components -----
 import MapComponent from "./MapComponent";
 // import FormUsers from "./components/users/FormUsers";
 import BreweryProfile from "./BreweryProfile";
-import LikeButton from "./components/LikeButton";
+import LikeButton from "./LikeButton";
 
 //
 // ----- App Component -----
 //
-export default function App() {
+export default function Home() {
   //getting geolocation
   const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
     console.log("pos.coords.latitude:", pos.coords.latitude);
