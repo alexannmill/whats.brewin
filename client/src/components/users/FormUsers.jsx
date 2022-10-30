@@ -10,14 +10,14 @@ const FormUsers = (props) => {
 
   const formhandle = (e) => {
     e.preventDefault();
-    if (email === "" || password.length < 5 || password === confirmPassword) {
-      setAlert(100);
-      return;
-    }
+    // if (email === "" || password.length < 5 || password === confirmPassword) {
+    //   setAlert(100);
+    //   return;
+    // }
 
-    if (name === "") {
-      return setName("Ducky Loco");
-    }
+    // if (name === "") {
+    //   return setName("Ducky Loco");
+    // }
     setAlert(false);
     axios
       .post("/users", {

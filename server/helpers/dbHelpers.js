@@ -52,21 +52,6 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const getCitiesBySearch = (search) => {
-    const query = {
-      text: `SELECT cities.name, cities.state
-      FROM cities
-      WHERE name = $1 %
-      `,
-      values: search,
-    };
-
-    return db
-      .query(query)
-      .then((result) => result.rows)
-      .catch((err) => err);
-  };
-
   return {
     getUsers,
     getUserByEmail,

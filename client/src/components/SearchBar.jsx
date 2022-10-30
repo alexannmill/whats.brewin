@@ -11,11 +11,11 @@ export default function SearchBar(props) {
   const [select, setSelect] = useState("")
   
 
-  // input - onChange axios  to cities db for drop down
+  // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
     console.log('select:', select)
     axios
-      .get(`/cities/${select}`)
+      .get(`/cities`)
       .then((res) => {
         console.log('res:', res)
         const incomingData = res.data.map((opt) => {
@@ -29,7 +29,7 @@ export default function SearchBar(props) {
     }, [select]);
 
 
-  //handler for search bar input set search and suggestions 
+  // ---- Handler for search bar input set search and suggestions 
     const searchBarHandler = (e) => {
       setSearch(e.target.value)
       setSelect(e.target.value)

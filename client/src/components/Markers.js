@@ -1,22 +1,28 @@
 // ----- React & Utils -----
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 // ----- react-map-gl -----
 import { Marker, Popup, useMap } from "react-map-gl";
+// ----- Components -----
+import BreweryPopup from "./BreweryPopup";
 
-// 
-// ----- Component -----
-// 
+//
+// ----- Markers Component -----
+//
 const Markers = (props) => {
-  // const [selectedBrewery, setSelectedBrewery] = useState(null);
-  const {current: map} = useMap();
+  const [popupInfo, setPopupInfo] = useState(null);
+  const { current: map } = useMap();
 
-  const handleClick = (brewery) => {
+
+  const handleClick = (event, brewery) => {
+    event.originalEvent.stopPropagation();
     // center takes [long, lat]
     map.flyTo({
       center: [brewery.longitude, brewery.latitude],
-      duration: 1500
-    })
-  }
+      duration: 1500,
+    });
+
+    setPopupInfo(brewery);
+  };
 
   const renderMarker = props.breweries.map((brewery) => {
     return (
@@ -25,18 +31,37 @@ const Markers = (props) => {
         longitude={brewery.longitude}
         latitude={brewery.latitude}
         anchor="bottom"
-        onClick={() => handleClick(brewery)}
+        onClick={(e) => handleClick(e, brewery)}
       >
-        <img src="https://img.icons8.com/fluency/344/beer.png" alt="Beer Icon" width={40} height={36}/>
+        <img
+          src="https://img.icons8.com/fluency/344/beer.png"
+          alt="Beer Icon"
+          width={35}
+          height={40}
+          class="hover:animate-bounce"
+        />
+
       </Marker>
     );
   });
 
   return (
-    <Fragment>
+    <>
       {renderMarker}
-    </Fragment>
-  )
+
+      {popupInfo && (
+        <Popup
+          offset={30}
+          longitude={Number(popupInfo.longitude)}
+          latitude={Number(popupInfo.latitude)}
+          anchor="bottom"
+          onClose={() => setPopupInfo(null)}
+        >
+          <BreweryPopup popupInfo={popupInfo}/>
+        </Popup>
+      )}
+    </>
+  );
 };
 
 export default Markers;

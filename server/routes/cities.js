@@ -1,15 +1,22 @@
 const express = require("express");
 const router = express.Router();
-// const { getCityByName } = require("../helpers/dbHelpers");
+const { getCitiesBySearch } = require("../db/queries/searchbar_cities");
 
-/* GET cities for search listing. */
-router.get("/:select", function (req, res) {
+// ---- Initial page render
+router.get("/", (res, req) => {
+  res.send("connected to cities");
+});
+
+// ---- Return cities based on search
+router.get("/:select", function (req, res, next) {
+  console.log("citiessssssssssss!");
   const search = req.params;
-  const cities = getCityByName(search);
-  console.log("search:", search);
-  // console.log(req.body);
-  res.send("respond with a resource");
-  res.json(cities);
+  getCitiesBySearch(search).then((result) => {
+    const returnCities = result.rows;
+    console.log("returnCities:", returnCities);
+  });
+  res.send("connected to cities");
+  // res.json(cities);
 });
 
 module.exports = router;
