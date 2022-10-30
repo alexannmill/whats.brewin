@@ -56,7 +56,6 @@ const Markers = (props) => {
           latitude={Number(popupInfo.latitude)}
           anchor="bottom"
           onClose={() => setPopupInfo(null)}
-          style={{minWidth: "500px", minHeight: "500px"}}
         >
           <BreweryPopup popupInfo={popupInfo}/>
         </Popup>
