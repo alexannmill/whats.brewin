@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getCityByName } = require("../helpers/dbHelpers");
+// const { getCityByName } = require("../helpers/dbHelpers");
 
 /* GET cities for search listing. */
 router.get("/:select", function (req, res) {

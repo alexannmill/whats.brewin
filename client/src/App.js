@@ -26,11 +26,11 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
-        {/* <FormUsers>Register</FormUsers>
-        <FormUsers>Log in</FormUsers> */}
+        <FormUsers>Register</FormUsers>
+        <FormUsers>Log in</FormUsers>
         {/* <MapComponent /> */}
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
-        <SearchBar defaultLocation={geolocation} />
+        {/* <SearchBar defaultLocation={geolocation} /> */}
       </div>
     </div>
   );
