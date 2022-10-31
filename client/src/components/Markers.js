@@ -12,7 +12,6 @@ const Markers = (props) => {
   const [popupInfo, setPopupInfo] = useState(null);
   const { current: map } = useMap();
 
-
   const handleClick = (event, brewery) => {
     event.originalEvent.stopPropagation();
     // center takes [long, lat]
@@ -38,9 +37,8 @@ const Markers = (props) => {
           alt="Beer Icon"
           width={35}
           height={40}
-          class="hover:animate-bounce"
+          className="hover:animate-bounce"
         />
-
       </Marker>
     );
   });
@@ -51,13 +49,18 @@ const Markers = (props) => {
 
       {popupInfo && (
         <Popup
-          offset={30}
+          offset={35}
           longitude={Number(popupInfo.longitude)}
           latitude={Number(popupInfo.latitude)}
-          anchor="bottom"
+          anchor={"bottom"}
           onClose={() => setPopupInfo(null)}
+          style={{ minWidth: "400px" }}
+          maxWidth={"1000px"}
+          closeButton={false}
+          className={"my-popup"}
+          focusAfterOpen={false}
         >
-          <BreweryPopup popupInfo={popupInfo}/>
+          <BreweryPopup popupInfo={popupInfo} />
         </Popup>
       )}
     </>
