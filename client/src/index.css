@@ -52,6 +52,10 @@ code {
 .detail-icons {
   @apply h-6 text-[#FF8001];
 }
+/* Default state of like icons, switched in <LikeButton.jsx /> */
+.like-icons-default {
+  @apply h-6 text-neutral-300;
+}
 
 /*
 
