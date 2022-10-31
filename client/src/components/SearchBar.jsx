@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import Select from "react-select";
-
+import DatalistInput from 'react-datalist-input';
+import 'react-datalist-input/dist/styles.css';
 
 // //props breweryName
 export default function SearchBar(props) {
@@ -13,45 +13,33 @@ export default function SearchBar(props) {
 
   // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
-    console.log('select:', select)
     axios
-      .get(`/cities`)
+      .get(`/cities/${select}`)
       .then((res) => {
-        console.log('res:', res)
-        const incomingData = res.data.map((opt) => {
-          
-          return {label:[opt.city, opt.state], value:[opt.city, opt.state]}
+    // ---- For empty form
+        if (select === "") return
+    // --- Parse data from db
+        const incomingData = res.data.map((opt, i) => {
+          return {id:[i], value:[opt.city, `, ${opt.state}`]}
         })
-
-        console.log('incomingData:', incomingData)
         setSearch(incomingData)
-      });
+      })
     }, [select]);
-
-
-  // ---- Handler for search bar input set search and suggestions 
-    const searchBarHandler = (e) => {
-      setSearch(e.target.value)
-      setSelect(e.target.value)
-    }
-
-  return (
-    <div>
-      <form >
-        {/* <Select
-        options={search}
-        /> */}
-        <input
-          type="text"
+    
+    
+    return (
+      <div>
+        <DatalistInput 
+          label="Search City"
+    // ---- Filter search to only show 5 cities
+          items={search.slice(0, 5)}
           value={select}
+    // ---- Handler for search bar input set search and suggestions 
           onChange={(e) => {
-            console.log('e:', e.target)
             e.preventDefault()
-            searchBarHandler(e)}}
-          onSubmit={(e) => setCity(e.target.value)}
-        ></input>
-        <input type={"submit"} value={"Submit"}></input>
-      </form>
+            setSelect(e.target.value)}}
+          onSelect={(e) => setCity(e.target.value)}
+        />
     </div>
   );
 }

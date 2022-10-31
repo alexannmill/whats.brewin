@@ -7,19 +7,17 @@ const client = require("../index");
  */
 
 const getCitiesBySearch = (search) => {
-  const query = {
-    text: `SELECT *
-    FROM cities
-    WHERE name = $1 %
-    `,
-    values: search,
-  };
-
   return client
-    .query(query)
+    .query(
+      `SELECT *
+      FROM cities
+      WHERE city ILIKE concat('%', $1::VARCHAR, '%')
+      `,
+      [search]
+    )
     .then((result) => {
       const returnCities = result.rows;
-      console.log("returnCities:", returnCities);
+      return returnCities;
     })
     .catch((err) => err);
 };

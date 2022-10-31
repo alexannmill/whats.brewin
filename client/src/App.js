@@ -15,7 +15,7 @@ import LikeButton from "./components/LikeButton";
 // ----- App Component -----
 //
 export default function App() {
-  //getting geolocation andsetting state to location
+  //getting geolocation and setting state to location
   const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
     console.log("pos.coords.latitude:", pos.coords.latitude);
     console.log("pos.coords.longitude:", pos.coords.longitude);
@@ -27,11 +27,11 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
-        <FormUsers>Register</FormUsers>
-        <FormUsers>Log in</FormUsers>
+        {/* <FormUsers>Register</FormUsers>
+        <FormUsers>Log in</FormUsers> */}
         {/* <MapComponent /> */}
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
-        {/* <SearchBar defaultLocation={geolocation} /> */}
+        <SearchBar defaultLocation={geolocation} />
       </div>
     </div>
   );
