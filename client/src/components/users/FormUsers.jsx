@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { LoginContext } from "../../Contexts/LoginContext";
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
@@ -7,6 +8,7 @@ const FormUsers = (props) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [alert, setAlert] = useState(false);
+  const { setUser, setShowUser } = useContext(LoginContext);
 
   const formhandle = (e) => {
     e.preventDefault();
@@ -18,7 +20,10 @@ const FormUsers = (props) => {
         email,
         password,
       })
-      .then((data) => console.log("Welcome"));
+      .then((data) => {
+        setUser(data.data);
+        setShowUser(true);
+      });
   };
 
   return (

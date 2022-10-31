@@ -8,12 +8,12 @@ import Navbar from "./components/nav & footer/Navbar";
 import { LoginContext } from "./Contexts/LoginContext";
 
 const App = () => {
-  const [showProfile, setShowProfile] = useState(false);
+  const [showUser, setShowUser] = useState(false);
   const [user, setUser] = useState({});
 
   return (
     <Router>
-      <LoginContext.Provider value={(user, showProfile)}>
+      <LoginContext.Provider value={{ user, setUser, showUser, setShowUser }}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
