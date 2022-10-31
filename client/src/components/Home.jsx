@@ -26,6 +26,7 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
+        <MapComponent />
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
         <SearchBar defaultLocation={geolocation} />
         <LikeButton />
