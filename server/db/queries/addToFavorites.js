@@ -17,3 +17,7 @@ const newFavorite = (userFavorite) => {
       return favorites.rows;
     });
 };
+
+module.exports = {
+  newFavorite,
+};
