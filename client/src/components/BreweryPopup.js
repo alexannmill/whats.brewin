@@ -12,6 +12,8 @@ const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
 
   const formatPhone = (phoneNum) => {
+    if (!phoneNum) return "Not Available"
+
     return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
       3,
       6
@@ -21,45 +23,51 @@ const BreweryPopup = (props) => {
   // NOTE: We actually can put an image in here if we wanted to
   return (
     <>
-      <header>
+      <header className="brewery-nameplate" >
         <a
           href={`${brewery.website_url}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h3 className="brewery-nameplate">{brewery.name}</h3>
+          <h3>{brewery.name}</h3>
         </a>
       </header>
 
-      <ul>
-        <li>
+      <section className="brewery-details-container">
+        <button className="brewery-detail">
           <FontAwesomeIcon icon={faMapLocationDot} />
-          <p>
+          <p className="brewery-detail-text">
             {brewery.street}, {brewery.city}, {brewery.state}
           </p>
-        </li>
+        </button>
 
-        <li>
+        <button className="brewery-detail">
           <a
             href={`${brewery.website_url}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faGlobe} />
-            <p>{brewery.website_url}</p>
           </a>
-        </li>
+          <a
+            href={`${brewery.website_url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p className="brewery-detail-text">{brewery.website_url}</p>
+          </a>
+        </button>
 
-        <li>
+        <button className="brewery-detail flex-row">
           <FontAwesomeIcon icon={faPhone} />
-          <p>{formatPhone(brewery.phone)}</p>
-        </li>
+          <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
+        </button>
 
-        <li>
+        <button className="brewery-detail">
           <FontAwesomeIcon icon={faBeerMugEmpty} />
-          <p>Favorite</p>
-        </li>
-      </ul>
+          <p className="brewery-detail-text">Favorite</p>
+        </button>
+      </section>
     </>
   );
 };
