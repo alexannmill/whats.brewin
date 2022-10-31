@@ -7,13 +7,11 @@ const FormUsers = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [alert, setAlert] = useState(false);
   const { setUser, setShowUser } = useContext(LoginContext);
 
   const formhandle = (e) => {
     e.preventDefault();
 
-    setAlert(false);
     axios
       .post("/users", {
         name,
@@ -23,6 +21,10 @@ const FormUsers = (props) => {
       .then((data) => {
         setUser(data.data);
         setShowUser(true);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
       });
   };
 
@@ -31,13 +33,6 @@ const FormUsers = (props) => {
       <h1 className="text-black">Please {props.children}</h1>
       <form onSubmit={(e) => formhandle(e)}>
         <div className="card rounded flex flex-col items-center p-20">
-          {alert && (
-            <div className="  border-2 border-red-500 p-3">
-              🍺 It seems like we are missing some information in order to
-              continue 🍺
-            </div>
-          )}
-
           {props.children === "Register" && (
             <>
               <label>User Name</label>

@@ -13,7 +13,7 @@ const Navbar = () => {
       <Link to="/">Whats brewin</Link>
       <Link to="/register">Register</Link>
       <Link to="/login">Login</Link>
-      {showUser && <>{user.username}</>}
+      {showUser && <>{user.username.length ? user.username : "Ducky loco"}</>}
       <LogOut />
     </nav>
   );
