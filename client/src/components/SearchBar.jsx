@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import 'react-datalist-input/dist/styles.css'
 
 // ---- Components
 import DatalistInput from 'react-datalist-input';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationCrosshairs,
-  faXmark,
-  
+  faXmark, 
 } from "@fortawesome/free-solid-svg-icons"
 
 
@@ -36,12 +36,16 @@ export default function SearchBar(props) {
     
     
     return (
-      <section>
-        <form onSelect={(e) => setCity(e.target.value)}>
+      <div className="total-searchbar">
+        <form onSelect={(e) => setCity(e.target.value)} className="search-with-buttons">
+          <button onClick={(e) => setCity(props.geolocation)}>
+            <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
+          </button>
           <DatalistInput 
-            label="Search City"
-            placeholder="Enter A City..."
-            showLabel={false}
+            className="Search-bar-input"
+            label="See What's Brewin'"
+            placeholder="Enter A City"
+            // showLabel={false}
       // ---- Filter search to only show 5 cities
             items={search.slice(0, 5)}
             value={select}
@@ -51,13 +55,14 @@ export default function SearchBar(props) {
               setSelect(e.target.value)}}
           >
           </DatalistInput>
-        <button onClick={(e) => setCity(props.geolocation)}>
-        <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
-        </button>
-        <button onClick={(e) => setSelect("")}>
-        <FontAwesomeIcon icon={faXmark} className="clear-search"/>
-        </button>
+          <button 
+            onClick={(e) => {
+              e.preventDefault()
+              setSelect("")}}
+          >
+            <FontAwesomeIcon icon={faXmark} className="clear-search"/>
+          </button>
         </form>
-      </section>
+      </div>
   );
 }

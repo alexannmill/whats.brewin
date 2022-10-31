@@ -53,13 +53,46 @@ code {
   @apply h-6 text-[#FF8001] hover:text-[#2193b0];
 }
 
-/* 
-react-datalist-input__textbox: For the input element.
-react-datalist-input__label: For the label element.
+/*
+
 react-datalist-input__listbox: For the dropdown list.
 react-datalist-input__listbox-option: For each option in the dropdown list. */
 
+/* For entire search/button div */
+.search-with-buttons {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* For the input element. */
+.react-datalist-input__textbox .undefined{
+  @apply text-xl
+}
+
 /* For the container element. */
-/* .react-datalist-input__container {
-  @apply 
-} */
+.total-searchbar {
+  @apply ml-20 mr-20 text-3xl 
+}
+
+/* For title */
+.react-datalist-input__label {
+  @apply text-xl
+}
+
+/* For text inside bar. */
+.total-searchbar input {
+  @apply text-lg
+}
+
+/* For dropdown */
+.Search-bar-input {
+  @apply text-xl
+}
+
+.clear-search{
+  @apply text-[#f05e5e] ml-3 
+}
+
+.set-current {
+  @apply text-[#4f9fef] mr-3
+}
