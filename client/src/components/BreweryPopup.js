@@ -7,6 +7,8 @@ import {
   faPhone,
   faBeerMugEmpty,
 } from "@fortawesome/free-solid-svg-icons";
+// ----- Helpers & Hooks -----
+import { handleFavorite } from "../helpers/handleFavorite";
 
 const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
@@ -35,7 +37,10 @@ const BreweryPopup = (props) => {
 
       <section className="brewery-details-container">
         <button className="brewery-detail group ">
-          <FontAwesomeIcon icon={faMapLocationDot} className="detail-icons group-hover:text-[#2193b0]" />
+          <FontAwesomeIcon
+            icon={faMapLocationDot}
+            className="detail-icons group-hover:text-[#2193b0]"
+          />
           <p className="brewery-detail-text">
             {brewery.street}, {brewery.city}, {brewery.state}
           </p>
@@ -47,7 +52,10 @@ const BreweryPopup = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faGlobe} className="detail-icons group-hover:text-[#2193b0]" />
+            <FontAwesomeIcon
+              icon={faGlobe}
+              className="detail-icons group-hover:text-[#2193b0]"
+            />
           </a>
           <a
             href={`${brewery.website_url}`}
@@ -59,13 +67,21 @@ const BreweryPopup = (props) => {
         </button>
 
         <button className="brewery-detail group flex-row">
-          <FontAwesomeIcon icon={faPhone} className="detail-icons group-hover:text-[#2193b0]" />
+          <FontAwesomeIcon
+            icon={faPhone}
+            className="detail-icons group-hover:text-[#2193b0]"
+          />
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <button className="brewery-detail group ">
-          <FontAwesomeIcon icon={faBeerMugEmpty} className="detail-icons group-hover:text-[#2193b0]" />
-          <p className="brewery-detail-text">Favorite</p>
+        <button 
+          className="brewery-detail group" 
+          onClick={(e) => handleFavorite(e, brewery)}>
+            <FontAwesomeIcon
+              icon={faBeerMugEmpty}
+              className="detail-icons group-hover:text-[#2193b0]"
+            />
+            <p className="brewery-detail-text">Favorite</p>
         </button>
       </section>
     </>
