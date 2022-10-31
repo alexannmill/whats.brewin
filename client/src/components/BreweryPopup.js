@@ -12,7 +12,7 @@ const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
 
   const formatPhone = (phoneNum) => {
-    if (!phoneNum) return "Not Available"
+    if (!phoneNum) return "Not Available";
 
     return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
       3,
@@ -23,7 +23,7 @@ const BreweryPopup = (props) => {
   // NOTE: We actually can put an image in here if we wanted to
   return (
     <>
-      <header className="brewery-nameplate" >
+      <header className="brewery-nameplate">
         <a
           href={`${brewery.website_url}`}
           target="_blank"
@@ -35,7 +35,7 @@ const BreweryPopup = (props) => {
 
       <section className="brewery-details-container">
         <button className="brewery-detail">
-          <FontAwesomeIcon icon={faMapLocationDot} />
+          <FontAwesomeIcon icon={faMapLocationDot} className="detail-icons" />
           <p className="brewery-detail-text">
             {brewery.street}, {brewery.city}, {brewery.state}
           </p>
@@ -47,7 +47,7 @@ const BreweryPopup = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faGlobe} />
+            <FontAwesomeIcon icon={faGlobe} className="detail-icons" />
           </a>
           <a
             href={`${brewery.website_url}`}
@@ -59,12 +59,12 @@ const BreweryPopup = (props) => {
         </button>
 
         <button className="brewery-detail flex-row">
-          <FontAwesomeIcon icon={faPhone} />
+          <FontAwesomeIcon icon={faPhone} className="detail-icons" />
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
         <button className="brewery-detail">
-          <FontAwesomeIcon icon={faBeerMugEmpty} />
+          <FontAwesomeIcon icon={faBeerMugEmpty} className="detail-icons" />
           <p className="brewery-detail-text">Favorite</p>
         </button>
       </section>
