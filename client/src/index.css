@@ -17,9 +17,20 @@ body {
     padding: theme("spacing.6");
     box-shadow: theme("boxShadow.xl");
   }
-  /* ... */
+
+  .brewery-nameplate {
+    @apply bg-amber-500 text-2xl font-semibold
+  }
+  .my-popup .mapboxgl-popup-content {
+    @apply p-0
+  }
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* For Mapbox-gl */
+.mapboxgl-popup-content {
+  min-height: 300px;
 }
