@@ -1,10 +1,22 @@
 import React from "react";
 // ----- Components -----
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapLocationDot,
+  faGlobe,
+  faPhone,
+  faBeerMugEmpty,
+} from "@fortawesome/free-solid-svg-icons";
 
 const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
+
+  const formatPhone = (phoneNum) => {
+    return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
+      3,
+      6
+    )}-${phoneNum.substring(6)}`;
+  };
 
   // NOTE: We actually can put an image in here if we wanted to
   return (
@@ -19,30 +31,35 @@ const BreweryPopup = (props) => {
         </a>
       </header>
 
-      <div>
-        <FontAwesomeIcon icon={faLocationDot} />
-        <p>
-          Address: {brewery.street}, {brewery.city}, {brewery.state}
-        </p>
-      </div>
+      <ul>
+        <li>
+          <FontAwesomeIcon icon={faMapLocationDot} />
+          <p>
+            {brewery.street}, {brewery.city}, {brewery.state}
+          </p>
+        </li>
 
-      <div>
-        <FontAwesomeIcon icon={faLocationDot} />
-        <a
-          href={`${brewery.website_url}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p>Website: {brewery.website_url}</p>
-        </a>
-      </div>
+        <li>
+          <a
+            href={`${brewery.website_url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faGlobe} />
+            <p>{brewery.website_url}</p>
+          </a>
+        </li>
 
-      <div>
-        <FontAwesomeIcon icon={faLocationDot} />
-        <p>
-          Address: {brewery.street}, {brewery.city}, {brewery.state}
-        </p>
-      </div>
+        <li>
+          <FontAwesomeIcon icon={faPhone} />
+          <p>{formatPhone(brewery.phone)}</p>
+        </li>
+
+        <li>
+          <FontAwesomeIcon icon={faBeerMugEmpty} />
+          <p>Favorite</p>
+        </li>
+      </ul>
     </>
   );
 };
