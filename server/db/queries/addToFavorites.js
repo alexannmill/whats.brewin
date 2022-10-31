@@ -1,7 +1,7 @@
 const client = require("../index");
 
 const newFavorite = (userFavorite) => {
-  const values = [user_id, brewery_id];
+  const values = [userFavorite.user_id, userFavorite.brewery_id];
 
   return client
     .query(
