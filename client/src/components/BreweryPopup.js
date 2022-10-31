@@ -34,20 +34,20 @@ const BreweryPopup = (props) => {
       </header>
 
       <section className="brewery-details-container">
-        <button className="brewery-detail">
-          <FontAwesomeIcon icon={faMapLocationDot} className="detail-icons" />
+        <button className="brewery-detail group ">
+          <FontAwesomeIcon icon={faMapLocationDot} className="detail-icons group-hover:text-[#2193b0]" />
           <p className="brewery-detail-text">
             {brewery.street}, {brewery.city}, {brewery.state}
           </p>
         </button>
 
-        <button className="brewery-detail">
+        <button className="brewery-detail group ">
           <a
             href={`${brewery.website_url}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faGlobe} className="detail-icons" />
+            <FontAwesomeIcon icon={faGlobe} className="detail-icons group-hover:text-[#2193b0]" />
           </a>
           <a
             href={`${brewery.website_url}`}
@@ -58,13 +58,13 @@ const BreweryPopup = (props) => {
           </a>
         </button>
 
-        <button className="brewery-detail flex-row">
-          <FontAwesomeIcon icon={faPhone} className="detail-icons" />
+        <button className="brewery-detail group flex-row">
+          <FontAwesomeIcon icon={faPhone} className="detail-icons group-hover:text-[#2193b0]" />
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <button className="brewery-detail">
-          <FontAwesomeIcon icon={faBeerMugEmpty} className="detail-icons" />
+        <button className="brewery-detail group ">
+          <FontAwesomeIcon icon={faBeerMugEmpty} className="detail-icons group-hover:text-[#2193b0]" />
           <p className="brewery-detail-text">Favorite</p>
         </button>
       </section>

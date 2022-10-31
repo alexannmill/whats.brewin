@@ -50,5 +50,5 @@ code {
 }
 
 .detail-icons {
-  @apply h-6 text-[#FF8001] hover:text-[#2193b0];
+  @apply h-6 text-[#FF8001];
 }
