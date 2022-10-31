@@ -12,11 +12,11 @@ export default function BreweryProfile(props) {
   useEffect(() => {
     axios
       .get(
-        `https://api.openbrewerydb.org/breweries/search?query=${props.breweryName}`
+        `https://api.openbrewerydb.org/breweries/${props.breweryName}`
       )
       .then((res) => {
         console.log('res:', res)
-        const incomingData = res.data[0]
+        const incomingData = res.data
         setBrewery({
             name: incomingData.name,
             street: incomingData.street,
@@ -33,7 +33,6 @@ export default function BreweryProfile(props) {
 
   return (
     <div>
-      <h1>hello brewery profile</h1>
      <h1>{brewery.name}</h1>
      <h1>{brewery.street}</h1>
      <h1>{brewery.brewery_type}</h1>

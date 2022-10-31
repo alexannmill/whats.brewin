@@ -57,5 +57,6 @@ module.exports = (db) => {
     getUserByEmail,
     addUser,
     getUsersPosts,
+    getCitiesBySearch,
   };
 };
