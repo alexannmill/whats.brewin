@@ -1,15 +1,15 @@
 // ----- React and Utility Libs -----
-import "./App.css";
+import "../App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 // ----- react-map-gl -----
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Components -----
-import MapComponent from "./components/MapComponent";
-import BreweryProfile from "./components/BreweryProfile";
-import SearchBar from "./components/SearchBar";
-import FormUsers from "./components/users/FormUsers";
-import LikeButton from "./components/LikeButton";
+import MapComponent from "./MapComponent";
+import BreweryProfile from "./BreweryProfile";
+import SearchBar from "./SearchBar";
+import FormUsers from "./users/FormUsers";
+import LikeButton from "./LikeButton";
 
 //
 // ----- App Component -----
@@ -27,9 +27,7 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
-        {/* <FormUsers>Register</FormUsers>
-        <FormUsers>Log in</FormUsers> */}
-        {/* <MapComponent /> */}
+        <MapComponent />
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
         <SearchBar defaultLocation={geolocation} />
         <LikeButton />
