@@ -6,12 +6,15 @@ const BreweryPopup = (props) => {
   // NOTE: We actually can put an image in here if we wanted to
   return (
     <>
-      <a href={`${brewery.website_url}`} target="_blank" rel="noopener noreferrer">
-        <h3>{brewery.name}</h3>
-      </a>
-      <p>
+      <header>
+        <a href={`${brewery.website_url}`} target="_blank" rel="noopener noreferrer">
+          <h3 className="brewery-nameplate" >{brewery.name}</h3>
+        </a>
+      </header>
+      <div>
+        {/* <FontAwesomeIcon icon="fa-regular fa-location-dot" /> */}
         Address: {brewery.street}, {brewery.city}, {brewery.state}
-      </p>
+      </div>
     </>
   );
 };
