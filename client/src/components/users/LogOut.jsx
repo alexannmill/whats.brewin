@@ -1,10 +1,17 @@
 import axios from "axios";
-import React from "react";
-const logout = (e) => {
-  e.preventDefault();
-  axios.post("/users/logout").then((data) => console.log("bye"));
-};
+import React, { useContext } from "react";
+import { LoginContext } from "../../Contexts/LoginContext";
+
 const LogOut = () => {
+  const { setUser, setShowUser } = useContext(LoginContext);
+
+  const logout = (e) => {
+    e.preventDefault();
+    axios.post("/users/logout").then(() => {
+      setShowUser(false);
+      setUser({});
+    });
+  };
   return (
     <button
       className="bg-red-500 border-1 border-black rounded-full p-2 text-white hover:bg-red-700 m-3"

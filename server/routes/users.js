@@ -19,7 +19,7 @@ router.post("/", function (req, res) {
   createUser(newUser).then((e) => {
     console.log(e[0].id);
     req.session.user_id = e[0].id;
-    res.json("yes");
+    res.json(e[0]);
   });
 });
 router.post("/logout", (req, res) => {
