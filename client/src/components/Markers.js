@@ -51,11 +51,16 @@ const Markers = (props) => {
 
       {popupInfo && (
         <Popup
-          offset={30}
+          offset={35}
           longitude={Number(popupInfo.longitude)}
           latitude={Number(popupInfo.latitude)}
-          anchor="bottom"
+          anchor={"bottom"}
           onClose={() => setPopupInfo(null)}
+          style={{minWidth:"400px"}}
+          maxWidth={"1000px"}
+          closeButton={false}
+          className={"my-popup"}
+          focusAfterOpen={false}
         >
           <BreweryPopup popupInfo={popupInfo}/>
         </Popup>
