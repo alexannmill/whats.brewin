@@ -1,5 +1,4 @@
 // ----- React and Utility Libs -----
-import "../App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 // ----- react-map-gl -----
