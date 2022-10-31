@@ -38,7 +38,7 @@ const Markers = (props) => {
           alt="Beer Icon"
           width={35}
           height={40}
-          class="hover:animate-bounce"
+          className="hover:animate-bounce"
         />
 
       </Marker>
