@@ -10,6 +10,7 @@ import BreweryProfile from "./components/BreweryProfile";
 import SearchBar from "./components/SearchBar";
 import FormUsers from "./components/users/FormUsers";
 import LikeButton from "./components/LikeButton";
+import LikeButton from "./components/LikeButton";
 
 //
 // ----- App Component -----
@@ -32,6 +33,7 @@ export default function App() {
         {/* <MapComponent /> */}
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
         <SearchBar defaultLocation={geolocation} />
+        <LikeButton />
       </div>
     </div>
   );

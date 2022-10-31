@@ -17,9 +17,39 @@ body {
     padding: theme("spacing.6");
     box-shadow: theme("boxShadow.xl");
   }
-  /* ... */
+
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Mapbox-gl */
+.my-popup .mapboxgl-popup-content {
+  @apply p-0 bg-neutral-50 rounded-lg
+}
+.mapboxgl-popup-content {
+  min-height: 200px;
+  border-radius: 30px;
+}
+.mapboxgl-popup-content header {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] hover:from-[#2193b0] hover:to-[#6dd5ed] cursor-auto
+  rounded-t-lg
+}
+.mapboxgl-popup-content header h3{
+  @apply text-3xl font-sans font-semibold text-center text-neutral-50 p-3 tracking-wide 
+}
+.brewery-details-container {
+  @apply flex flex-col justify-around items-start
+}
+.brewery-detail {
+  @apply flex flex-row justify-start items-center w-full hover:bg-slate-100 py-3 px-5 cursor-auto last:rounded-b-lg 
+}
+
+.brewery-detail-text {
+  @apply pl-5 font-sans font-light text-xl tracking-wider
+}
+
+.detail-icons {
+  @apply h-6 text-[#FF8001] hover:text-[#2193b0]
 }
