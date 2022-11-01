@@ -24,14 +24,14 @@ export default function SearchBar(props) {
  
   const {city, setCity} = useContext(cityContext);
 
- // --- Getting geolocation 
+// --- Getting geolocation 
   const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
     console.log("pos.coords.latitude:", pos.coords.latitude);
     console.log("pos.coords.longitude:", pos.coords.longitude);
   });
 
 
-  // ---- Input - onChange axios  to cities db for drop down
+// ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
     axios
       .get(`/cities/${select}`)
@@ -46,24 +46,40 @@ export default function SearchBar(props) {
             long: opt.long,
             lat: opt.lat,
             city: opt.city,
-            state: opt.sate,
+            state: opt.state,
           }
         })
         setSearch(incomingData);
       })
     }, [select]);
     
-    
+// ---- city object create for selected city to be sent to maps 
+  const setCityContextWithClick = (e) => {
+    const selectedCity = e
+    const currentSearch = {...search};
+    for (const c in currentSearch) {
+      if (currentSearch[c].city === selectedCity[0] && 
+      currentSearch[c].state === selectedCity[1]) {
+        const cityObj = currentSearch[c]
+        setCity(cityObj)
+      }
+    }
+  }
+
+// ---- clear search search button, reset states 
+  const clearButton = (e) => {
+    e.preventDefault();
+    setSelect("");
+    setSearch([])
+    setCity({})
+  }
+
     return (
       <div className="total-searchbar">
-        <form className="search-with-buttons"
-          onSelect={(e) => {
-            e.preventDefault()
-            setCity(e.target.value)}} 
-          >
+        <form className="search-with-buttons" >
           <button onClick={(e) => {
-            e.preventDefault()
-            setCity(geolocation)}}>
+            e.preventDefault()}
+            }>
             <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
           </button>
           <DatalistInput 
@@ -71,21 +87,19 @@ export default function SearchBar(props) {
             label="See What's Brewin'"
             placeholder="Enter A City"
             // showLabel={false}
-            // ---- Filter search to only show 5 cities
+            // ---- Filter search to only show 5 cities using cityobj value
             items={search.slice(0, 5)}
             value={select}
+            onSelect={(item) => {
+            //setting city wityh city, state instead of value
+              setCityContextWithClick([item.city, item.state])}}
             // ---- Handler for search bar input set search and suggestions
             onChange={(e) => {
               e.preventDefault();
               setSelect(e.target.value);
             }}
           ></DatalistInput>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setSelect("");
-            }}
-          >
+          <button onClick= {(e) => clearButton(e)} >
           <FontAwesomeIcon icon={faXmark} className="clear-search" />
         </button>
       </form>
