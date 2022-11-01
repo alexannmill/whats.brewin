@@ -5,6 +5,7 @@ import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Contexts -----
 import { breweriesContext } from "../Contexts/BreweriesContext";
+import { cityContext } from "../Contexts/CityContext";
 // ----- Components -----
 import Markers from "./Markers";
 
@@ -12,14 +13,15 @@ import Markers from "./Markers";
 // ----- Component -----
 //
 const MapComponent = () => {
+  const { city } = useContext(cityContext);
+  const { breweries } = useContext(breweriesContext);
+
   const [viewState, setViewState] = useState({
-    latitude: 47.605,
-    longitude: -122.3344,
+    latitude: city.lat,
+    longitude: city.long,
     zoom: 11,
     pitch: 10,
   });
-
-  const { breweries } = useContext(breweriesContext)
 
   return (
     <div className="w-1/2">
