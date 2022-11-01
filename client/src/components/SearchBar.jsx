@@ -30,6 +30,11 @@ export default function SearchBar(props) {
 
   return (
     <div className="total-searchbar">
+      {!props.nav && (
+        <h1 className="text-gray-50 text-8xl font-extrabold">
+          See What's Brewin'
+        </h1>
+      )}
       <form
         onSelect={(e) => setCity(e.target.value)}
         className="search-with-buttons"
@@ -40,20 +45,40 @@ export default function SearchBar(props) {
             className="set-current"
           />
         </button>
-        <DatalistInput
-          className="Search-bar-input"
-          label="See What's Brewin'"
-          placeholder="Enter A City"
-          // showLabel={false}
-          // ---- Filter search to only show 5 cities
-          items={search.slice(0, 5)}
-          value={select}
-          // ---- Handler for search bar input set search and suggestions
-          onChange={(e) => {
-            e.preventDefault();
-            setSelect(e.target.value);
-          }}
-        ></DatalistInput>
+        {props.nav ? (
+          <DatalistInput
+            className="Search-bar-input"
+            label="See What's Brewin'"
+            placeholder="Enter A City"
+            // showLabel={false}
+            // ---- Filter search to only show 5 cities
+            items={search.slice(0, 5)}
+            value={select}
+            // ---- Handler for search bar input set search and suggestions
+            onChange={(e) => {
+              e.preventDefault();
+              setSelect(e.target.value);
+            }}
+          ></DatalistInput>
+        ) : (
+          <>
+            <DatalistInput
+              className="Search-bar-input"
+              label="See What's Brewin'"
+              placeholder="Enter A City"
+              showLabel={false}
+              // ---- Filter search to only show 5 cities
+              items={search.slice(0, 5)}
+              value={select}
+              // ---- Handler for search bar input set search and suggestions
+              onChange={(e) => {
+                e.preventDefault();
+                setSelect(e.target.value);
+              }}
+            ></DatalistInput>
+          </>
+        )}
+
         <button
           onClick={(e) => {
             e.preventDefault();
