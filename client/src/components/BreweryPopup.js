@@ -1,14 +1,13 @@
 import React from "react";
 // ----- Components -----
+import LikeButton from "./LikeButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapLocationDot,
   faGlobe,
   faPhone,
-  faBeerMugEmpty,
 } from "@fortawesome/free-solid-svg-icons";
-// ----- Helpers & Hooks -----
-import { handleFavorite } from "../helpers/handleFavorite";
+
 
 const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
@@ -74,15 +73,9 @@ const BreweryPopup = (props) => {
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <button 
-          className="brewery-detail group" 
-          onClick={(e) => handleFavorite(e, brewery)}>
-            <FontAwesomeIcon
-              icon={faBeerMugEmpty}
-              className="detail-icons group-hover:text-[#2193b0]"
-            />
-            <p className="brewery-detail-text">Favorite</p>
-        </button>
+        <LikeButton 
+          brewery={brewery}
+        />
       </section>
     </>
   );
