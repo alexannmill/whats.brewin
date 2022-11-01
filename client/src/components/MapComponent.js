@@ -19,8 +19,7 @@ const MapComponent = () => {
     pitch: 10,
   });
 
-  const { breweries } = useContext(breweriesContext)
-
+  // const { breweries } = useContext(breweriesContext)
 
   return (
     <div className="w-1/2">
@@ -35,7 +34,7 @@ const MapComponent = () => {
         // onLoad={() => geolocate.current.trigger()}
       >
         <GeolocateControl />
-        <Markers breweries={breweries} />
+        {/* <Markers breweries={breweries} /> */}
       </Map>
     </div>
   );

@@ -14,6 +14,7 @@ import {
 
 // ---- Context
 import { cityContext } from "../Contexts/CityContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -24,12 +25,14 @@ export default function SearchBar(props) {
  
   const {city, setCity} = useContext(cityContext);
 
-// --- Getting geolocation 
-  const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
-    console.log("pos.coords.latitude:", pos.coords.latitude);
-    console.log("pos.coords.longitude:", pos.coords.longitude);
-  });
 
+// --- Getting geolocation 
+  // const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
+  //   return {
+  //     long: pos.coords.longitude,
+  //     lat: pos.coords.latitude
+  //   }
+  // });
 
 // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
@@ -83,28 +86,27 @@ export default function SearchBar(props) {
         </h1>
       )}
         <form className="search-with-buttons" >
-          <button onClick={(e) => {
-            e.preventDefault()}
-            }>
+          <Link to={"/maps"}>
             <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
-          </button>
-          <DatalistInput 
-            className="Search-bar-input"
-            label="See What's Brewin'"
-            placeholder="Enter A City"
-            // showLabel={false}
-            // ---- Filter search to only show 5 cities using cityobj value
-            items={search.slice(0, 5)}
-            value={select}
-            onSelect={(item) => {
-            //setting city wityh city, state instead of value
-              setCityContextWithClick([item.city, item.state])}}
-            // ---- Handler for search bar input set search and suggestions
-            onChange={(e) => {
-              e.preventDefault();
-              setSelect(e.target.value);
-            }}
-          ></DatalistInput>
+          </Link>
+            <DatalistInput 
+              className="Search-bar-input"
+              label="See What's Brewin'"
+              placeholder="Enter A City"
+              showLabel={false}
+              // ---- Filter search to only show 5 cities using cityObj value
+              items={search.slice(0, 5)}
+              value={select}
+              onSelect={(item) => {
+              //setting city with city, state instead of value
+                setCityContextWithClick([item.city, item.state])}}
+              // ---- Handler for search bar input set search and suggestions
+              onChange={(e) => {
+                e.preventDefault();
+                setSelect(e.target.value);
+              }}
+            >
+            </DatalistInput>
           <button onClick= {(e) => clearButton(e)} >
           <FontAwesomeIcon icon={faXmark} className="clear-search" />
         </button>

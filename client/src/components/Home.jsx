@@ -8,29 +8,26 @@ import BreweriesProvider from "../Contexts/BreweriesContext";
 // ----- Components -----
 import MapComponent from "./MapComponent";
 import BreweryProfile from "./BreweryProfile";
-import SearchBar from "./SearchBar";
 import FormUsers from "./users/FormUsers";
 import LikeButton from "./LikeButton";
 import CityProvider from "../Contexts/CityContext";
+import Hero from "../components/Hero/Hero"
 
 //
 // ----- App Component -----
 //
 export default function App() {
   
-  // const city = useCity()
-  // const setCity = useSetCity()
-
   return (
     <div className="App">
-      <BreweriesProvider>
-        {/* <MapComponent />
-        <BreweryProfile breweryName="barrel-and-beam-marquette" /> */}
         <CityProvider>
-          <SearchBar />
+          <BreweriesProvider>
+            <Hero />
+            {/* <MapComponent /> */}
+            {/* <BreweryProfile breweryName="barrel-and-beam-marquette" /> */}
+          </BreweriesProvider>
         </CityProvider>
-        {/* <LikeButton /> */}
-      </BreweriesProvider>
+          {/* <LikeButton /> */}
     </div>
   );
 }
