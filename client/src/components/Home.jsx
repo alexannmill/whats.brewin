@@ -9,8 +9,7 @@ import BreweryProfile from "./BreweryProfile";
 import SearchBar from "./SearchBar";
 import FormUsers from "./users/FormUsers";
 import LikeButton from "./LikeButton";
-// import { useCity, useSetCity } from "../Contexts/CityContext";
-import CityProvider from "../Contexts/CityContext";
+
 //
 // ----- App Component -----
 //
@@ -23,12 +22,10 @@ export default function App() {
     <div className="App">
       <div>
         <h1>What's Brewin'</h1>
-        {/* <MapComponent /> */}
-        {/* <BreweryProfile breweryName="barrel-and-beam-marquette" /> */}
-        <CityProvider>
-          <SearchBar/>
-        </CityProvider>
-        {/* <LikeButton /> */}
+        <MapComponent />
+        <BreweryProfile breweryName="barrel-and-beam-marquette" />
+        <SearchBar defaultLocation={geolocation} />
+        <LikeButton />
       </div>
     </div>
   );

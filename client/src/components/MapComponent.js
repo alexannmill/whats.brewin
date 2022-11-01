@@ -12,7 +12,7 @@ import Markers from "./Markers";
 //
 const MapComponent = () => {
   const [viewState, setViewState] = useState({
-    latitude: 47.6050,
+    latitude: 47.605,
     longitude: -122.3344,
     zoom: 11,
     pitch: 10,
@@ -37,9 +37,8 @@ const MapComponent = () => {
       });
   }, []);
 
-
   return (
-    <div>
+    <div className="w-1/2">
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -52,7 +51,6 @@ const MapComponent = () => {
       >
         <GeolocateControl />
         <Markers breweries={breweries} />
-
       </Map>
     </div>
   );
