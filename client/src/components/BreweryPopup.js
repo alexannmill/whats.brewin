@@ -77,7 +77,11 @@ const BreweryPopup = (props) => {
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <Link to={`/brewery/${brewery.id}`}><MoreDetailsButton /></Link>
+        <Link to={`/brewery/${brewery.id}`}     
+          className="brewery-detail group cursor-pointer"
+        >
+          <MoreDetailsButton />
+        </Link>
 
       </section>
     </>
