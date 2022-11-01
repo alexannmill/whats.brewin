@@ -1,10 +1,11 @@
 // ----- React and Utils -----
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
 // ----- For react-map-gl -----
 import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-// Components
+// ----- Contexts -----
+import { breweriesContext } from "../Contexts/BreweriesContext";
+// ----- Components -----
 import Markers from "./Markers";
 
 //
@@ -18,24 +19,7 @@ const MapComponent = () => {
     pitch: 10,
   });
 
-  const [breweries, setBreweries] = useState([]);
-
-  // Can decide later if we want to geolocate the user by default or only if they click the little button
-  // const geolocate = useRef(null);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://api.openbrewerydb.org/breweries?by_city=seattle&per_page=50"
-      )
-      .then((res) => {
-        // console.log("brewery array: ", res.data);
-        setBreweries(() => res.data);
-      })
-      .catch((e) => {
-        console.log("Error during Axios req: ", e);
-      });
-  }, []);
+  // const { breweries } = useContext(breweriesContext)
 
   return (
     <div className="w-1/2">
@@ -50,7 +34,7 @@ const MapComponent = () => {
         // onLoad={() => geolocate.current.trigger()}
       >
         <GeolocateControl />
-        <Markers breweries={breweries} />
+        {/* <Markers breweries={breweries} /> */}
       </Map>
     </div>
   );
