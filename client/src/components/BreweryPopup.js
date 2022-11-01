@@ -1,6 +1,5 @@
 import React from "react";
 // ----- Components -----
-import LikeButton from "./LikeButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapLocationDot,
@@ -35,6 +34,7 @@ const BreweryPopup = (props) => {
       </header>
 
       <section className="brewery-details-container">
+        
         <button className="brewery-detail group ">
           <FontAwesomeIcon
             icon={faMapLocationDot}
@@ -73,9 +73,6 @@ const BreweryPopup = (props) => {
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <LikeButton 
-          brewery={brewery}
-        />
       </section>
     </>
   );
