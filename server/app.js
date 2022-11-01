@@ -7,7 +7,7 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const citiesRouter = require("./routes/cities");
-const favoritesRouter = requier("./routes/favorites");
+// const favoritesRouter = require("./routes/favorites");
 const PORT = process.env.PORT;
 const app = express();
 const cookieSession = require("cookie-session");
@@ -30,7 +30,7 @@ app.use(
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/cities", citiesRouter);
-app.use("/favorites", favoritesRouter);
+// app.use("/favorites", favoritesRouter);
 
 app.listen(PORT, () => {
   console.log("listening.. " + PORT);
