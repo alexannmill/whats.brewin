@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { cityContext } from "./CityContext";
 
 export const breweriesContext = createContext();
 
@@ -7,10 +8,12 @@ export default function BreweriesProvider(props) {
   // We will request the array of breweries and set it to be available app wide in here
   const [breweries, setBreweries] = useState([]);
   // Will eventually make a request using the CitiesContext that Alex makes
+  const { city } = useContext(cityContext);
+
   useEffect(() => {
     axios
       .get(
-        "https://api.openbrewerydb.org/breweries?by_city=seattle&per_page=50"
+        `https://api.openbrewerydb.org/breweries?by_city=${city.city}&per_page=50`
       )
       .then((res) => {
         // console.log("brewery array: ", res.data);
@@ -19,7 +22,7 @@ export default function BreweriesProvider(props) {
       .catch((e) => {
         console.log("Error during Axios req: ", e);
       });
-  }, []);
+  }, [city]);
 
   const providerValues = { breweries, setBreweries };
 
