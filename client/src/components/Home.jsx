@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 // ----- react-map-gl -----
 import "mapbox-gl/dist/mapbox-gl.css";
+// ----- Contexts -----
+import BreweriesProvider from "../Contexts/BreweriesContext";
 // ----- Components -----
 import MapComponent from "./MapComponent";
 import BreweryProfile from "./BreweryProfile";
@@ -21,14 +23,14 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>
+      <BreweriesProvider>
         {/* <MapComponent />
         <BreweryProfile breweryName="barrel-and-beam-marquette" /> */}
         <CityProvider>
           <SearchBar />
         </CityProvider>
         {/* <LikeButton /> */}
-      </div>
+      </BreweriesProvider>
     </div>
   );
 }

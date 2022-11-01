@@ -75,7 +75,13 @@ export default function SearchBar(props) {
   }
 
     return (
-      <div className="total-searchbar">
+      <div className="total-searchbar backdrop-contrast-250">
+      {!props.nav && (
+        <h1 className="text-neutral-50 text-8xl font-extrabold font-['Lobster']">
+          See <span className="text-neutral-50">What's</span>{" "}
+          <span className="text-neutral-50">Brewin'</span>
+        </h1>
+      )}
         <form className="search-with-buttons" >
           <button onClick={(e) => {
             e.preventDefault()}

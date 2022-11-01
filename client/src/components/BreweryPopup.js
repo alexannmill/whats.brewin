@@ -1,4 +1,6 @@
+// ----- React and Utils -----
 import React from "react";
+import { Link } from "react-router-dom";
 // ----- Components -----
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,6 +8,7 @@ import {
   faGlobe,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import MoreDetailsButton from "./MoreDetailsButton";
 
 
 const BreweryPopup = (props) => {
@@ -19,6 +22,7 @@ const BreweryPopup = (props) => {
       6
     )}-${phoneNum.substring(6)}`;
   };
+
 
   // NOTE: We actually can put an image in here if we wanted to
   return (
@@ -72,6 +76,12 @@ const BreweryPopup = (props) => {
           />
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
+
+        <Link to={`/brewery/${brewery.id}`}     
+          className="brewery-detail group cursor-pointer"
+        >
+          <MoreDetailsButton />
+        </Link>
 
       </section>
     </>

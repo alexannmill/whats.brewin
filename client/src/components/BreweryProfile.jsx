@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {useParams} from "react-router-dom";
+
+
 
 // //props breweryName
-export default function BreweryProfile(props) {
-
-
-  const [brewery, setBrewery] = useState(props.breweryName);
+export default function BreweryProfile() {
+  const [brewery, setBrewery] = useState({});
+  
+  // From React Router
+  let {brewery_id} = useParams();
 
 
   // Find breweries for map by brewery
   useEffect(() => {
     axios
       .get(
-        `https://api.openbrewerydb.org/breweries/${props.breweryName}`
+        `https://api.openbrewerydb.org/breweries/${brewery_id}`
       )
       .then((res) => {
         console.log('res:', res)
@@ -28,7 +32,7 @@ export default function BreweryProfile(props) {
             website_url: incomingData.website_url
           });
       });
-  }, []);
+  }, [brewery_id]);
 
 
   return (
