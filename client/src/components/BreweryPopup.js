@@ -1,4 +1,6 @@
+// ----- React and Utils -----
 import React from "react";
+import { Link } from "react-router-dom";
 // ----- Components -----
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,6 +22,11 @@ const BreweryPopup = (props) => {
       6
     )}-${phoneNum.substring(6)}`;
   };
+
+  const routeToDetails = (e, brewery) => {
+    e.preventDefault();
+    <Link to={`/brewery/${brewery.id}`} />
+  }
 
   // NOTE: We actually can put an image in here if we wanted to
   return (
@@ -74,7 +81,7 @@ const BreweryPopup = (props) => {
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
 
-        <MoreDetailsButton />
+        <MoreDetailsButton onClick={(e) => routeToDetails(e, brewery)}/>
 
       </section>
     </>
