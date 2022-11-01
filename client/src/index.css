@@ -42,7 +42,7 @@ code {
   @apply flex flex-col justify-around items-start;
 }
 .brewery-detail {
-  @apply flex flex-row justify-start items-center w-full hover:bg-slate-100 py-3 px-5 cursor-auto last:rounded-b-lg;
+  @apply flex flex-row justify-start items-center w-full hover:bg-slate-100 py-3 px-5 last:rounded-b-lg;
 }
 
 .brewery-detail-text {
