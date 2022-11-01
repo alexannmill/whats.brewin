@@ -19,7 +19,7 @@ const FormUsers = (props) => {
         password,
       })
       .then((data) => {
-        setUser(data.data);
+        setUser({...data.data, favoritedBreweries: []});
         setShowUser(true);
         setName("");
         setEmail("");
