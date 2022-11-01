@@ -11,6 +11,7 @@ import FormUsers from "./components/users/FormUsers";
 import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import { LoginContext } from "./Contexts/LoginContext";
+import BreweryProfile from "./components/BreweryProfile";
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
             </>
           )}
+          <Route path="/brewery/:id" element={<BreweryProfile />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
