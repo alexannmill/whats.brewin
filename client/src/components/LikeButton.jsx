@@ -1,30 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+// ----- Components -----
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeerMugEmpty } from '@fortawesome/free-solid-svg-icons'
 
-import { useState } from "react";
-
-const LikeButton = () => {
+const LikeButton = (props) => {
   
-  const [like, setLike] = useState(true)
+  const [like, setLike] = useState(false)
 
-  const switchLikeStatus = () => {
-    if (like === true) {
-      setLike(false)
-    } else {
-      setLike(true)
-    }
-  }
 
   return (
-    <div>
-      <button 
-      onClick={(e) => switchLikeStatus()}
-      >
-      {like === true && <FontAwesomeIcon icon={faBeerMugEmpty} className="text-[#ef4444]" />}
-      {like === false && <div className="LikeButtonFalse"><FontAwesomeIcon icon={faBeerMugEmpty} /></div>}
-      </button>
-    </div>
+    <button 
+      className="brewery-detail group" 
+    >
+      {like === true && 
+      <FontAwesomeIcon icon={faBeerMugEmpty} 
+        className="text-[#FF8001] h-6 group-hover:text-[#2193b0]" 
+      />}
+
+
+      {like === false && 
+      <FontAwesomeIcon icon={faBeerMugEmpty} 
+        className="like-icons-default group-hover:text-[#2193b0]" 
+      />}
+
+      <p className="brewery-detail-text">Favorite</p>
+
+    </button>
   );
 };
 
