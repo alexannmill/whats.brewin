@@ -1,6 +1,11 @@
 import "./App.css";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Home from "./components/Home";
 import FormUsers from "./components/users/FormUsers";
 import Footer from "./components/nav & footer/Footer";
@@ -17,8 +22,16 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<FormUsers>Register</FormUsers>} />
-          <Route path="/login" element={<FormUsers>Login</FormUsers>} />
+          {!showUser && (
+            <>
+              <Route
+                path="/register"
+                element={<FormUsers>Register</FormUsers>}
+              />
+              <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
+            </>
+          )}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
       </LoginContext.Provider>
