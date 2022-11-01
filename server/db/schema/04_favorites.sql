@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS favorites CASCADE;
+CREATE TABLE favorites(
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(id),
+  brewery_id INTEGER NOT NULL REFERENCES breweries(id) 
+);

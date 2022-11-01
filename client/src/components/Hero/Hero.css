@@ -1,0 +1,5 @@
+@layer {
+  .Hero {
+    @apply bg-cover bg-center grid h-screen place-items-center bg-[url("https://images.pexels.com/photos/159291/beer-machine-alcohol-brewery-159291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")];
+  }
+}
