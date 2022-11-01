@@ -60,7 +60,7 @@ export default function SearchBar(props) {
           onSelect={(e) => {
             e.preventDefault()
             setCity(e.target.value)}} 
-        >
+          >
           <button onClick={(e) => {
             e.preventDefault()
             setCity(geolocation)}}>
@@ -80,31 +80,12 @@ export default function SearchBar(props) {
               setSelect(e.target.value);
             }}
           ></DatalistInput>
-        ) : (
-          <>
-            <DatalistInput
-              className="Search-bar-input"
-              label="See What's Brewin'"
-              placeholder="Enter A City"
-              showLabel={false}
-              // ---- Filter search to only show 5 cities
-              items={search.slice(0, 5)}
-              value={select}
-              // ---- Handler for search bar input set search and suggestions
-              onChange={(e) => {
-                e.preventDefault();
-                setSelect(e.target.value);
-              }}
-            ></DatalistInput>
-          </>
-        )}
-
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setSelect("");
-          }}
-        >
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setSelect("");
+            }}
+          >
           <FontAwesomeIcon icon={faXmark} className="clear-search" />
         </button>
       </form>
