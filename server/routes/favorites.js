@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 // function here for db querying
 const { newFavorite } = require('../db/queries/addToFavorites');
 
 // GETs
-
+router.get("/", (req, res) => {
+  console.log(req);
+})
 
 // POSTs
 router.post("/", (req, res) => {
