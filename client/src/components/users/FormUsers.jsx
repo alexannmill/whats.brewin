@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { LoginContext } from "../../Contexts/LoginContext";
+import "./Form.css";
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
@@ -29,14 +30,14 @@ const FormUsers = (props) => {
   };
 
   return (
-    <div className=" bg-cover bg-center back h-screen">
-      <div className=" rounded flex flex-col items-center color-white ">
-        <h1 className="text-black">Please {props.children}</h1>
-        <form className="bg-white" onSubmit={(e) => formhandle(e)}>
-          <div className=" rounded flex flex-col items-center p-20">
+    <div className="FormUsers">
+      <div className=" rounded flex flex-col items-center ">
+        <form className="form" onSubmit={(e) => formhandle(e)}>
+          <h1 className="title mb-6">Please {props.children}</h1>
+          <div className=" rounded flex flex-col items-center ">
             {props.children === "Register" && (
               <>
-                <label className="text-blue-500">User Name</label>
+                <label>User Name</label>
                 <input
                   type="text"
                   name="user"
@@ -74,7 +75,7 @@ const FormUsers = (props) => {
             )}
             <button
               type="submit"
-              className="bg-sky-500 border-1 border-black rounded-full p-2 text-white hover:bg-sky-700 m-3"
+              className="bg-sky-500 border-black rounded-full p-2 text-white hover:bg-sky-700 m-3 w-1/2"
             >
               submit
             </button>
