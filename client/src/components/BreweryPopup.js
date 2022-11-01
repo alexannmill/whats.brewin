@@ -6,6 +6,7 @@ import {
   faGlobe,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import MoreDetailsButton from "./MoreDetailsButton";
 
 
 const BreweryPopup = (props) => {
@@ -72,6 +73,8 @@ const BreweryPopup = (props) => {
           />
           <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
         </button>
+
+        <MoreDetailsButton />
 
       </section>
     </>
