@@ -65,34 +65,34 @@ react-datalist-input__listbox-option: For each option in the dropdown list. */
 }
 
 /* For the input element. */
-.react-datalist-input__textbox .undefined{
-  @apply text-xl
+.react-datalist-input__textbox .undefined {
+  @apply text-xl;
 }
 
 /* For the container element. */
 .total-searchbar {
-  @apply ml-20 mr-20 text-3xl 
+  @apply ml-20 mr-20 text-3xl mx-auto;
 }
 
 /* For title */
 .react-datalist-input__label {
-  @apply text-xl
+  @apply text-xl;
 }
 
 /* For text inside bar. */
 .total-searchbar input {
-  @apply text-lg
+  @apply text-lg;
 }
 
 /* For dropdown */
 .Search-bar-input {
-  @apply text-xl
+  @apply text-xl;
 }
 
-.clear-search{
-  @apply text-[#f05e5e] ml-3 
+.clear-search {
+  @apply text-[#f05e5e] ml-3;
 }
 
 .set-current {
-  @apply text-[#4f9fef] mr-3
+  @apply text-[#4f9fef] mr-3;
 }
