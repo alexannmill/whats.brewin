@@ -1,4 +1,5 @@
 import "./App.css";
+// ----- React, Utils -----
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,
@@ -6,14 +7,17 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+// ----- react-map-gl -----
+import "mapbox-gl/dist/mapbox-gl.css";
+// ----- Contexts -----
+import { LoginContext } from "./Contexts/LoginContext";
+import BreweriesProvider from "./Contexts/BreweriesContext";
+import CityProvider from "./Contexts/CityContext";
+// ----- Components -----
 import Home from "./components/Home";
 import FormUsers from "./components/users/FormUsers";
 import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
-import { LoginContext } from "./Contexts/LoginContext";
-import BreweriesProvider from "./Contexts/BreweriesContext";
-import CityProvider from "./Contexts/CityContext";
-
 import BreweryProfile from "./components/BreweryProfile";
 import MapComponent from "./components/MapComponent";
 
