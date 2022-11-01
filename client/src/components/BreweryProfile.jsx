@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {useParams} from "react-router-dom";
+
+
 
 // //props breweryName
 export default function BreweryProfile(props) {
 
 
   const [brewery, setBrewery] = useState(props.breweryName);
+  let {brewery_id} = useParams();
 
 
   // Find breweries for map by brewery

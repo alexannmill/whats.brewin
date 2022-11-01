@@ -32,7 +32,7 @@ const App = () => {
               <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
             </>
           )}
-          <Route path="/brewery/:id" element={<BreweryProfile />} />
+          <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
