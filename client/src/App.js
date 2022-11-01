@@ -20,7 +20,7 @@ import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import BreweryProfile from "./components/BreweryProfile";
 import MapComponent from "./components/MapComponent";
-import BrewerieList from "./components/Breweries/BrewerieList";
+import BrewerieList from "./components/Breweries/BreweryList";
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);

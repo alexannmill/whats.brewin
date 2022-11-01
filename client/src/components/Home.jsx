@@ -2,7 +2,7 @@
 import BreweryProfile from "./BreweryProfile";
 import LikeButton from "./LikeButton";
 import Hero from "../components/Hero/Hero";
-import BrewerieList from "./Breweries/BrewerieList";
+import BrewerieList from "./Breweries/BreweryList";
 
 //
 // ----- App Component -----
