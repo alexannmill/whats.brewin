@@ -19,12 +19,12 @@ const MapComponent = () => {
   const [viewState, setViewState] = useState({
     latitude: city.lat,
     longitude: city.long,
-    zoom: 11,
+    zoom: 12,
     pitch: 10,
   });
 
   return (
-    <div className="w-1/2">
+    <div className="w-full">
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -33,7 +33,6 @@ const MapComponent = () => {
         style={{ width: "fit", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(e) => setViewState(e.viewState)}
-        // onLoad={() => geolocate.current.trigger()}
       >
         <GeolocateControl />
         <Markers breweries={breweries} />
