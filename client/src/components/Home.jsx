@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div className="App">
       <div>
-        {/* <MapComponent /> */}
+        <MapComponent />
         <BreweryProfile breweryName="barrel-and-beam-marquette" />
         {/* <SearchBar defaultLocation={geolocation} />
         <LikeButton /> */}

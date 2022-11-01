@@ -6,7 +6,7 @@
 @layer components {
 
   .page {
-    @apply flex 
+    @apply flex p-8
   }
 
 /* ---- Left Side */
@@ -14,12 +14,12 @@
     @apply flex
   }
   .brewery-img {
-    @apply flex rounded-xl  
+    @apply flex rounded-xl mb-8
   }
   .left-side {
     width: 40%;
-    align-self: center;
-    @apply flex h-screen flex-col 
+    align-items: center;
+    @apply flex h-screen flex-col mt-10
   }
 
 
@@ -30,10 +30,10 @@
   }
   
   .info-container {
-    @apply text-center 
+    @apply text-center text-lg border-4 p-5 rounded-xl
   }
 
   .brewery-title {
-    @apply font-bold text-4xl text-center 
+    @apply font-bold text-5xl text-center 
     }
 }
