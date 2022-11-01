@@ -1,23 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext  } from "react";
 import axios from "axios";
+
+// ---- Datalikst Drop Down
+import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css'
 
-// ---- Components
-import DatalistInput from 'react-datalist-input';
+// ---- Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationCrosshairs,
   faXmark, 
 } from "@fortawesome/free-solid-svg-icons"
 
+// ---- Context
+import { cityContext } from "../Contexts/CityContext";
+
 
 
 export default function SearchBar(props) {
 
-  const [city, setCity] = useState(props.geolocation)
-  const [search, setSearch] = useState([])
-  const [select, setSelect] = useState("")
-  
+  const [search, setSearch] = useState([]);
+  const [select, setSelect] = useState("");
+ 
+  const {city, setCity} = useContext(cityContext);
+
+ // --- Getting geolocation 
+  const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
+    console.log("pos.coords.latitude:", pos.coords.latitude);
+    console.log("pos.coords.longitude:", pos.coords.longitude);
+  });
+
 
   // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
@@ -28,17 +40,30 @@ export default function SearchBar(props) {
         if (select === "") return
     // --- Parse data from db
         const incomingData = res.data.map((opt, i) => {
-          return {id:[i], value:[`${opt.city}, ${opt.state}`]}
+          return {
+            id:[i], 
+            value:[`${opt.city}, ${opt.state}`],
+            long: opt.long,
+            lat: opt.lat,
+            city: opt.city,
+            state: opt.sate,
+          }
         })
-        setSearch(incomingData)
+        setSearch(incomingData);
       })
     }, [select]);
     
     
     return (
       <div className="total-searchbar">
-        <form onSelect={(e) => setCity(e.target.value)} className="search-with-buttons">
-          <button onClick={(e) => setCity(props.geolocation)}>
+        <form className="search-with-buttons"
+          onSelect={(e) => {
+            e.preventDefault()
+            setCity(e.target.value)}} 
+        >
+          <button onClick={(e) => {
+            e.preventDefault()
+            setCity(geolocation)}}>
             <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
           </button>
           <DatalistInput 
