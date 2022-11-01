@@ -37,8 +37,16 @@ export default function SearchBar(props) {
     
     return (
       <div className="total-searchbar">
-        <form onSelect={(e) => setCity(e.target.value)} className="search-with-buttons">
-          <button onClick={(e) => setCity(props.geolocation)}>
+        <form 
+          className="search-with-buttons"
+          onSelect={(e) => {
+            e.preventDefault()
+            setCity(e.target.value)
+          }} >
+          <button onClick={(e) => {
+            e.preventDefault()
+            setCity(props.geolocation)
+            }}>
             <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
           </button>
           <DatalistInput 

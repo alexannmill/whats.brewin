@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+  .page {
+    @apply flex 
+  }
+
+/* ---- Left Side */
+  .brewery-image {
+    @apply flex
+  }
+  .brewery-img {
+    @apply flex rounded-xl  
+  }
+  .left-side {
+    width: 40%;
+    align-self: center;
+    @apply flex h-screen flex-col 
+  }
+
+
+/* --- Right Side */
+  .right-side {
+    width: 60%;
+    @apply flex flex-col h-screen
+  }
+  
+  .info-container {
+    @apply text-center 
+  }
+
+  .brewery-title {
+    @apply font-bold text-4xl text-center 
+    }
+}
