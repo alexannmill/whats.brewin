@@ -4,21 +4,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBeerMugEmpty } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { LoginContext } from "../Contexts/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const LikeButton = (props) => {
   const [like, setLike] = useState(false);
   const { user, setUser } = useContext(LoginContext);
 
   const onFavorite = (b) => {
-    if (!user) {
-      useNavigate("/register");
+    console.log(user);
+    // if (!user) {
+    //   useNavigate("/register");
+    // }
+    if (!user.favoritedBreweries.includes(b)) {
+      const newUser = {
+        ...user,
+        favoritedBreweries: [...user.favoritedBreweries, b],
+      };
+      setLike(true);
+      return setUser(newUser);
     }
+    console.log(user.favoritedBreweries);
+    const newList = user.favoritedBreweries.filter((brew) => b.id !== brew.id);
     const newUser = {
       ...user,
-      favoritedBreweries: [...user.favoritedBreweries, b],
+      favoritedBreweries: [...newList],
     };
-    setUser(newUser);
-    console.log(user);
+    setLike(false);
+    return setUser(newUser);
   };
 
   return (
