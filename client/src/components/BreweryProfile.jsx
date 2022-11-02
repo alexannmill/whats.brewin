@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./BreweryProfile.css"
 import BreweryImage from "./BreweryImage"
+import Post from "./Post"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
+import BreweryPopup from "./BreweryPopup";
 
 
 
@@ -22,7 +24,6 @@ export default function BreweryProfile() {
   // From React Router
   let {brewery_id} = useParams();
 
-  
   // Find breweries for map by brewery
   useEffect(() => {
     axios
@@ -30,7 +31,6 @@ export default function BreweryProfile() {
         `https://api.openbrewerydb.org/breweries/${brewery_id}`
       )
       .then((res) => {
-        console.log('resBrewery:', res)
         const incomingData = res.data
         setBrewery({
             name: incomingData.name,
@@ -42,10 +42,9 @@ export default function BreweryProfile() {
             phone: incomingData.phone,
             website_url: incomingData.website_url
           });
-      });
-    }, [brewery_id]);
-
- console.log('brewery_id:', brewery_id)
+        });
+      }, [brewery_id]);
+      
     const formatPhone = (phoneNum) => {
       if (!phoneNum) return "Not Available";
   
@@ -71,7 +70,7 @@ export default function BreweryProfile() {
               <br/>
             </div>
             <div className="brewery-contact">
-              <h1><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</h1>
+              <a href={brewery.website}><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</a>
               <h1> <FontAwesomeIcon icon={faPhone}/> {formatPhone(brewery.phone)}</h1>
             </div>
           </div>
@@ -80,6 +79,10 @@ export default function BreweryProfile() {
       <div className="right-side">
         <div className="brewery-title">
           <h1 className="brewery-title">{brewery.name}</h1>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
         </div>
       </div>
     </div>

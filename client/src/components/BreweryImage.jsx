@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import axios from "axios";
 import { useEffect } from "react"
-import ('dotenv').config()
 
 
 const BreweryImage= (props) => {
