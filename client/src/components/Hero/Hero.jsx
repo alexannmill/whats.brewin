@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MapComponent from "../MapComponent";
+import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import "./Hero.css";
 
