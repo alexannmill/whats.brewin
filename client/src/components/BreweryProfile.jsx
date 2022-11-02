@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
-import google from 'googlethis';
+
 
 
 // //props breweryName
@@ -46,12 +46,15 @@ export default function BreweryProfile() {
 
     // const urlEncode = (encodeURIComponent(`${brewery.name} logo`));
     
-    // useEffect(() => {
-    //   axios.get(`https://serpapi.com/search.json?q=cloud+burst+brewery+logo&tbm=isch&ijn=0`)
-    //   .then((res) => {
-    //     console.log('resImage:', res)
-    //   })
-    // },[brewery_id])
+    const options = {
+      page: 0, 
+      safe: false, // Safe Search
+      parse_ads: false, // If set to true sponsored results will be parsed
+      additional_params: { 
+        // add additional parameters here, see https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters and https://www.seoquake.com/blog/google-search-param/
+        hl: 'en' 
+      }
+    }
     
     const formatPhone = (phoneNum) => {
       if (!phoneNum) return "Not Available";
@@ -63,7 +66,7 @@ export default function BreweryProfile() {
     };
 
   return (
-    <div class="page">
+    <div className="page">
       <div className="left-side">
         <div className="brewery-image">
           <img className="brewery-img" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr3-k5ByhkB6qNRbtACIK2YdY5JydpQJ35bTVNoaSptQ&s" alt="Brewery Img"></img>
