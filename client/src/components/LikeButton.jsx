@@ -7,15 +7,15 @@ import { LoginContext } from "../Contexts/LoginContext";
 import { useNavigate } from "react-router-dom";
 
 const LikeButton = (props) => {
-  const [like, setLike] = useState(false);
   const { user, setUser } = useContext(LoginContext);
-
+  const [like, setLike] = useState(props.isFav);
+  //
   const onFavorite = (b) => {
     console.log(user);
     // if (!user) {
     //   useNavigate("/register");
     // }
-    if (!user.favoritedBreweries.includes(b)) {
+    if (!user.favoritedBreweries.find((e) => e.id == b.id)) {
       const newUser = {
         ...user,
         favoritedBreweries: [...user.favoritedBreweries, b],
@@ -23,7 +23,7 @@ const LikeButton = (props) => {
       setLike(true);
       return setUser(newUser);
     }
-    console.log(user.favoritedBreweries);
+
     const newList = user.favoritedBreweries.filter((brew) => b.id !== brew.id);
     const newUser = {
       ...user,
@@ -38,14 +38,14 @@ const LikeButton = (props) => {
       className="brewery-detail group"
       onClick={(e) => onFavorite(props.brewery)}
     >
-      {like === true && (
+      {like && (
         <FontAwesomeIcon
           icon={faBeerMugEmpty}
           className="text-[#FF8001] h-6 group-hover:text-[#2193b0]"
         />
       )}
 
-      {like === false && (
+      {!like && (
         <FontAwesomeIcon
           icon={faBeerMugEmpty}
           className="like-icons-default group-hover:text-[#2193b0]"

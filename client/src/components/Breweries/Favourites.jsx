@@ -1,22 +1,16 @@
 import React, { useContext } from "react";
-import { breweriesContext } from "../../Contexts/BreweriesContext";
 import "./BreweryList.css";
 import BreweryPopup from "../BreweryPopup";
 import LikeButton from "../LikeButton";
 import { LoginContext } from "../../Contexts/LoginContext";
 
-const BrewerieList = () => {
-  const { breweries } = useContext(breweriesContext);
+const Favourites = () => {
   const { user } = useContext(LoginContext);
-  const userBreweries = user.favoritedBreweries;
-  if (user) {
-  }
+  const breweries = user.favoritedBreweries;
   const breweryList = breweries.map((b) => {
-    let isFav = userBreweries.find((e) => e.id == b.id);
-
     return (
       <div className="  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
-        <BreweryPopup popupInfo={b} /> <LikeButton isFav={isFav} brewery={b} />
+        <BreweryPopup popupInfo={b} /> <LikeButton isFav={true} brewery={b} />
       </div>
     );
   });
@@ -26,4 +20,4 @@ const BrewerieList = () => {
   );
 };
 
-export default BrewerieList;
+export default Favourites;
