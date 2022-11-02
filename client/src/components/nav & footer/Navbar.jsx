@@ -16,6 +16,12 @@ const Navbar = () => {
         {showUser ? (
           <>
             <img src={Logo} alt="Logo" className="h-14" />
+            {/* This decides whether or not search bar is displayed on our navbar component */}
+            <NavLink to={"/maps"} style={({isActive}) => {
+              return {visibility: isActive ? "visible" : "hidden"}
+            }}>
+              <SearchBar nav={true}/>
+            </NavLink>
             <div className="flex ">
               <p className="mt-5 text-neutral-50">
                 {user.username ? user.username : "Ducky loco"}
