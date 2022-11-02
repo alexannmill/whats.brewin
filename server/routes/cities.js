@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 // ---- Return cities based on search
-router.get("/:select", function (req, res, next) {
+router.get("/:select", (req, res, next) => {
   const search = req.params.select;
   getCitiesBySearch(search).then((result) => {
     res.send(result);

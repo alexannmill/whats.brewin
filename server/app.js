@@ -33,6 +33,6 @@ app.use("/cities", citiesRouter);
 // app.use("/favorites", favoritesRouter);
 
 app.listen(PORT, () => {
-  console.log("listening.. " + PORT);
+  console.log(`listening.. ${PORT}`);
 });
 module.exports = app;
