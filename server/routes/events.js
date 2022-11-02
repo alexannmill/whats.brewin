@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   res.status(200).send("connected to cities");
 });
 
-// ---- Return post based on search
+// ---- Return event based on search
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   getEventById(id).then((result) => {
