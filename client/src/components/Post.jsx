@@ -3,6 +3,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "./BreweryProfile.css"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+
+
 const Post = () => {
   
   const [post, setPost] = useState({});
@@ -22,9 +28,11 @@ const Post = () => {
         <img src={post.photo_url} alt="post"></img>
       </div>
       <div className="post-content">
-        <h2 className="post-h2">{post.caption}</h2>
+        <h4 className="post-caption">{post.caption}</h4>
+        <h6 className="post-likes">
+          <FontAwesomeIcon icon={faHeart} />
+           {post.likes}</h6>
         <h6 className="post-date">{post.date}</h6>
-        <h6 className="post-likes">{post.likes}</h6>
       </div>
     </div>
   );

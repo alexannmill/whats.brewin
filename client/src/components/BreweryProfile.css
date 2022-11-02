@@ -14,10 +14,10 @@
     @apply flex
   }
   .brewery-img {
-    @apply w-full h-auto rounded-lg
+    @apply w-full h-auto
   }
   .brewery-title {
-    @apply font-bold text-[#FF8001]
+    @apply text-[#FF8001] text-5xl
   }
   .left-side {
     width: 40%;
@@ -33,43 +33,49 @@
   }
   
   .info-container {
-    @apply text-center text-xl border-4 p-5 rounded-xl text-[#FF8001] flex flex-row justify-start items-center hover:bg-slate-100 py-3 px-5 last:rounded-b-lg;
+    @apply text-center text-xl border-4 p-5 rounded-sm text-[#FF8001] flex flex-row justify-start items-center hover:bg-slate-100 py-3 px-5 last:rounded-b-lg;
   }
 
   .brewery-title {
-    @apply font-bold text-5xl text-center 
+    @apply font-bold text-5xl text-center m-3
   }
 
   .brewery-address {
-    @apply text-lg 
+    @apply p-3
   }
 
 /* ---- Post */
-  .post {
-    @apply items-center flex content-center
+  .post-container {
+    @apply flex relative
   }
 
+  .post {
+    @apply flex items-center content-center m-1
+  }
+  
   .post-img {
-    @apply h-60 w-60 rounded-lg
+    justify-content: center;
+    @apply flex h-80 w-80
   }
 
   .post-img img {
-    object-fit: cover;
-    @apply w-auto h-auto rounded-lg
+    object-fit: contain;
+    align-items: center;
+    @apply flex w-auto m-1 
   }
 
   .post-caption {
-    @apply font-thin text-3xl
+    @apply flex text-2xl font-normal m-3 
   }
 
   .post-date {
-    @apply font-extralight text-base
+    @apply flex font-extralight text-base 
   }
 
   .post-likes {
-    @apply font-thin text-xl
+    @apply flex font-normal text-xl m-2
   }
   .post-content {
-    @apply text-center border-4 p-2 m-3 rounded-xl text-[#FF8001] flex flex-col justify-start items-center py-3 px-5 w-10;
+    @apply flex text-center border-4 p-2 m-2 rounded-sm text-[#FF8001] flex flex-col justify-start items-center py-3 px-5 w-64;
   }
 }

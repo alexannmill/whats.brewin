@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
-import BreweryPopup from "./BreweryPopup";
 
 
 
@@ -61,13 +60,12 @@ export default function BreweryProfile() {
           <img className="brewery-img" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr3-k5ByhkB6qNRbtACIK2YdY5JydpQJ35bTVNoaSptQ&s" alt="Brewery Img"></img>
         </div>
         <br/>
-        <BreweryImage brewery={brewery_id}></BreweryImage>
+        {/* <BreweryImage brewery={brewery_id}></BreweryImage> */}
         <div className="info-container">
           <div>
             <div className="brewery-address">
               <h1><FontAwesomeIcon icon={faMapLocationDot}/> {brewery.street}</h1>
               <h1>{brewery.state}, USA, {brewery.postal_code}</h1>
-              <br/>
             </div>
             <div className="brewery-contact">
               <a href={brewery.website}><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</a>
@@ -79,10 +77,15 @@ export default function BreweryProfile() {
       <div className="right-side">
         <div className="brewery-title">
           <h1 className="brewery-title">{brewery.name}</h1>
-          <Post/>
-          <Post/>
-          <Post/>
-          <Post/>
+          <div className="post-container">
+            <Post/>
+          </div>
+          <div className="post-container">
+            <Post/>
+          </div>
+          <div className="post-container">
+            <Post/>
+          </div>   
         </div>
       </div>
     </div>
