@@ -41,7 +41,7 @@ const LikeButton = (props) => {
       {like && (
         <FontAwesomeIcon
           icon={faBeerMugEmpty}
-          className="text-[#FF8001] h-6 group-hover:text-[#2193b0]"
+          className="text-[#FF8001] h-6 "
         />
       )}
 
