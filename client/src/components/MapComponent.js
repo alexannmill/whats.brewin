@@ -1,7 +1,7 @@
 // ----- React and Utils -----
 import { useState, useContext } from "react";
 // ----- For react-map-gl -----
-import Map, { GeolocateControl } from "react-map-gl";
+import Map, { GeolocateControl, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Contexts -----
 import { breweriesContext } from "../Contexts/BreweriesContext";
@@ -35,6 +35,7 @@ const MapComponent = () => {
         onMove={(e) => setViewState(e.viewState)}
       >
         <GeolocateControl />
+        <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
     </div>
