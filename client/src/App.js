@@ -20,7 +20,7 @@ import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import BreweryProfile from "./components/BreweryProfile";
 import MapComponent from "./components/MapComponent";
-import BrewerieList from "./components/Breweries/BreweryList";
+import BreweryList from "./components/Breweries/BreweryList";
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
@@ -46,7 +46,7 @@ const App = () => {
                 </>
               )}
               <Route path="/maps" element={<MapComponent />} />
-              <Route path="/breweries" element={<BrewerieList />} />
+              <Route path="/breweryList" element={<BreweryList />} />
 
               <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
               <Route path="*" element={<Navigate to="/" replace />} />
