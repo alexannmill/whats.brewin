@@ -1,7 +1,7 @@
 // ----- React and Utils -----
 import { useState, useContext } from "react";
 // ----- For react-map-gl -----
-import Map, { GeolocateControl } from "react-map-gl";
+import Map, { GeolocateControl, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Contexts -----
 import { breweriesContext } from "../Contexts/BreweriesContext";
@@ -19,12 +19,12 @@ const MapComponent = () => {
   const [viewState, setViewState] = useState({
     latitude: city.lat,
     longitude: city.long,
-    zoom: 11,
+    zoom: 12,
     pitch: 10,
   });
 
   return (
-    <div className="w-1/2">
+    <div className="w-full">
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -33,9 +33,9 @@ const MapComponent = () => {
         style={{ width: "fit", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(e) => setViewState(e.viewState)}
-        // onLoad={() => geolocate.current.trigger()}
       >
         <GeolocateControl />
+        <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
     </div>

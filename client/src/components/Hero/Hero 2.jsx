@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MapComponent from "../MapComponent";
 import SearchBar from "../SearchBar";
 import "./Hero.css";
 
@@ -7,6 +8,8 @@ const Hero = () => {
     console.log("pos.coords.latitude:", pos.coords.latitude);
     console.log("pos.coords.longitude:", pos.coords.longitude);
   });
+
+  const [city, setCity] = useState(geolocation);
 
   return (
     <div className="Hero">

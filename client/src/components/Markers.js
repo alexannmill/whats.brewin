@@ -1,7 +1,9 @@
 // ----- React & Utils -----
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // ----- react-map-gl -----
 import { Marker, Popup, useMap } from "react-map-gl";
+// ----- Contexts -----
+import { cityContext } from "../Contexts/CityContext";
 // ----- Components -----
 import BreweryPopup from "./BreweryPopup";
 
@@ -10,7 +12,15 @@ import BreweryPopup from "./BreweryPopup";
 //
 const Markers = (props) => {
   const [popupInfo, setPopupInfo] = useState(null);
+  const { city } = useContext(cityContext);
   const { current: map } = useMap();
+
+  useEffect(() => {
+    map.flyTo({
+      center: [city.long, city.lat],
+      duration: 3000,
+    })
+  }, [map, city])
 
   const handleClick = (event, brewery) => {
     event.originalEvent.stopPropagation();

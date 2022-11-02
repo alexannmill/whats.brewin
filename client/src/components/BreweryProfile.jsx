@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./BreweryProfile.css"
+import BreweryImage from "./BreweryImage"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -44,18 +45,7 @@ export default function BreweryProfile() {
       });
     }, [brewery_id]);
 
-    // const urlEncode = (encodeURIComponent(`${brewery.name} logo`));
-    
-    const options = {
-      page: 0, 
-      safe: false, // Safe Search
-      parse_ads: false, // If set to true sponsored results will be parsed
-      additional_params: { 
-        // add additional parameters here, see https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters and https://www.seoquake.com/blog/google-search-param/
-        hl: 'en' 
-      }
-    }
-    
+ console.log('brewery_id:', brewery_id)
     const formatPhone = (phoneNum) => {
       if (!phoneNum) return "Not Available";
   
@@ -72,6 +62,7 @@ export default function BreweryProfile() {
           <img className="brewery-img" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr3-k5ByhkB6qNRbtACIK2YdY5JydpQJ35bTVNoaSptQ&s" alt="Brewery Img"></img>
         </div>
         <br/>
+        <BreweryImage brewery={brewery_id}></BreweryImage>
         <div className="info-container">
           <div>
             <div className="brewery-address">

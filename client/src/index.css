@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: url(./pionter-image/beer.png), auto;
 }
 @layer components {
   .card {
@@ -36,7 +37,14 @@ code {
   @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] hover:from-[#2193b0] hover:to-[#6dd5ed] cursor-auto
   rounded-t-lg;
 }
+header {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] hover:from-[#2193b0] hover:to-[#6dd5ed] cursor-auto
+  rounded-t-lg;
+}
 .mapboxgl-popup-content header h3 {
+  @apply text-3xl font-sans font-semibold text-center text-neutral-50 p-3 tracking-wide;
+}
+header h3 {
   @apply text-3xl font-sans font-semibold text-center text-neutral-50 p-3 tracking-wide;
 }
 .brewery-details-container {
