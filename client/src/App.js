@@ -46,9 +46,11 @@ const App = () => {
                   <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
                 </>
               )}
+              {showUser && (
+                <Route path="/favourites" element={<Favourites />} />
+              )}
               <Route path="/maps" element={<MapComponent />} />
               <Route path="/breweryList" element={<BreweryList />} />
-              <Route path="/favourites" element={<Favourites />} />
 
               <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
               <Route path="*" element={<Navigate to="/" replace />} />

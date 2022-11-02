@@ -7,16 +7,20 @@ import { LoginContext } from "../../Contexts/LoginContext";
 
 const BrewerieList = () => {
   const { breweries } = useContext(breweriesContext);
-  const { user } = useContext(LoginContext);
+  const { user, showUser } = useContext(LoginContext);
   const userBreweries = user.favoritedBreweries;
   if (user) {
   }
   const breweryList = breweries.map((b) => {
-    let isFav = userBreweries.find((e) => e.id == b.id);
+    let isFav;
+    if (showUser) {
+      isFav = userBreweries.find((e) => e.id == b.id);
+    }
 
     return (
       <div className="  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
-        <BreweryPopup popupInfo={b} /> <LikeButton isFav={isFav} brewery={b} />
+        <BreweryPopup popupInfo={b} />{" "}
+        {showUser && <LikeButton isFav={isFav} brewery={b} />}
       </div>
     );
   });
