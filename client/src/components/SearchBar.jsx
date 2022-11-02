@@ -74,7 +74,6 @@ export default function SearchBar(props) {
     e.preventDefault();
     setSelect("");
     setSearch([])
-    setCity({})
   }
 
     return (
@@ -86,9 +85,11 @@ export default function SearchBar(props) {
         </h1>
       )}
         <form className="search-with-buttons" >
+          {!props.nav &&
           <Link to={"/maps"}>
             <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
-          </Link>
+          </Link>}
+
             <DatalistInput 
               className="Search-bar-input"
               label="See What's Brewin'"
