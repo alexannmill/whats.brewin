@@ -10,7 +10,7 @@ const BrewerieList = () => {
   const breweryList = breweries.map((b) => {
     return (
       <div className="  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
-        <BreweryPopup popupInfo={b} /> <LikeButton />
+        <BreweryPopup popupInfo={b} /> <LikeButton brewery={b} />
       </div>
     );
   });
