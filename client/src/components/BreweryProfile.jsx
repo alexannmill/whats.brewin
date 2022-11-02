@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
+import Event from "./Event";
 
 
 
@@ -67,6 +68,9 @@ export default function BreweryProfile() {
             <div className="brewery-contact">
               <a href={brewery.website}><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</a>
               <h1> <FontAwesomeIcon icon={faPhone}/> {formatPhone(brewery.phone)}</h1>
+            </div>
+            <div>
+              <Event></Event>
             </div>
           </div>
         </div>

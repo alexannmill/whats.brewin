@@ -5,7 +5,7 @@ import "./BreweryProfile.css"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalender,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -30,7 +30,7 @@ const Event = () => {
       <div className="event-content">
         <h4 className="event-caption">{event.caption}</h4>
         <h6 className="event-likes">
-          <FontAwesomeIcon icon={faCalender} />
+          <FontAwesomeIcon icon={faCalendar} />
            {event.likes}</h6>
         <h6 className="event-date">{event.date}</h6>
       </div>
