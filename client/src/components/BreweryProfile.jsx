@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./BreweryProfile.css"
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapLocationDot,
@@ -12,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
-
+import google from 'googlethis';
 
 
 // //props breweryName
@@ -23,17 +22,6 @@ export default function BreweryProfile() {
   let {brewery_id} = useParams();
 
   
-  const formatPhone = (phoneNum) => {
-    if (!phoneNum) return "Not Available";
-
-    return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
-      3,
-      6
-    )}-${phoneNum.substring(6)}`;
-  };
-
-
-
   // Find breweries for map by brewery
   useEffect(() => {
     axios
@@ -41,7 +29,7 @@ export default function BreweryProfile() {
         `https://api.openbrewerydb.org/breweries/${brewery_id}`
       )
       .then((res) => {
-        console.log('res:', res)
+        console.log('resBrewery:', res)
         const incomingData = res.data
         setBrewery({
             name: incomingData.name,
@@ -54,8 +42,25 @@ export default function BreweryProfile() {
             website_url: incomingData.website_url
           });
       });
-  }, [brewery_id]);
+    }, [brewery_id]);
 
+    // const urlEncode = (encodeURIComponent(`${brewery.name} logo`));
+    
+    // useEffect(() => {
+    //   axios.get(`https://serpapi.com/search.json?q=cloud+burst+brewery+logo&tbm=isch&ijn=0`)
+    //   .then((res) => {
+    //     console.log('resImage:', res)
+    //   })
+    // },[brewery_id])
+    
+    const formatPhone = (phoneNum) => {
+      if (!phoneNum) return "Not Available";
+  
+      return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
+        3,
+        6
+      )}-${phoneNum.substring(6)}`;
+    };
 
   return (
     <div class="page">
@@ -73,7 +78,7 @@ export default function BreweryProfile() {
             </div>
             <div className="brewery-contact">
               <h1><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</h1>
-              <h1> <FontAwesomeIcon icon={faPhone}/> {brewery.phone}</h1>
+              <h1> <FontAwesomeIcon icon={faPhone}/> {formatPhone(brewery.phone)}</h1>
             </div>
           </div>
         </div>

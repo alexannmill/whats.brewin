@@ -5,7 +5,7 @@ import { faBeerMugEmpty } from '@fortawesome/free-solid-svg-icons'
 
 const LikeButton = (props) => {
   
-  const [like, setLike] = useState(false)
+  const [like,] = useState(false)
 
 
   return (
