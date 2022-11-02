@@ -50,8 +50,8 @@ const App = () => {
                 <Route path="/favourites" element={<Favourites />} />
               )}
               <Route path="/maps" element={<MapComponent />} />
-              <Route path="/breweryList" element={<BreweryList />} />
-
+              <Route path="/brewery_list" element={<BreweryList />} />
+              <Route path="/favorites_list" element={<Favourites />} />
               <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

@@ -8,6 +8,9 @@ import { breweriesContext } from "../Contexts/BreweriesContext";
 import { cityContext } from "../Contexts/CityContext";
 // ----- Components -----
 import Markers from "./Markers";
+import { NavLink } from "react-router-dom";
+import BrewerieList from "./Breweries/BreweryList";
+import Favourites from "./Breweries/Favourites";
 
 //
 // ----- Component -----
@@ -38,6 +41,8 @@ const MapComponent = () => {
         <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
+      <NavLink to={"/brewery_list"} element={<BrewerieList />}><button>Go to all list</button></NavLink>
+      <NavLink to={"/favorites_list"} element={<Favourites />}><button>Go to favorites</button></NavLink>
     </div>
   );
 };
