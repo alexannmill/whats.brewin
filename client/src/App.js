@@ -38,11 +38,11 @@ const App = () => {
   console.log(location);
 
   // useTransitions take 3 params
-  const [transitions, api] = useTransition(location, () => ({
-    from: { opacity: 0, transform: "translate(100%, 0)" },
-    enter: { opacity: 1, transform: "translate(0%, 0)" },
-    leave: { opacity: 0, transform: "translate(100%, 0)" },
-  }));
+  const transitions = useTransition(location, {
+    from: { opacity: 0, transform: "translate3d(0, 100%, 0)" },
+    enter: { opacity: 1, transform: "translate3d(0, 0%, 0)" },
+    leave: { opacity: 0, transform: "translate3d(0, 50%, 0)" },
+  });
 
 
   return (
