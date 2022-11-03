@@ -7,7 +7,6 @@ import {
   faMapLocationDot,
   faGlobe,
   faPhone,
-  faBeerMugEmpty,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
@@ -50,26 +49,6 @@ export default function BreweryProfile() {
       });
     }, [brewery_id]);
 
-    // const urlEncode = (encodeURIComponent(`${brewery.name} logo`));
-    
-    const options = {
-      page: 0, 
-      safe: false, // Safe Search
-      parse_ads: false, // If set to true sponsored results will be parsed
-      additional_params: { 
-        // add additional parameters here, see https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters and https://www.seoquake.com/blog/google-search-param/
-        hl: 'en' 
-      }
-    }
-    
-    const formatPhone = (phoneNum) => {
-      if (!phoneNum) return "Not Available";
-  
-      return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
-        3,
-        6
-      )}-${phoneNum.substring(6)}`;
-    };
 
   return (
     <div className="page">
