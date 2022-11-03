@@ -6,7 +6,8 @@
 @layer components {
 
   .page {
-    @apply flex p-8
+    background-image: url('https://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    @apply flex p-8 
   }
 
 /* ---- Left Side */
@@ -24,7 +25,14 @@
     align-items: center;
     @apply flex h-screen flex-col mt-10
   }
+  
+  .info-container {
+    @apply text-center text-xl border-4 p-5 text-[#FF8001] flex flex-row justify-start items-center bg-neutral-100 rounded-xl;
+  }
 
+  .event-content {
+    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-100 rounded-xl;
+  }
 
 /* ----  Right Side */
   .right-side {
@@ -32,12 +40,9 @@
     @apply flex flex-col h-screen
   }
   
-  .info-container {
-    @apply text-center text-xl border-4 p-5 rounded-sm text-[#FF8001] flex flex-row justify-start items-center hover:bg-slate-100 py-3 px-5 last:rounded-b-lg;
-  }
 
   .brewery-title {
-    @apply font-bold text-5xl text-center m-3
+    @apply  font-bold text-7xl text-center m-3 text-[#fb8a19] bg-neutral-100 rounded-xl
   }
 
   .brewery-address {
@@ -46,11 +51,11 @@
 
 /* ---- Post */
   .post-container {
-    @apply flex relative
+    @apply flex relative rounded-xl
   }
 
   .post {
-    @apply flex items-center content-center m-1
+    @apply flex items-center content-center m-1 bg-neutral-300 rounded-xl p-3
   }
   
   .post-img {
@@ -59,9 +64,10 @@
   }
 
   .post-img img {
-    object-fit: contain;
-    align-items: center;
-    @apply flex w-auto m-1 
+    
+    /* object-fit: contain;
+    align-items: center; */
+    @apply flex w-auto m-1 rounded-xl bg-cover
   }
 
   .post-caption {
@@ -76,6 +82,6 @@
     @apply flex font-normal text-xl m-2
   }
   .post-content {
-    @apply flex text-center border-4 p-2 m-2 rounded-sm text-[#FF8001] flex flex-col justify-start items-center py-3 px-5 w-64;
+    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-xl;
   }
 }

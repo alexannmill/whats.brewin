@@ -24,7 +24,7 @@ const Post = () => {
 
   return (
     <div className="post">
-      <div className="post-img">
+      <div className="post-img" >
         <img src={post.photo_url} alt="post"></img>
       </div>
       <div className="post-content">

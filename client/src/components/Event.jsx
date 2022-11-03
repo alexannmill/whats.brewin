@@ -9,9 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
-const Event = () => {
+const Event = (props) => {
   
   const [event, setEvent] = useState({});
+
+  console.log('props:', props)
 
   const id = Math.floor(Math.random() * 100)
   useEffect(() => {
@@ -19,20 +21,27 @@ const Event = () => {
       .then((res) => {
         const event = res.data
         setEvent(event)
+        console.log('event:', event)
       })
   },[])
 
   return (
     <div className="event">
-      <div className="event-img">
-        <img src={event.photo_url} alt="event"></img>
-      </div>
       <div className="event-content">
-        <h4 className="event-caption">{event.caption}</h4>
-        <h6 className="event-likes">
-          <FontAwesomeIcon icon={faCalendar} />
-           {event.likes}</h6>
-        <h6 className="event-date">{event.date}</h6>
+        <div className="event-left">
+          <h6 className="event-caption">
+            <FontAwesomeIcon icon={faCalendar} />
+            {event.date}
+          </h6>
+        </div>
+        <div className="=event-right">
+          <h6 className="event-likes">
+          <h4 className="event-caption">{event.event}</h4>
+            {event.location}, {props.brewery.city} {props.brewery.state} USA</h6>
+          <h6 className="event-likes">$ {event.ticket_price}</h6>
+          <h6 className="event-likes">{event.description}</h6>
+          <h6 className="event-date">{event.ticket_link}</h6>
+        </div>
       </div>
     </div>
   );
