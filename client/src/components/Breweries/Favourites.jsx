@@ -9,7 +9,7 @@ const Favourites = () => {
   const breweries = user.favoritedBreweries;
   const breweryList = breweries.map((b) => {
     return (
-      <div className=" shadow-orange-50 shadow-lg  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
+      <div className=" shadow-orange-50 shadow-md  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
         <BreweryPopup popupInfo={b} /> <LikeButton isFav={true} brewery={b} />
       </div>
     );
