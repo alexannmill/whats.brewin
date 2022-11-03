@@ -52,6 +52,10 @@ export default function BreweryProfile() {
     };
   return (
     <div className="page">
+        <div className="brewery-title">
+          <h1 >{brewery.name}</h1>
+        </div>
+        <div className="under-header">
       <div className="left-side">
         <div className="brewery-image">
           <img className="brewery-img" src={Logo} alt="Brewery Img"></img>
@@ -74,9 +78,6 @@ export default function BreweryProfile() {
             </div>
       </div>
       <div className="right-side">
-        <div className="brewery-title">
-          <h1 >{brewery.name}</h1>
-        </div>
           <div className="post-container">
             <Post/>
           </div>
@@ -87,6 +88,7 @@ export default function BreweryProfile() {
             <Post/>
           </div>   
       </div>
+    </div>
     </div>
   );
 }

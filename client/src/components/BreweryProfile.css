@@ -6,78 +6,98 @@
 @layer components {
 
   .page {
+    justify-content: space-evenly;
     background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    @apply flex p-8 h-auto bg-cover
+    @apply flex p-5 flex-col h-auto bg-cover font-serif overflow-scroll;
+  }
+  
+  .brewery-title {
+    @apply font-bold text-7xl mr-36 ml-36 text-center m-2 text-neutral-100  bg-gradient-to-r from-[#FF8001] to-[#feb47b] rounded-lg p-2;
   }
 
+  .under-header {
+    justify-content: space-evenly;
+    @apply flex flex-row
+  }
 /* ---- Left Side */
 
+
   .brewery-img {
-    @apply w-full h-auto rounded-2xl
+    @apply w-full h-auto rounded-2xl border-[#f6f2f2b9] border-4;
   }
 
   .left-side {
     width: 40%;
     align-items: center;
-    @apply flex h-screen flex-col mt-10
+    @apply flex h-screen flex-col mt-10;
   }
   
+  .brewery-contact {
+    @apply border-t-slate-400 border-t-2 pt-2
+  }
   .header {
-    @apply text-2xl  mb-2 border-b-slate-400 border-b-2
+    @apply text-2xl  mb-2 text-[#1b252d];
   }
   .info-container {
-    @apply text-center text-xl border-4 p-5 text-[#FF8001] flex flex-row justify-start items-center bg-[#f6f2f2] rounded-lg;
+    @apply text-center mb-6 text-xl border-8 border-[#f6f2f2b9] text-[#1b252d] flex flex-row justify-start items-center bg-neutral-200 rounded-xl p-5;
+  }
+  
+  .brewery-address {
+    @apply mb-1 pb-1 text-[#1b252d];
   }
 
   .event {
-    @apply flex flex-col text-center border-4 p-2 m-2 text-[#FF8001] justify-start items-center bg-[#f6f2f2] rounded-lg;
+    @apply flex flex-col text-center border-8
+     border-[#f6f2f2b9] text-[#FF8001] justify-start items-center bg-neutral-200 rounded-lg;
   }
 
   .calendar {
-    @apply text-7xl m-2
+    @apply text-6xl text-[#FF8001];
   }
-  
+
+  .event-left {
+    @apply  border-r-slate-400 border-t-2 mt-2 mb-2
+  }
+
+  .event-right {
+    @apply ml-2 
+  }
+
   .event-date {
-    @apply text-xl flex-col
+    @apply text-xl flex-col w-32 text-[#1b252de8] border-r-slate-400 border-r-2;
   }
   
+  .event-title {
+    @apply font-semibold text-xl text-[#1b252de8] pb-2;
+  };
   .event-content {
-    @apply flex flex-row
+    @apply flex flex-row text-lg  border-t-slate-400 border-t-2 ml-4 mr-4 pt-2 ;
   }
 
 /* ----  Right Side */
   .right-side {
     align-items: center;
-    @apply flex flex-col h-screen
-  }
-  
-
-  .brewery-title {
-    @apply font-bold text-7xl text-center m-3 text-[#fb8a19]  bg-[#f6f2f2d9] rounded-lg p-3
-  }
-
-  .brewery-address {
-    @apply mb-1 pb-1 border-b-slate-400 border-b-2
+    @apply flex flex-col h-screen;
   }
 
 /* ---- Post */
   .post-container {
-    @apply flex relative rounded-lg
+    @apply flex relative rounded-lg;
   }
 
   .post {
-    @apply flex items-center content-center m-1 bg-[#f6f2f2b9] rounded-lg p-3
+    @apply flex items-center content-center bg-[#f6f2f2b9] rounded-lg p-3 pr-2 pl-2 mt-2 mb-2;
   }
   
   .post-img {
     justify-content: center;
-    @apply flex h-80 w-96
+    @apply flex h-80 w-96 m-2;
   }
 
   .post-img img {
     object-fit: cover;
     align-items: center;
-    @apply flex w-auto rounded-lg bg-cover
+    @apply flex w-auto rounded-lg bg-cover ;
   }
 
   .post-caption {
@@ -98,6 +118,6 @@
   }
   
   .post-content {
-    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-lg;
+    @apply flex text-center border-4 m-2 text-[#ff8e00] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-lg;
   }
 }

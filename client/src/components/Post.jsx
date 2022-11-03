@@ -13,7 +13,7 @@ const Post = () => {
   
   const [post, setPost] = useState({});
 
-  const id = Math.floor(Math.random() * 6)
+  const id = Math.floor(Math.random() * (5 - 1) + 1)
   useEffect(() => {
     axios.get(`/posts/${id}`)
       .then((res) => {
