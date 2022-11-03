@@ -6,9 +6,12 @@ import {
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 // ----- react-map-gl -----
 import "mapbox-gl/dist/mapbox-gl.css";
+// ----- react-spring -----
+import { useTransition, animated } from "react-spring";
 // ----- Contexts -----
 import { LoginContext } from "./Contexts/LoginContext";
 import BreweriesProvider from "./Contexts/BreweriesContext";
@@ -28,40 +31,66 @@ const App = () => {
   const [showUser, setShowUser] = useState(false);
   const [user, setUser] = useState({});
 
+  //
+  // For React Spring Transition
+  //
+  const location = useLocation(); // From react-router-dom, allows us to keep track of page changes
+
+  // useTransitions take 3 params
+  // 1. the items you want to iterate over (in this case our locations)
+  // 2. a function that tells this transition what the KEY of each items should be, in this case the pathnames of our locations
+  // 3. a config object that defines each stages of the transition
+  // const transitions = useTransition(location, {
+  //   from: { opacity: 0, width: "0%" }, // where it starts
+  //   enter: { opacity: 1, width: "100%" }, // how it enters
+  //   leave: { opacity: 0, width: "0%" }, // how it leaves
+  // });
+  const transitions = useTransition(location, {
+    from: { transform: "translate3d(100%,0,0)" },
+    enter: { transform: "translate3d(0%,0,0)" },
+    leave: { transform: "translate3d(-50%,0,0)" },
+  });
+
+  // Next animate the routes, mapping each transitions
+  // .map() takes CB receiving an OBJECT with items we want to iterate over
+  // alias this to the location, as well as status properties that we receive from the animation
+  // and the key for each of these items (the pathnames)
+  // next, return an <animated.div> that understands the css properties / styles received from animations (from, enter, leave)
+  // set the <animation.div style={props} and key={key}>
+  // and lastly the <Routes / <Switch  location={location}>
+
   return (
-    <Router>
-      <CityProvider>
-        <BreweriesProvider>
-          <LoginContext.Provider
-            value={{ user, setUser, showUser, setShowUser }}
-          >
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              {!showUser && (
-                <>
-                  <Route
-                    path="/register"
-                    element={<FormUsers>Register</FormUsers>}
-                  />
-                  <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
-                </>
-              )}
-              {showUser && (
-                <Route path="/favourites" element={<Favourites />} />
-              )}
-              <Route path="/react_spring" element={<ReactSpringExperiment/>} />
-              <Route path="/maps" element={<MapComponent />} />
-              <Route path="/brewery_list" element={<BreweryList />} />
-              <Route path="/favorites_list" element={<Favourites />} />
-              <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-            <Footer />
-          </LoginContext.Provider>
-        </BreweriesProvider>
-      </CityProvider>
-    </Router>
+    <CityProvider>
+      <BreweriesProvider>
+        <LoginContext.Provider
+          value={{ user, setUser, showUser, setShowUser }}
+        >
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {!showUser && (
+              <>
+                <Route
+                  path="/register"
+                  element={<FormUsers>Register</FormUsers>}
+                />
+                <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
+              </>
+            )}
+            {showUser && (
+              <Route path="/favourites" element={<Favourites />} />
+            )}
+            <Route path="/react_spring" element={<ReactSpringExperiment/>} />
+            <Route path="/maps" element={<MapComponent />} />
+            <Route path="/brewery_list" element={<BreweryList />} />
+            <Route path="/favorites_list" element={<Favourites />} />
+            <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          <Footer />
+        </LoginContext.Provider>
+      </BreweriesProvider>
+    </CityProvider>
   );
 };
 
