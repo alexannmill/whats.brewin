@@ -16,7 +16,12 @@ const Favourites = () => {
   });
 
   return (
-    <div className="bList flex flex-wrap justify-center">{breweryList}</div>
+    <div className="bList ">
+      <h3 className="text-3xl font-sans font-bold text-center text-black-50 mt-3 tracking-wide bg-neutral-50  p-10  rounded-3xl opacity-95 ">
+        My Favourites
+      </h3>
+      <div className=" flex flex-wrap justify-center">{breweryList}</div>
+    </div>
   );
 };
 
