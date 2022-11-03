@@ -13,9 +13,7 @@ const Event = (props) => {
   
   const [event, setEvent] = useState({});
 
-  console.log('props:', props)
-
-  const id = Math.floor(Math.random() * (4 - 1) + 1)
+  const id = props.id
   useEffect(() => {
     axios.get(`/events/${id}`)
       .then((res) => {
@@ -26,9 +24,6 @@ const Event = (props) => {
 
   return (
     <div className="event">
-      <div className="header">
-        <h3>Upcoming Events</h3>
-      </div>
       <div className="event-content">
         <div className="event-left">
           <h6 className="event-date">

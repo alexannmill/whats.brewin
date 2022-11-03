@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./BreweryProfile.css"
 import Post from "./Post"
-import Logo from "./nav & footer/imgs/logo3.png"
+import Logo from "../nav & footer/imgs/logo3.png"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -75,20 +75,40 @@ export default function BreweryProfile() {
             </div>
           </div>
         </div>
+        <div className="events-container">
+          <div className="header">
+            <h3>Upcoming Events</h3>
+          </div>
             <div>
-              <Event key={brewery_id} brewery={brewery} ></Event>
+              <Event key={brewery_id} brewery={brewery} id={2}></Event>
             </div>
+            <div>
+              <Event key={brewery_id} brewery={brewery} id={3}></Event>
+            </div>
+            <div>
+              <Event key={brewery_id} brewery={brewery} id={1}></Event>
+            </div>
+        </div>
       </div>
       <div className="right-side">
           <div className="post-container">
-            <Post/>
+            <Post id={6}/>
           </div>
           <div className="post-container">
-            <Post/>
+            <Post id={2}/>
           </div>
           <div className="post-container">
-            <Post/>
+            <Post id={1}/>
           </div>   
+          <div className="post-container">
+            <Post id={4}/>
+          </div>   
+          <div className="post-container">
+            <Post id={5}/>
+          </div>   
+          <div className="post-container">
+            <Post id={3}/>
+          </div>    
       </div>
     </div>
     </div>

@@ -9,11 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
-const Post = () => {
+const Post = (props) => {
   
   const [post, setPost] = useState({});
 
-  const id = Math.floor(Math.random() * (7 - 1) + 1)
+  const id = props.id
+
   useEffect(() => {
     axios.get(`/posts/${id}`)
       .then((res) => {

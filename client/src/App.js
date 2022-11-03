@@ -18,7 +18,7 @@ import Home from "./components/Home";
 import FormUsers from "./components/users/FormUsers";
 import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
-import BreweryProfile from "./components/BreweryProfile";
+import BreweryProfile from "./components/Brewery-Profile/BreweryProfile";
 import MapComponent from "./components/MapComponent";
 import BreweryList from "./components/Breweries/BreweryList";
 import Favourites from "./components/Breweries/Favourites";

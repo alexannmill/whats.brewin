@@ -1,5 +1,5 @@
 // ----- Components -----
-import BreweryProfile from "./BreweryProfile";
+import BreweryProfile from "./Brewery-Profile/BreweryProfile";
 import LikeButton from "./LikeButton";
 import Hero from "../components/Hero/Hero";
 import BreweryList from "./Breweries/BreweryList";
