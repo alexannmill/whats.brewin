@@ -15,7 +15,7 @@ const Event = (props) => {
 
   console.log('props:', props)
 
-  const id = Math.floor(Math.random() * (3 - 1) + 1)
+  const id = Math.floor(Math.random() * (4 - 1) + 1)
   useEffect(() => {
     axios.get(`/events/${id}`)
       .then((res) => {
