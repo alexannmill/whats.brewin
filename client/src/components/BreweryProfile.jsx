@@ -51,14 +51,7 @@ export default function BreweryProfile() {
         });
       }, [brewery_id]);
       
-    const formatPhone = (phoneNum) => {
-      if (!phoneNum) return "Not Available";
-  
-      return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
-        3,
-        6
-      )}-${phoneNum.substring(6)}`;
-    };
+
   return (
     <div className="page">
         <div className="brewery-title">
