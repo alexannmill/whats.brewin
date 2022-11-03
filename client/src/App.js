@@ -42,9 +42,9 @@ const App = () => {
   // 2. a function that tells this transition what the KEY of each items should be, in this case the pathnames of our locations
   // 3. a config object that defines each stages of the transition
   const [transitions, api] = useTransition(location, () => ({
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    from: { opacity: 0, transform: "translate(100%, 0)" },
+    enter: { opacity: 1, transform: "translate(0%, 0)" },
+    leave: { opacity: 0, transform: "translate(100%, 0)" },
   }));
 
   // Next animate the routes, mapping each transitions
