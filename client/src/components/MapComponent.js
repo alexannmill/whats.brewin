@@ -27,7 +27,7 @@ const MapComponent = () => {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-1/2 basis-1/2">
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -41,8 +41,6 @@ const MapComponent = () => {
         <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
-      <NavLink to={"/brewery_list"} element={<BrewerieList />}><button>Go to all list</button></NavLink>
-      <NavLink to={"/favorites_list"} element={<Favourites />}><button>Go to favorites</button></NavLink>
     </div>
   );
 };

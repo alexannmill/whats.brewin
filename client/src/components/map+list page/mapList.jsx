@@ -4,7 +4,7 @@ import MapComponent from "../MapComponent";
 
 const MapList = () => {
   return (
-    <div>
+    <div className="flex">
       <MapComponent /> <BrewerieList />
     </div>
   );

@@ -18,7 +18,7 @@ const BrewerieList = () => {
     }
 
     return (
-      <div className="  bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
+      <div className="  basis-1/2 bg-neutral-50 m-5 p-0  rounded-xl opacity-95 max-w-lg hover:opacity-100">
         <BreweryPopup popupInfo={b} />{" "}
         {showUser && <LikeButton isFav={isFav} brewery={b} />}
       </div>
@@ -26,7 +26,9 @@ const BrewerieList = () => {
   });
 
   return (
-    <div className="bList flex flex-wrap justify-center">{breweryList}</div>
+    <div className="bList w-1/2 flex flex-wrap justify-center">
+      {breweryList}
+    </div>
   );
 };
 

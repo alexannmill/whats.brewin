@@ -25,7 +25,7 @@ import BreweryProfile from "./components/BreweryProfile";
 import MapComponent from "./components/MapComponent";
 import BreweryList from "./components/Breweries/BreweryList";
 import Favourites from "./components/Breweries/Favourites";
-import ReactSpringExperiment from "./components/ReactSpringExperiment";
+import MapList from "./components/map+list page/MapList";
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
@@ -68,11 +68,8 @@ const App = () => {
                 {showUser && (
                   <Route path="/favourites" element={<Favourites />} />
                 )}
-                <Route
-                  path="/react_spring"
-                  element={<ReactSpringExperiment />}
-                />
-                <Route path="/maps" element={<MapComponent />} />
+
+                <Route path="/maps" element={<MapList />} />
                 <Route path="/brewery_list" element={<BreweryList />} />
                 <Route path="/favorites_list" element={<Favourites />} />
                 <Route
