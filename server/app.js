@@ -7,6 +7,8 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const citiesRouter = require("./routes/cities");
+const postsRouter = require("./routes/posts");
+const eventsRouter = require("./routes/events");
 // const favoritesRouter = require("./routes/favorites");
 const PORT = process.env.PORT;
 const app = express();
@@ -30,6 +32,8 @@ app.use(
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/cities", citiesRouter);
+app.use("/posts", postsRouter);
+app.use("/events", eventsRouter);
 // app.use("/favorites", favoritesRouter);
 
 app.listen(PORT, () => {

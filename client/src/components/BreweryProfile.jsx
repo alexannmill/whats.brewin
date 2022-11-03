@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./BreweryProfile.css"
+import Post from "./Post"
+import Logo from "./nav & footer/imgs/logo3.png"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import {useParams} from "react-router-dom";
+import Event from "./Event";
 
 
 
@@ -34,7 +37,6 @@ export default function BreweryProfile() {
     axios
       .get(`https://api.openbrewerydb.org/breweries/${brewery_id}`)
       .then((res) => {
-        console.log('resBrewery:', res)
         const incomingData = res.data
         setBrewery({
           name: incomingData.name,
@@ -46,15 +48,26 @@ export default function BreweryProfile() {
           phone: incomingData.phone,
           website_url: incomingData.website_url,
         });
-      });
-    }, [brewery_id]);
-
-
+        });
+      }, [brewery_id]);
+      
+    const formatPhone = (phoneNum) => {
+      if (!phoneNum) return "Not Available";
+  
+      return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
+        3,
+        6
+      )}-${phoneNum.substring(6)}`;
+    };
   return (
     <div className="page">
+        <div className="brewery-title">
+          <h1 >{brewery.name}</h1>
+        </div>
+        <div className="under-header">
       <div className="left-side">
         <div className="brewery-image">
-          <img className="brewery-img" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr3-k5ByhkB6qNRbtACIK2YdY5JydpQJ35bTVNoaSptQ&s" alt="Brewery Img"></img>
+          <img className="brewery-img" src={Logo} alt="Brewery Img"></img>
         </div>
         <br/>
         <div className="info-container">
@@ -62,20 +75,29 @@ export default function BreweryProfile() {
             <div className="brewery-address">
               <h1><FontAwesomeIcon icon={faMapLocationDot}/> {brewery.street}</h1>
               <h1>{brewery.state}, USA, {brewery.postal_code}</h1>
-              <br/>
             </div>
             <div className="brewery-contact">
-              <h1><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</h1>
+              <a target="_blank" href={brewery.website_url}><FontAwesomeIcon icon={faGlobe}/> {brewery.website_url}</a>
               <h1> <FontAwesomeIcon icon={faPhone}/> {formatPhone(brewery.phone)}</h1>
             </div>
           </div>
         </div>
+            <div>
+              <Event key={brewery_id} brewery={brewery} ></Event>
+            </div>
       </div>
       <div className="right-side">
-        <div className="brewery-title">
-          <h1 className="brewery-title">{brewery.name}</h1>
-        </div>
+          <div className="post-container">
+            <Post/>
+          </div>
+          <div className="post-container">
+            <Post/>
+          </div>
+          <div className="post-container">
+            <Post/>
+          </div>   
       </div>
+    </div>
     </div>
   );
 }
