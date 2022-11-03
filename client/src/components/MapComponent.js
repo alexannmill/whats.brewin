@@ -1,13 +1,16 @@
 // ----- React and Utils -----
 import { useState, useContext } from "react";
 // ----- For react-map-gl -----
-import Map, { GeolocateControl } from "react-map-gl";
+import Map, { GeolocateControl, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Contexts -----
 import { breweriesContext } from "../Contexts/BreweriesContext";
 import { cityContext } from "../Contexts/CityContext";
 // ----- Components -----
 import Markers from "./Markers";
+import { NavLink } from "react-router-dom";
+import BrewerieList from "./Breweries/BreweryList";
+import Favourites from "./Breweries/Favourites";
 
 //
 // ----- Component -----
@@ -19,12 +22,12 @@ const MapComponent = () => {
   const [viewState, setViewState] = useState({
     latitude: city.lat,
     longitude: city.long,
-    zoom: 11,
+    zoom: 12,
     pitch: 10,
   });
 
   return (
-    <div className="w-1/2">
+    <div className="w-full">
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -33,11 +36,13 @@ const MapComponent = () => {
         style={{ width: "fit", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(e) => setViewState(e.viewState)}
-        // onLoad={() => geolocate.current.trigger()}
       >
         <GeolocateControl />
+        <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
+      <NavLink to={"/brewery_list"} element={<BrewerieList />}><button>Go to all list</button></NavLink>
+      <NavLink to={"/favorites_list"} element={<Favourites />}><button>Go to favorites</button></NavLink>
     </div>
   );
 };

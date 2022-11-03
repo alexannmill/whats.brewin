@@ -17,30 +17,36 @@ import {useParams} from "react-router-dom";
 // //props breweryName
 export default function BreweryProfile() {
   const [brewery, setBrewery] = useState({});
-  
-  // From React Router
-  let {brewery_id} = useParams();
 
-  
+  // From React Router
+  let { brewery_id } = useParams();
+
+  const formatPhone = (phoneNum) => {
+    if (!phoneNum) return "Not Available";
+
+    return `(${phoneNum.substring(0, 3)})-${phoneNum.substring(
+      3,
+      6
+    )}-${phoneNum.substring(6)}`;
+  };
+
   // Find breweries for map by brewery
   useEffect(() => {
     axios
-      .get(
-        `https://api.openbrewerydb.org/breweries/${brewery_id}`
-      )
+      .get(`https://api.openbrewerydb.org/breweries/${brewery_id}`)
       .then((res) => {
         console.log('resBrewery:', res)
         const incomingData = res.data
         setBrewery({
-            name: incomingData.name,
-            street: incomingData.street,
-            brewery_type: incomingData.brewery_type,
-            state: incomingData.state,
-            country: incomingData.country,
-            postal_code: incomingData.postal_code,
-            phone: incomingData.phone,
-            website_url: incomingData.website_url
-          });
+          name: incomingData.name,
+          street: incomingData.street,
+          brewery_type: incomingData.brewery_type,
+          state: incomingData.state,
+          country: incomingData.country,
+          postal_code: incomingData.postal_code,
+          phone: incomingData.phone,
+          website_url: incomingData.website_url,
+        });
       });
     }, [brewery_id]);
 

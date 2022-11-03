@@ -88,23 +88,29 @@ export default function SearchBar(props) {
         </h1>
       )}
         <form className="search-with-buttons" >
-            {/* <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/> */}
-            <DatalistInput className="Search-bar-input"
-            label="See What's Brewin'"
-            placeholder="Enter A City"
-            showLabel={false}
-            // ---- Filter search to only show 5 cities using cityObj value
-            items={search.slice(0, 5)}
-            value={select}
-            onSelect={(item) => {
-            //setting city with city, state instead of value
-              redirect()
-              setCityContextWithClick([item.city, item.state])}}
-            // ---- Handler for search bar input set search and suggestions
-            onChange={(e) => {
-              e.preventDefault();
-              setSelect(e.target.value);
-            }} />
+          {!props.nav &&
+          <Link to={"/maps"}>
+            <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/>
+          </Link>}
+
+            <DatalistInput 
+              className="Search-bar-input"
+              label="See What's Brewin'"
+              placeholder="Enter A City"
+              showLabel={false}
+              // ---- Filter search to only show 5 cities using cityObj value
+              items={search.slice(0, 5)}
+              value={select}
+              onSelect={(item) => {
+              //setting city with city, state instead of value
+                setCityContextWithClick([item.city, item.state])}}
+              // ---- Handler for search bar input set search and suggestions
+              onChange={(e) => {
+                e.preventDefault();
+                setSelect(e.target.value);
+              }}
+            >
+            </DatalistInput>
           <button onClick= {(e) => clearButton(e)} >
           <FontAwesomeIcon icon={faXmark} className="clear-search" />
         </button>
