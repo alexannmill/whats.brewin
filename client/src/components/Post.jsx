@@ -13,12 +13,13 @@ const Post = () => {
   
   const [post, setPost] = useState({});
 
-  const id = Math.floor(Math.random() * 100)
+  const id = Math.floor(Math.random() * 6)
   useEffect(() => {
     axios.get(`/posts/${id}`)
       .then((res) => {
         const post = res.data
         setPost(post)
+        console.log('post:', post)
       })
   },[])
 
@@ -30,7 +31,7 @@ const Post = () => {
       <div className="post-content">
         <h4 className="post-caption">{post.caption}</h4>
         <h6 className="post-likes">
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={faHeart} className="heart"/>
            {post.likes}</h6>
         <h6 className="post-date">{post.date}</h6>
       </div>

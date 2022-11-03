@@ -75,7 +75,8 @@ export default function BreweryProfile() {
       </div>
       <div className="right-side">
         <div className="brewery-title">
-          <h1 className="brewery-title">{brewery.name}</h1>
+          <h1 >{brewery.name}</h1>
+        </div>
           <div className="post-container">
             <Post/>
           </div>
@@ -85,7 +86,6 @@ export default function BreweryProfile() {
           <div className="post-container">
             <Post/>
           </div>   
-        </div>
       </div>
     </div>
   );

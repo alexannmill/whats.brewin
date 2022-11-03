@@ -21,16 +21,18 @@ const Event = (props) => {
       .then((res) => {
         const event = res.data
         setEvent(event)
-        console.log('event:', event)
       })
   },[])
 
   return (
     <div className="event">
+      <div className="header">
+        <h3>Upcoming Events</h3>
+      </div>
       <div className="event-content">
         <div className="event-left">
-          <h6 className="event-caption">
-            <FontAwesomeIcon icon={faCalendar} />
+          <h6 className="event-date">
+            <FontAwesomeIcon className="calendar" icon={faCalendar} />
             {event.date}
           </h6>
         </div>

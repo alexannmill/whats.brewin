@@ -6,68 +6,78 @@
 @layer components {
 
   .page {
-    background-image: url('https://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    @apply flex p-8 
+    background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    @apply flex p-8 h-auto bg-cover
   }
 
 /* ---- Left Side */
-  .brewery-image {
-    @apply flex
-  }
+
   .brewery-img {
-    @apply w-full h-auto
+    @apply w-full h-auto rounded-2xl
   }
-  .brewery-title {
-    @apply text-[#FF8001] text-5xl
-  }
+
   .left-side {
     width: 40%;
     align-items: center;
     @apply flex h-screen flex-col mt-10
   }
   
+  .header {
+    @apply text-2xl  mb-2 border-b-slate-400 border-b-2
+  }
   .info-container {
-    @apply text-center text-xl border-4 p-5 text-[#FF8001] flex flex-row justify-start items-center bg-neutral-100 rounded-xl;
+    @apply text-center text-xl border-4 p-5 text-[#FF8001] flex flex-row justify-start items-center bg-[#f6f2f2] rounded-lg;
   }
 
+  .event {
+    @apply flex flex-col text-center border-4 p-2 m-2 text-[#FF8001] justify-start items-center bg-[#f6f2f2] rounded-lg;
+  }
+
+  .calendar {
+    @apply text-7xl m-2
+  }
+  
+  .event-date {
+    @apply text-xl flex-col
+  }
+  
   .event-content {
-    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-100 rounded-xl;
+    @apply flex flex-row
   }
 
 /* ----  Right Side */
   .right-side {
-    width: 50%;
+    align-items: center;
     @apply flex flex-col h-screen
   }
   
 
   .brewery-title {
-    @apply  font-bold text-7xl text-center m-3 text-[#fb8a19] bg-neutral-100 rounded-xl
+    @apply font-bold text-7xl text-center m-3 text-[#fb8a19]  bg-[#f6f2f2d9] rounded-lg p-3
   }
 
   .brewery-address {
-    @apply p-3
+    @apply mb-1 pb-1 border-b-slate-400 border-b-2
   }
 
 /* ---- Post */
   .post-container {
-    @apply flex relative rounded-xl
+    @apply flex relative rounded-lg
   }
 
   .post {
-    @apply flex items-center content-center m-1 bg-neutral-300 rounded-xl p-3
+    @apply flex items-center content-center m-1 bg-[#f6f2f2b9] rounded-lg p-3
   }
   
   .post-img {
     justify-content: center;
-    @apply flex h-80 w-80
+    @apply flex h-80 w-96
   }
 
   .post-img img {
-    
-    /* object-fit: contain;
-    align-items: center; */
-    @apply flex w-auto m-1 rounded-xl bg-cover
+    object-fit: cover;
+    align-items: center;
+    @apply flex w-auto rounded-lg bg-cover
   }
 
   .post-caption {
@@ -75,13 +85,19 @@
   }
 
   .post-date {
-    @apply flex font-extralight text-base 
+    @apply flex font-light text-base 
   }
 
   .post-likes {
-    @apply flex font-normal text-xl m-2
+    align-items: center;
+    @apply flex font-normal text-xl m-2 text-justify
   }
+
+  .heart {
+    @apply m-2
+  }
+  
   .post-content {
-    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-xl;
+    @apply flex text-center border-4 p-2 m-2 text-[#FF8001] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-lg;
   }
 }
