@@ -55,9 +55,9 @@ export default function BreweryProfile() {
 
   return (
     <motion.div className="page"
-    initial={{opacity: 0.15 }}
-    animate={{opacity: 1 }}
-    exit={{opacity: 0.5, transition: {duration: 0.15} }}
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%"}}
+    exit={{translateY: "-100%", transition: {ease: "linear", duration: 0.125}}}
     >
         <div className="brewery-title">
           <h1 >{brewery.name}</h1>

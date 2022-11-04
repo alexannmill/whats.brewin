@@ -28,9 +28,9 @@ const BrewerieList = () => {
 
   return (
     <motion.div className="bList flex flex-wrap justify-center"
-    initial={{opacity: 0.15 }}
-    animate={{opacity: 1 }}
-    exit={{opacity: 0.5, transition: {duration: 0.15} }}
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%"}}
+    exit={{translateY: "-100%", transition: {ease: "linear", duration: 0.125}}}
     >
       {breweryList}
     </motion.div>

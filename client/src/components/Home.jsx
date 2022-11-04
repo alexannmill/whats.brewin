@@ -10,9 +10,9 @@ import { motion } from "framer-motion"
 export default function App() {
   return (
     <motion.div className="App"
-    initial={{opacity: 0, y: 100 }}
-    animate={{opacity: 1, y: 0 }}
-    exit={{opacity: 0, y: -100, transition: {duration: 0.15}}}
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%"}}
+    exit={{translateY: "-100%", transition: {ease: "linear", duration: 0.125}}}
     >
       <Hero />
     </motion.div>
