@@ -34,6 +34,15 @@ const newFavorite = (userFavorite) => {
     });
 };
 
+const cleanFavorite = (userId) => {
+  return client.query(
+    `DELETE FROM favorites WHERE user_id= $1;
+ `,
+    [userId]
+  );
+};
+
 module.exports = {
   newFavorite,
+  cleanFavorite,
 };

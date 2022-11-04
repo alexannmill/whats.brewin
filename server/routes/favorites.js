@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 // function here for db querying
-const { newFavorite } = require("../db/queries/addToFavorites");
+const { newFavorite, cleanFavorite } = require("../db/queries/addToFavorites");
 
 // GETs
 // router.get("/", (req, res) => {
@@ -12,6 +12,7 @@ const { newFavorite } = require("../db/queries/addToFavorites");
 router.post("/", (req, res) => {
   const brews = req.body.favoritedBreweries;
   console.log("brewws", brews);
+  cleanFavorite(req.body.id);
   for (let b of brews) {
     const userFavorite = {
       user_id: req.body.id,
