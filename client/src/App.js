@@ -15,6 +15,8 @@ import CityProvider from "./Contexts/CityContext";
 import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import AnimatedRoutes from "./components/AnimatedRoutes";
+import BackpageTransition from "./components/BackpageTransition";
+import Logo from "./components/nav & footer/imgs/Logo.png"
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
@@ -22,6 +24,7 @@ const App = () => {
 
   return (
     <Router>
+      <BackpageTransition />
       <CityProvider>
         <BreweriesProvider>
           <LoginContext.Provider
