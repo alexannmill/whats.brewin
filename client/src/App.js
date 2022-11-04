@@ -15,6 +15,7 @@ import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import BackpageTransition from "./components/BackpageTransition";
+import BrewerProvider from "./Contexts/BrewerContext";
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
@@ -25,13 +26,15 @@ const App = () => {
       <BackpageTransition />
       <CityProvider>
         <BreweriesProvider>
-          <LoginContext.Provider
-            value={{ user, setUser, showUser, setShowUser }}
-          >
-            <Navbar />
-              <AnimatedRoutes />
-            <Footer />
-          </LoginContext.Provider>
+          <BrewerProvider>
+            <LoginContext.Provider
+              value={{ user, setUser, showUser, setShowUser }}
+            >
+              <Navbar />
+                <AnimatedRoutes />
+              <Footer />
+            </LoginContext.Provider>
+          </BrewerProvider>
         </BreweriesProvider>
       </CityProvider>
     </Router>

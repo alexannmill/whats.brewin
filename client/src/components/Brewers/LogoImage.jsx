@@ -1,23 +1,24 @@
 import { useState } from "react";
+import "./Brewers.css"
 
 
 const LogoImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div>
-      <h1>Upload Brewery Logo</h1>
+    <div className="image-upload">
+      <h1 className="text-2xl">Upload Brewery Logo: </h1>
       {selectedImage && (
         <div>
         <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
         <br />
-        <button onClick={()=>setSelectedImage(null)}>Remove</button>
+        <button className="upload-button" onClick={()=>setSelectedImage(null)}>Remove</button>
         </div>
       )}
       <br />
-     
-      <br /> 
-      <input
+
+      <input className="bg-[#f6f2f2d9]"
+        
         type="file"
         name="myImage"
         onChange={(event) => {

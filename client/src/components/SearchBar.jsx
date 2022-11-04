@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext, useCallback  } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // ---- Datalikst Drop Down
 import DatalistInput from 'react-datalist-input';
@@ -8,13 +9,12 @@ import 'react-datalist-input/dist/styles.css'
 // ---- Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLocationCrosshairs,
+  // faLocationCrosshairs,
   faXmark, 
 } from "@fortawesome/free-solid-svg-icons"
 
 // ---- Context
 import { cityContext } from "../Contexts/CityContext";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -25,6 +25,7 @@ export default function SearchBar(props) {
   const [search, setSearch] = useState([]);
   const [select, setSelect] = useState(city.city);
   
+// ---- Clears search bar when going from map to home page.  
   useEffect(() => {
     if (props.nav) {
       setSelect(city.city)
@@ -56,7 +57,7 @@ export default function SearchBar(props) {
       })
     }, [select]);
     
-// ---- city object create for selected city to be sent to maps 
+// ---- City object create for selected city to be sent to maps 
   const setCityContextWithClick = (e) => {
     const currentSearch = {...search};
     for (const c in currentSearch) {
@@ -69,11 +70,11 @@ export default function SearchBar(props) {
     }
   }
   
-  // ---- react route manual redirect to avoid link tag
+// ---- React route manual redirect to avoid link tag
     const navigate = useNavigate();
     const redirect = useCallback(() => navigate('/maps', {replace: true}), [navigate])
 
-  // ---- clear search search button, reset states 
+// ---- Clear search search button, reset states 
   const clearButton = (e) => {
     e.preventDefault();
     setSelect("");
