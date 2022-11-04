@@ -12,19 +12,19 @@ const { newFavorite } = require("../db/queries/addToFavorites");
 router.post("/", (req, res) => {
   const brews = req.body.favoritedBreweries;
   console.log("brewws", brews);
-  const userFavorite = {
-    user_id: req.body.user_id,
-    brewery_id: req.body.brewery_id,
-    brewery_name: req.body.brewery_name,
-    Brewery_address: req.body.Brewery_address,
-    Brewery_city: req.body.Brewery_city,
-    Brewery_state: req.body.Brewery_state,
-    Brewery_phone: req.body.Brewery_phone,
-    Brewery_website: req.body.Brewery_website,
-  };
-  // newFavorite(userFavorite).then((res) => {
-  //   res.status(200);
-  // });
+  for (let b of brews) {
+    const userFavorite = {
+      user_id: b.user_id,
+      brewery_id: b.brewery_id,
+      brewery_name: b.brewery_name,
+      Brewery_address: b.Brewery_address,
+      Brewery_city: b.Brewery_city,
+      Brewery_state: b.Brewery_state,
+      Brewery_phone: b.Brewery_phone,
+      Brewery_website: b.Brewery_website,
+    };
+    newFavorite(userFavorite);
+  }
 });
 
 module.exports = router;
