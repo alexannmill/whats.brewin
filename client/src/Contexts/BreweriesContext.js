@@ -16,7 +16,6 @@ export default function BreweriesProvider(props) {
         `https://api.openbrewerydb.org/breweries?by_city=${city.city}&per_page=50`
       )
       .then((res) => {
-        // console.log("brewery array: ", res.data);
         setBreweries(() => res.data);
       })
       .catch((e) => {

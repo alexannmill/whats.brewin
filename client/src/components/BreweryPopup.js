@@ -12,7 +12,7 @@ import MoreDetailsButton from "./MoreDetailsButton";
 
 const BreweryPopup = (props) => {
   const brewery = props.popupInfo;
-console.log('brewery:', brewery)
+
   const formatPhone = (phoneNum) => {
     if (!phoneNum) return "Not Available";
 

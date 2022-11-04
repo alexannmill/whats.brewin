@@ -72,7 +72,6 @@ const Markers = (props) => {
           className={"my-popup"}
           focusAfterOpen={false}
         >
-          {console.log("info", popupInfo)}
           <BreweryPopup popupInfo={popupInfo} />
           {showUser && (
             <LikeButton
