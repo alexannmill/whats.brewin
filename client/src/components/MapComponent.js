@@ -32,8 +32,8 @@ const MapComponent = () => {
   return (
     <motion.div className="w-full"
     initial={{translateY: "100%"}}
-    animate={{translateY: "0%"}}
-    exit={{translateY: "-100%", transition: {ease: "linear", duration: 0.125}}}
+    animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
+    exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
     >
       <Map
         id="mainMap"
