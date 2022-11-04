@@ -30,7 +30,7 @@ const MapComponent = () => {
   });
 
   return (
-    <motion.div className="w-full"
+    <motion.div className="w-2/3"
     initial={{translateY: "100%"}}
     animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
     exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
@@ -43,6 +43,7 @@ const MapComponent = () => {
         style={{ width: "fit", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(e) => setViewState(e.viewState)}
+        scrollZoom={false}
       >
         <GeolocateControl />
         <NavigationControl />
