@@ -10,20 +10,30 @@
           cursor-auto
 }
 .sidebar > .heading > h1 {
-  @apply  font-serif font-medium tracking-wide leading-tight 
+  @apply  font-serif font-extrabold tracking-wide leading-tight 
           text-center text-3xl text-neutral-50
 }
 
 /* Holds all the listing cards */
 .sidebar .listings {
-  @apply  overflow-scroll h-5/6 /* MUST have height attached for overflow to work */
-        bg-neutral-50 pb-2 
+  @apply  overflow-y-scroll h-5/6 /* MUST have height attached for overflow to work */
+        bg-neutral-50 pb-1
 }
 
 /* Each listing card */
 .listing-item {
   @apply  h-1/6 p-5 flex flex-col justify-center items-center
-          border-b-2 border-slate-400 
+          border-b-2 border-slate-400 last:border-b-0
+}
+
+.listing-item > h3 {
+  @apply  font-sans font-semibold tracking-wider leading-tight
+          text-center text-xl text-[#FF8001] hover:text-sky-400
+          pt-2
+}
+
+.listing-item > p {
+  @apply font-sans font-medium tracking-wide leading-normal pt-2 pb-2
 }
 
 .listings::-webkit-scrollbar {
@@ -38,8 +48,5 @@
   @apply bg-[#feb47b] rounded-none
 }
 
-/* .listing-item > h3 {
 
-}
-
-/* bg-gradient-to-r from-[#FF8001] to-[#feb47b] hover:from-[#2193b0] hover:to-[#6dd5ed]  */
+/* bg-  */
