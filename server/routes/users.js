@@ -7,23 +7,12 @@ const { createUser } = require("../db/queries/users");
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
-
-router.post("/", function (req, res) {
+router.post("/login", function (req, res) {
   const password = req.body.password;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  const newUser = {
-    name: req.body.name,
-    email: req.body.email,
-    password: hashedPassword,
-  };
-  createUser(newUser).then((e) => {
-    console.log(e[0].id);
-    req.session.user_id = e[0].id;
-    res.json(e[0]);
-  });
+  res.json("hey!");
 });
 
-router.post("/login", function (req, res) {
+router.post("/", function (req, res) {
   const password = req.body.password;
   const hashedPassword = bcrypt.hashSync(password, 10);
   const newUser = {

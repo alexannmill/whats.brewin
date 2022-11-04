@@ -12,21 +12,30 @@ const FormUsers = (props) => {
 
   const formhandle = (e) => {
     e.preventDefault();
-
+    // Users registrating
+    if (props.children === "Register") {
+      axios
+        .post("/users", {
+          name,
+          email,
+          password,
+        })
+        .then((data) => {
+          setUser({ ...data.data, favoritedBreweries: [] });
+          setShowUser(true);
+          setName("");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+        });
+    }
+    // users Loging in
     axios
-      .post("/users", {
-        name,
+      .post("/users/login", {
         email,
         password,
       })
-      .then((data) => {
-        setUser({...data.data, favoritedBreweries: []});
-        setShowUser(true);
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-      });
+      .then((res) => console.log("welcome", res));
   };
 
   return (
