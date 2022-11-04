@@ -20,18 +20,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function SearchBar(props) {
 
+  const { city, setCity } = useContext(cityContext);
   const [search, setSearch] = useState([]);
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState(city.city);
  
-  const { setCity } = useContext(cityContext);
-  
-// --- Getting geolocation 
-  // const geolocation = navigator.geolocation.getCurrentPosition((pos) => {
-  //   return {
-  //     long: pos.coords.longitude,
-  //     lat: pos.coords.latitude
-  //   }
-  // });
 
 // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
@@ -78,6 +70,7 @@ export default function SearchBar(props) {
     setSelect("");
     setSearch([])
   }
+
 
     return (
       <div className="total-searchbar backdrop-contrast-250">
