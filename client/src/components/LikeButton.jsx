@@ -50,7 +50,7 @@ const LikeButton = (props) => {
           {!props.isFav && (
             <FontAwesomeIcon
               icon={faBeerMugEmpty}
-              className="like-icons-default group-hover:text-[#2193b0]"
+              className="like-icons-default group-hover:text-[#2193b0 h-6"
             />
           )}
 
