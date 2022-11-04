@@ -8,8 +8,8 @@ const LogOut = () => {
   const logout = (e) => {
     e.preventDefault();
     axios.post("/favorites", user).then(() => {
-      // setShowUser(false);
-      // setUser({});
+      setShowUser(false);
+      setUser({});
     });
   };
   return (
