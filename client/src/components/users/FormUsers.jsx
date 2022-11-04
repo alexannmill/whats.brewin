@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { LoginContext } from "../../Contexts/LoginContext";
 import "./Form.css";
+import { motion } from "framer-motion"
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
@@ -57,7 +58,11 @@ const FormUsers = (props) => {
   };
 
   return (
-    <div className="FormUsers">
+    <motion.div className="FormUsers"
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
+    exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
+    >
       <div className=" rounded flex flex-col items-center ">
         <form className="form" onSubmit={(e) => formhandle(e)}>
           <h1 className="title mb-6">Please {props.children}</h1>
@@ -117,7 +122,7 @@ const FormUsers = (props) => {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
