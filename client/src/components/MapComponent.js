@@ -41,7 +41,7 @@ const MapComponent = () => {
         // Prevents re-mounting map each time
         reuseMaps
         {...viewState}
-        style={{ width: "66.666666%", height: "auto" }}
+        className="w-2/3 h-auto"
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(e) => setViewState(e.viewState)}
         scrollZoom={false}
