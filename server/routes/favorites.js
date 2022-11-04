@@ -14,14 +14,14 @@ router.post("/", (req, res) => {
   console.log("brewws", brews);
   for (let b of brews) {
     const userFavorite = {
-      user_id: b.user_id,
-      brewery_id: b.brewery_id,
-      brewery_name: b.brewery_name,
-      Brewery_address: b.Brewery_address,
-      Brewery_city: b.Brewery_city,
-      Brewery_state: b.Brewery_state,
-      Brewery_phone: b.Brewery_phone,
-      Brewery_website: b.Brewery_website,
+      user_id: req.body.id,
+      brewery_id: b.id,
+      brewery_name: b.name,
+      Brewery_address: b.street,
+      Brewery_city: b.city,
+      Brewery_state: b.state,
+      Brewery_phone: b.phone,
+      Brewery_website: b.website_url,
     };
     newFavorite(userFavorite);
   }

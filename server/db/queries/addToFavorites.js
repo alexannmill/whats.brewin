@@ -14,8 +14,15 @@ const newFavorite = (userFavorite) => {
 
   return client
     .query(
-      `INSERT INTO favorites (user_id, brewery_id) 
-      values($1, $2)`,
+      `INSERT INTO favorites (user_id,
+    brewery_id,
+    brewery_name,
+    Brewery_address,
+    Brewery_city,
+    Brewery_state,
+    Brewery_phone,
+    Brewery_website) 
+      values($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`,
       values
     )
     .then((favorites) => {
