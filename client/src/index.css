@@ -41,10 +41,10 @@ header {
   rounded-t-lg;
 }
 .mapboxgl-popup-content header h3 {
-  @apply text-3xl font-serif font-semibold text-center text-neutral-50 p-3 tracking-wide;
+  @apply text-3xl font-sans font-semibold text-center text-neutral-50 p-3 tracking-wide;
 }
 header h3 {
-  @apply text-3xl font-serif font-semibold text-center text-neutral-50 p-3 tracking-wide;
+  @apply text-3xl font-sans font-semibold text-center text-neutral-50 p-3 tracking-wide;
 }
 .brewery-details-container {
   @apply flex flex-col justify-around items-start;
