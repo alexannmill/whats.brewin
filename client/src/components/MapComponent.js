@@ -31,9 +31,9 @@ const MapComponent = () => {
 
   return (
     <motion.div className="w-full"
-    initial={{opacity: 0.15 }}
-    animate={{opacity: 1 }}
-    exit={{opacity: 0.5, transition: {duration: 0.15} }}
+    initial={{opacity: 0, y: 100 }}
+    animate={{opacity: 1, y: 0 }}
+    exit={{opacity: 0, y: -100, transition: {duration: 0.15}}}
     >
       <Map
         id="mainMap"
