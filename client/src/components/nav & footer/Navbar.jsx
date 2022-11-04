@@ -26,10 +26,16 @@ const Navbar = () => {
             >
               <SearchBar nav={true} />
             </NavLink>
-            <div className="flex ">
-              <p className="mt-5 text-neutral-50">
+            <div className=" ">
+              <p className="mt-5 text-neutral-50 inline-block">
                 {user.username ? user.username : "Ducky loco"}
               </p>
+              <Link
+                to="/favourites"
+                className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
+              >
+                My Favourites
+              </Link>
               <LogOut />
             </div>
           </>

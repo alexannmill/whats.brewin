@@ -9,24 +9,49 @@ const FormUsers = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [alert, setAlert] = useState("");
+
   const { setUser, setShowUser } = useContext(LoginContext);
 
   const formhandle = (e) => {
     e.preventDefault();
-
+    // Users registrating
+    if (props.children === "Register") {
+      return axios
+        .post("/users/register", {
+          name,
+          email,
+          password,
+        })
+        .then((data) => {
+          setUser({ ...data.data, favoritedBreweries: [] });
+          setShowUser(true);
+          setName("");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+        })
+        .catch(() => {
+          setAlert(true);
+        });
+    }
+    // users Loging in
     axios
-      .post("/users", {
-        name,
+      .post("/users/login", {
         email,
         password,
       })
       .then((data) => {
-        setUser({...data.data, favoritedBreweries: []});
+        console.log(data);
+        setUser({ ...data.data, favoritedBreweries: [] });
         setShowUser(true);
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+      })
+      .catch(() => {
+        setAlert(true);
       });
   };
 
@@ -39,6 +64,7 @@ const FormUsers = (props) => {
       <div className=" rounded flex flex-col items-center ">
         <form className="form" onSubmit={(e) => formhandle(e)}>
           <h1 className="title mb-6">Please {props.children}</h1>
+          {alert && <>opps it looks like something is wrong.</>}
           <div className=" rounded flex flex-col items-center ">
             {props.children === "Register" && (
               <>

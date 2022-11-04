@@ -11,12 +11,10 @@ import { LoginContext } from "./Contexts/LoginContext";
 import BreweriesProvider from "./Contexts/BreweriesContext";
 import CityProvider from "./Contexts/CityContext";
 // ----- Components -----
-
 import Footer from "./components/nav & footer/Footer";
 import Navbar from "./components/nav & footer/Navbar";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import BackpageTransition from "./components/BackpageTransition";
-import Logo from "./components/nav & footer/imgs/Logo.png"
 
 const App = () => {
   const [showUser, setShowUser] = useState(false);
