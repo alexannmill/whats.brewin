@@ -40,8 +40,9 @@ router.post("/register", function (req, res) {
 });
 
 router.post("/logout", (req, res) => {
-  req.session = null;
-  res.json();
+  console.log(req.body);
+  // req.session = null;
+  // res.json();
 });
 
 module.exports = router;
