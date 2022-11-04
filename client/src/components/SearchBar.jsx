@@ -21,9 +21,18 @@ import { useNavigate } from "react-router-dom";
 export default function SearchBar(props) {
 
   const { city, setCity } = useContext(cityContext);
+
   const [search, setSearch] = useState([]);
   const [select, setSelect] = useState(city.city);
- 
+  
+  useEffect(() => {
+    if (props.nav) {
+      setSelect(city.city)
+    } else {
+      setSelect("")
+    }
+  },[])
+
 
 // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
