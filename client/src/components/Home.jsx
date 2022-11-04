@@ -2,7 +2,7 @@
 import BreweryProfile from "./Brewery-Profile/BreweryProfile";
 import LikeButton from "./LikeButton";
 import Hero from "../components/Hero/Hero";
-import BreweryList from "./Breweries/BreweryList";
+import EditForm from "./Brewers/EditForm"
 
 //
 // ----- App Component -----
@@ -10,7 +10,8 @@ import BreweryList from "./Breweries/BreweryList";
 export default function App() {
   return (
     <div className="App">
-      <Hero />
+      {/* <Hero /> */}
+      <EditForm />
     </div>
   );
 }

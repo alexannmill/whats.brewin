@@ -15,6 +15,7 @@ router.post("/", function (req, res) {
     name: req.body.name,
     email: req.body.email,
     password: hashedPassword,
+    brewery: req.body.brewery,
   };
   createUser(newUser).then((e) => {
     console.log(e[0].id);
