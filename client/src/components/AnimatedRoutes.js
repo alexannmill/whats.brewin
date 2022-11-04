@@ -20,7 +20,7 @@ export default function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         {!showUser && (
@@ -36,7 +36,6 @@ export default function AnimatedRoutes() {
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <Footer />
     </AnimatePresence>
   );
 }
