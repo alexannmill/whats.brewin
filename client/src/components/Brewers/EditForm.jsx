@@ -16,14 +16,15 @@ export default function EditForm() {
   const [state_prov, setState_prov] = useState("")
   const [post_zip, setPost_zip] = useState("")
   const [website, setWebsite] = useState("")
-  const [phone, setphone] = useState("")
+  const [phone, setPhone] = useState("")
 
 
   const submitForm = (e) => {
     e.preventDefault();
+    console.log('e:', e)
     return axios
-      .post('/brewers/edit'), {
-        user_id: user,
+      .post('/brewers/edit', {
+        user_id: "1",
         brewery,
         street_number,
         street,
@@ -32,7 +33,7 @@ export default function EditForm() {
         post_zip,
         website,
         phone,
-      }
+      })
       .then(() => {
 
       })
@@ -49,48 +50,55 @@ export default function EditForm() {
         <input 
           type="text"
           name="brewery"
+          onChange={(e) => setBrewery(e.target.value)}
           required
           />
         <label>Street #: </label>
         <input 
           type="text" 
           name="street_number"
+          onChange={(e) => setStreet_number(e.target.value)}
           required
           />
         <label>Street: </label>
         <input 
           type="text"
           name="street" 
+          onChange={(e) => setStreet(e.target.value)}
           required
           />
         <label>City: </label>
         <input 
           type="text"
           name="city"
+          onChange={(e) => setCity(e.target.value)}
           required
           />
         <label>State or Province: </label>
         <input 
           type="text"
           name="sate_prov"
-          required
+          onChange={(e) => setState_prov(e.target.value)}
+          // required
           />
         <label>Zip or Postal Code: </label>
         <input 
           type="text" 
           name="post_zip" 
+          onChange={(e) => setPost_zip(e.target.value)}
           id="post-zip"
-          size="6"
-          required
+          // size="6"
+          // required
         />
         <label>Website: </label>
         <input 
-          type="url" 
+          // type="url" 
           name="website" 
           id="url"
-          placeholder="https://example.com"
-          pattern="https://.*" 
-          size="30"
+          onChange={(e) => setWebsite(e.target.value)}
+          // placeholder="https://example.com"
+          // pattern="https://.*" 
+          // size="30"
           required
         />
         <label>Phone: </label>
@@ -98,9 +106,10 @@ export default function EditForm() {
           type="tel" 
           id="phone" 
           name="phone"
-          placeholder="(000)-000-0000"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          required 
+          onChange={(e) => setPhone(e.target.value)}
+          // placeholder="(000)-000-0000"
+          // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          // required 
         />
         <button type="Submit">Submit</button>
       </form>
