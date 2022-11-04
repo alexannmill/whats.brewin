@@ -24,6 +24,7 @@ router.post("/register", function (req, res) {
     name: req.body.name,
     email: req.body.email,
     password: hashedPassword,
+    brewery: req.body.brewery,
   };
   getUserByEmail(req.body.email).then((d) => {
     if (req.body.email === "" || d.length) {
