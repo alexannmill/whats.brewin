@@ -16,33 +16,34 @@ const newFavorite = (userFavorite) => {
     .query(
       `INSERT INTO favorites (user_id,
     brewery_id,
-    brewery_name,
-    Brewery_address,
-    Brewery_city,
-    Brewery_state,
-    Brewery_phone,
-    Brewery_website) 
+    name,
+    street,
+   city,
+   state,
+   phone,
+   website_url) 
       values($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`,
       values
     )
     .then((favorites) => {
-      console.log(
-        "This is from DB backend, you added a new favorites to DB: ",
-        favorites.rows
-      );
       return favorites.rows;
     });
 };
 
 const cleanFavorite = (userId) => {
-  return client.query(
-    `DELETE FROM favorites WHERE user_id= $1;
- `,
-    [userId]
-  );
+  return client.query(`DELETE FROM favorites WHERE user_id= $1;`, [userId]);
+};
+
+const getFavorite = (userId) => {
+  return client
+    .query(`SELECT * FROM favorites WHERE user_id= $1;`, [userId])
+    .then((favorites) => {
+      return favorites.rows;
+    });
 };
 
 module.exports = {
   newFavorite,
   cleanFavorite,
+  getFavorite,
 };
