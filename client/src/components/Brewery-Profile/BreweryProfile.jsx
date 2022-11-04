@@ -14,6 +14,7 @@ import {
 import {useParams} from "react-router-dom";
 import Event from "./Event";
 
+import { motion } from "framer-motion"
 
 
 // //props breweryName
@@ -53,7 +54,11 @@ export default function BreweryProfile() {
       
 
   return (
-    <div className="page">
+    <motion.div className="page"
+    initial={{opacity: 0.15 }}
+    animate={{opacity: 1 }}
+    exit={{opacity: 0.5, transition: {duration: 0.15} }}
+    >
         <div className="brewery-title">
           <h1 >{brewery.name}</h1>
         </div>
@@ -111,6 +116,6 @@ export default function BreweryProfile() {
           </div>    
       </div>
     </div>
-    </div>
+    </motion.div>
   );
 }

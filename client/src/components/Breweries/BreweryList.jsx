@@ -4,6 +4,7 @@ import "./BreweryList.css";
 import BreweryPopup from "../BreweryPopup";
 import LikeButton from "../LikeButton";
 import { LoginContext } from "../../Contexts/LoginContext";
+import { motion } from "framer-motion"
 
 const BrewerieList = () => {
   const { breweries } = useContext(breweriesContext);
@@ -26,7 +27,13 @@ const BrewerieList = () => {
   });
 
   return (
-    <div className="bList flex flex-wrap justify-center">{breweryList}</div>
+    <motion.div className="bList flex flex-wrap justify-center"
+    initial={{opacity: 0.15 }}
+    animate={{opacity: 1 }}
+    exit={{opacity: 0.5, transition: {duration: 0.15} }}
+    >
+      {breweryList}
+    </motion.div>
   );
 };
 
