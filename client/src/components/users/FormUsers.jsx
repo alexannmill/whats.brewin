@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { LoginContext } from "../../Contexts/LoginContext";
 import "./Form.css";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
@@ -12,7 +12,7 @@ const FormUsers = (props) => {
   const [alert, setAlert] = useState("");
   const [checked, setChecked] = useState("");
 
-  const { setUser, setShowUser } = useContext(LoginContext);
+  const { setUser, setShowUser, user } = useContext(LoginContext);
 
   const formhandle = (e) => {
     e.preventDefault();
@@ -44,8 +44,7 @@ const FormUsers = (props) => {
         password,
       })
       .then((data) => {
-        console.log(data);
-        setUser({ ...data.data, favoritedBreweries: [] });
+        setUser({ ...data.data.user, favoritedBreweries: [...data.data.fav] });
         setShowUser(true);
         setName("");
         setEmail("");
@@ -58,10 +57,17 @@ const FormUsers = (props) => {
   };
 
   return (
-    <motion.div className="FormUsers"
-    initial={{translateY: "100%"}}
-    animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
-    exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
+    <motion.div
+      className="FormUsers"
+      initial={{ translateY: "100%" }}
+      animate={{
+        translateY: "0%",
+        transition: { ease: "easeInOut", duration: 0.5 },
+      }}
+      exit={{
+        translateY: "-200%",
+        transition: { ease: "easeInOut", duration: 0.75 },
+      }}
     >
       <div className=" rounded flex flex-col items-center ">
         <form className="form" onSubmit={(e) => formhandle(e)}>
