@@ -2,38 +2,69 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { LoginContext } from "../../Contexts/LoginContext";
 import "./Form.css";
+import { motion } from "framer-motion"
 
 const FormUsers = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [alert, setAlert] = useState("");
+
   const { setUser, setShowUser } = useContext(LoginContext);
 
   const formhandle = (e) => {
     e.preventDefault();
-
+    // Users registrating
+    if (props.children === "Register") {
+      return axios
+        .post("/users/register", {
+          name,
+          email,
+          password,
+        })
+        .then((data) => {
+          setUser({ ...data.data, favoritedBreweries: [] });
+          setShowUser(true);
+          setName("");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+        })
+        .catch(() => {
+          setAlert(true);
+        });
+    }
+    // users Loging in
     axios
-      .post("/users", {
-        name,
+      .post("/users/login", {
         email,
         password,
       })
       .then((data) => {
-        setUser({...data.data, favoritedBreweries: []});
+        console.log(data);
+        setUser({ ...data.data, favoritedBreweries: [] });
         setShowUser(true);
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+      })
+      .catch(() => {
+        setAlert(true);
       });
   };
 
   return (
-    <div className="FormUsers">
+    <motion.div className="FormUsers"
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
+    exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
+    >
       <div className=" rounded flex flex-col items-center ">
         <form className="form" onSubmit={(e) => formhandle(e)}>
           <h1 className="title mb-6">Please {props.children}</h1>
+          {alert && <>opps it looks like something is wrong.</>}
           <div className=" rounded flex flex-col items-center ">
             {props.children === "Register" && (
               <>
@@ -82,7 +113,7 @@ const FormUsers = (props) => {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

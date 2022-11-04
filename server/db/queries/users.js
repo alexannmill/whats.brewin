@@ -11,6 +11,15 @@ const createUser = (user) => {
     });
 };
 
+const getUserByEmail = (email) => {
+  return client
+    .query("SELECT * FROM users WHERE email = $1", [email])
+    .then((users) => {
+      return users.rows;
+    });
+};
+
 module.exports = {
   createUser,
+  getUserByEmail,
 };

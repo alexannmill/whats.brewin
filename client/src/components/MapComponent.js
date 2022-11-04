@@ -11,6 +11,9 @@ import Markers from "./Markers";
 import { NavLink } from "react-router-dom";
 import BrewerieList from "./Breweries/BreweryList";
 import Favourites from "./Breweries/Favourites";
+// ----- Framer Motion -----
+import { motion } from "framer-motion"
+
 
 //
 // ----- Component -----
@@ -27,7 +30,11 @@ const MapComponent = () => {
   });
 
   return (
-    <div className="w-1/2 basis-1/2">
+    <motion.div className="w-full"
+    initial={{translateY: "100%"}}
+    animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
+    exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
+    >
       <Map
         id="mainMap"
         // Prevents re-mounting map each time
@@ -41,7 +48,9 @@ const MapComponent = () => {
         <NavigationControl />
         <Markers breweries={breweries} />
       </Map>
-    </div>
+      <NavLink to={"/brewery_list"} element={<BrewerieList />}><button>Go to all list</button></NavLink>
+      <NavLink to={"/favorites_list"} element={<Favourites />}><button>Go to favorites</button></NavLink>
+    </motion.div>
   );
 };
 
