@@ -17,9 +17,9 @@ function MapSidebar() {
   return (
     <div className="sidebar">
       <div className="heading">
-        <h1>Breweries in {city.city}</h1>
+        <h1>Breweries in {city.city}, {city.state} </h1>
       </div>
-      <section className="container">{buildListings}</section>
+      <section className="listings">{buildListings}</section>
     </div>
   );
 }
