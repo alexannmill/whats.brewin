@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS brewers CASCADE;
 CREATE TABLE brewers(
     id SERIAL PRIMARY KEY NOT NULL,
-    user_id REFERENCES user(id) DELETE ON CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id),
     brewery VARCHAR(255) NOT NULL,
     street_number VARCHAR(255) NOT NULL,
     street VARCHAR(255) NOT NULL,
