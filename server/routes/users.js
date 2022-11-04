@@ -22,6 +22,22 @@ router.post("/", function (req, res) {
     res.json(e[0]);
   });
 });
+
+router.post("/login", function (req, res) {
+  const password = req.body.password;
+  const hashedPassword = bcrypt.hashSync(password, 10);
+  const newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    password: hashedPassword,
+  };
+  createUser(newUser).then((e) => {
+    console.log(e[0].id);
+    req.session.user_id = e[0].id;
+    res.json(e[0]);
+  });
+});
+
 router.post("/logout", (req, res) => {
   req.session = null;
   res.json();
