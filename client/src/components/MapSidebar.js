@@ -16,10 +16,10 @@ function MapSidebar() {
 
   return (
     <div className="sidebar">
-      <header className="sidebar-header">
+      <div className="heading">
         <h1>Breweries in {city.city}</h1>
-      </header>
-      <section className="sidebar-container">{buildListings}</section>
+      </div>
+      <section className="container">{buildListings}</section>
     </div>
   );
 }
