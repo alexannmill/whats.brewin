@@ -1,5 +1,5 @@
 .sidebar {
-  @apply border-r-2 border-gray-300 overflow-hidden p-0 m-0
+  @apply border-r-2 border-slate-400 overflow-hidden p-0 m-0
 }
 
 .sidebar > .heading {
