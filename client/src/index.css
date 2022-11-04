@@ -60,51 +60,46 @@ header h3 {
 .detail-icons {
   @apply h-6 text-[#FF8001];
 }
-/* Default state of like icons, switched in <LikeButton.jsx /> */
-.like-icons-default {
-  @apply h-6 text-neutral-300;
-}
 
-/*
 
-react-datalist-input__listbox: For the dropdown list.
-react-datalist-input__listbox-option: For each option in the dropdown list. */
 
-/* For entire search/button div */
-.search-with-buttons {
-  display: flex;
-  align-items: flex-end;
-}
+ @layer components {
+  /* For entire search/button div */
+    .search-with-buttons {
+      display: flex;
+      align-items: flex-end;
+    }
 
-/* For the input element. */
-.react-datalist-input__textbox .undefined {
-  @apply text-xl;
-}
+  /* For the input element. */
+  .react-datalist-input__textbox .undefined {
+    @apply text-xl;
+  }
 
-/* For the container element. */
-.total-searchbar {
-  @apply ml-20 mr-20 text-3xl mx-auto;
-}
+  /* For the container element. */
+  .total-searchbar {
+    @apply ml-20 mr-20 text-3xl mx-auto;
+  }
 
-/* For title */
-.react-datalist-input__label {
-  @apply text-xl;
-}
+  /* For title */
+  .react-datalist-input__label {
+    @apply text-xl;
+  }
 
-/* For text inside bar. */
-.total-searchbar input {
-  @apply text-lg;
-}
+  /* For text inside bar. */
+  .total-searchbar input {
+    @apply text-lg;
+  }
 
-/* For dropdown */
-.Search-bar-input {
-  @apply text-xl;
-}
+  /* For dropdown */
+  .Search-bar-input {
+    @apply text-xl;
+  }
 
-.clear-search {
-  @apply text-[#f05e5e] ml-3;
-}
+  .clear-search {
+    @apply text-[#f05e5e] ml-3;
+  }
 
-.set-current {
-  @apply text-[#4f9fef] mr-3;
+  .set-current {
+    @apply text-[#4f9fef] mr-3;
+  }
 }

@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+  .page {
+    justify-content: space-evenly;
+    background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    @apply flex p-5 flex-col h-auto bg-cover font-serif overflow-scroll;
+  }
+  
+  .brewery-title {
+    @apply font-bold text-7xl mr-36 ml-36 text-center m-2 text-neutral-100  bg-gradient-to-r from-[#FF8001] to-[#feb47b] rounded-lg p-2;
+  }
+
+  .under-header {
+    justify-content: space-evenly;
+    @apply flex flex-row
+  }
+/* ---- Left Side */
+
+
+  .brewery-img {
+    @apply w-full h-auto rounded-2xl border-[#f6f2f2b9] border-4;
+  }
+
+  .left-side {
+    width: 40%;
+    align-items: center;
+    @apply flex h-screen flex-col mt-10;
+  }
+  
+  .brewery-contact {
+    @apply border-t-slate-400 border-t-2 pt-2
+  }
+  .header {
+    @apply text-3xl  mb-2 text-[#1b252d];
+  }
+  .info-container {
+    @apply text-center mb-6 text-xl border-8 border-[#f6f2f2b9] text-[#1b252d] flex flex-row justify-start items-center bg-neutral-200 rounded-xl p-5;
+  }
+  
+  .brewery-address {
+    @apply mb-1 pb-1 text-[#1b252d];
+  }
+
+  .events-container {
+    text-align: center;
+    @apply  bg-neutral-200 rounded-lg p-3
+  }
+  .event {
+    
+    @apply flex flex-col text-center text-[#FF8001] justify-start ;
+  }
+
+  .calendar {
+    @apply text-6xl text-[#FF8001];
+  }
+
+  .event-left {
+    @apply  border-r-slate-400 border-t-2 
+  }
+
+  .event-right {
+    align-self: center;
+    text-align: center;
+    @apply ml-8
+  }
+
+  .event-date {
+    @apply text-xl flex-col w-32 text-[#1b252de8] border-r-slate-400 border-r-2;
+  }
+  
+  .event-title {
+    @apply font-semibold text-xl text-[#1b252de8] pb-2;
+  };
+  .event-content {
+    @apply flex flex-row text-lg w-fit border-t-slate-400 border-t-2 ml-1 mr-1  p-3 ;
+  }
+
+/* ----  Right Side */
+  .right-side {
+    align-items: center;
+    @apply flex flex-col h-screen;
+  }
+
+/* ---- Post */
+  .post-container {
+    @apply flex relative rounded-lg;
+  }
+
+  .post {
+    @apply flex items-center content-center bg-[#f6f2f2b9] rounded-lg p-3 pr-2 pl-2 mt-2 mb-2;
+  }
+  
+  .post-img {
+    justify-content: center;
+    @apply flex h-80 w-96 m-2;
+  }
+
+  .post-img img {
+    object-fit: cover;
+    align-items: center;
+    @apply flex w-auto rounded-lg bg-cover ;
+  }
+
+  .post-caption {
+    @apply flex text-2xl font-normal m-3 
+  }
+
+  .post-date {
+    @apply flex font-light text-base 
+  }
+
+  .post-likes {
+    align-items: center;
+    @apply flex font-normal text-xl m-2 text-justify
+  }
+
+  .heart {
+    @apply m-2
+  }
+  
+  .post-content {
+    @apply flex text-center border-4 m-2 text-[#ff8e00] flex-col justify-start items-center py-3 px-5 w-64 bg-neutral-200 rounded-lg;
+  }
+}
