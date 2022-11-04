@@ -31,7 +31,7 @@ const FormUsers = (props) => {
           setConfirmPassword("");
         })
         .catch(() => {
-          return setAlert(true);
+          setAlert(true);
         });
     }
     // users Loging in
