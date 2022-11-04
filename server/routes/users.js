@@ -24,15 +24,15 @@ router.post("/register", function (req, res) {
     name: req.body.name,
     email: req.body.email,
     password: hashedPassword,
-    brewery: req.body.brewery,
+    brewery: req.body.brewery ? 1 : 0,
   };
+
   getUserByEmail(req.body.email).then((d) => {
     if (req.body.email === "" || d.length) {
       res.status(400);
     }
 
     createUser(newUser).then((e) => {
-      console.log(e[0].id);
       req.session.user_id = e[0].id;
       res.json(e[0]);
     });
