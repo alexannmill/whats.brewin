@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const { createUser } = require("../db/queries/users");
+const { createUser, getUserByEmail } = require("../db/queries/users");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 router.post("/login", function (req, res) {
-  const password = req.body.password;
-  res.json("hey!");
+  getUserByEmail(req.body.email).then((user) => {
+    console.log("user", user);
+    const password = req.body.password;
+    res.json("hey!");
+  });
 });
 
 router.post("/", function (req, res) {
