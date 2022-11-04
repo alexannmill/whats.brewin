@@ -10,10 +10,8 @@
           cursor-auto
 }
 .sidebar > .heading > h1 {
-  @apply  font-serif font-medium tracking-wide leading-6 
+  @apply  font-serif font-medium tracking-wide leading-tight 
           text-center text-3xl text-neutral-50
-         
-
 }
 
 .listings {
