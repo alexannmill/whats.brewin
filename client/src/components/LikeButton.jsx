@@ -10,6 +10,16 @@ const LikeButton = (props) => {
   const { user, setUser } = useContext(LoginContext);
   const [confirm, setConfirm] = useState(false);
 
+  const deleteFav = (b) => {
+    const newList = user.favoritedBreweries.filter((brew) => b.id !== brew.id);
+    const newUser = {
+      ...user,
+      favoritedBreweries: [...newList],
+    };
+    setConfirm(false);
+    return setUser(newUser);
+  };
+
   const onFavorite = (b) => {
     if (!user.favoritedBreweries.find((e) => e.id === b.id)) {
       const newUser = {
@@ -19,18 +29,12 @@ const LikeButton = (props) => {
       return setUser(newUser);
     }
     setConfirm(true);
-    const newList = user.favoritedBreweries.filter((brew) => b.id !== brew.id);
-    const newUser = {
-      ...user,
-      favoritedBreweries: [...newList],
-    };
-    return setUser(newUser);
   };
 
   return (
     <>
       {confirm ? (
-        <Confirm setC={setConfirm} />
+        <Confirm setC={setConfirm} onConfirm={() => deleteFav(props.brewery)} />
       ) : (
         <button
           className="brewery-detail group"
