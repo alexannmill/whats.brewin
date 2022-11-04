@@ -16,8 +16,8 @@ const FormUsers = (props) => {
     e.preventDefault();
     // Users registrating
     if (props.children === "Register") {
-      axios
-        .post("/users", {
+      return axios
+        .post("/users/register", {
           name,
           email,
           password,
@@ -29,6 +29,9 @@ const FormUsers = (props) => {
           setEmail("");
           setPassword("");
           setConfirmPassword("");
+        })
+        .catch(() => {
+          return setAlert(true);
         });
     }
     // users Loging in

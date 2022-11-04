@@ -17,7 +17,7 @@ router.post("/login", function (req, res) {
   });
 });
 
-router.post("/", function (req, res) {
+router.post("/register", function (req, res) {
   const password = req.body.password;
   const hashedPassword = bcrypt.hashSync(password, 10);
   const newUser = {
@@ -25,10 +25,16 @@ router.post("/", function (req, res) {
     email: req.body.email,
     password: hashedPassword,
   };
-  createUser(newUser).then((e) => {
-    console.log(e[0].id);
-    req.session.user_id = e[0].id;
-    res.json(e[0]);
+  getUserByEmail(req.body.email).then((d) => {
+    if (req.body.email === "" || d.length) {
+      res.status(400);
+    }
+
+    createUser(newUser).then((e) => {
+      console.log(e[0].id);
+      req.session.user_id = e[0].id;
+      res.json(e[0]);
+    });
   });
 });
 
