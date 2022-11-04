@@ -11,7 +11,10 @@ const { newFavorite, cleanFavorite } = require("../db/queries/addToFavorites");
 // POSTs
 router.post("/", (req, res) => {
   const brews = req.body.favoritedBreweries;
-  console.log("brewws", brews);
+  if (!brews.length) {
+    res.json("bye");
+  }
+
   cleanFavorite(req.body.id);
   for (let b of brews) {
     const userFavorite = {
@@ -25,6 +28,8 @@ router.post("/", (req, res) => {
       Brewery_website: b.website_url,
     };
     newFavorite(userFavorite);
+    req.session = null;
+    res.json("bye");
   }
 });
 

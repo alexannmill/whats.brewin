@@ -2,18 +2,25 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { createUser, getUserByEmail } = require("../db/queries/users");
+const { getFavorite } = require("../db/queries/addToFavorites");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
+
 router.post("/login", function (req, res) {
   getUserByEmail(req.body.email).then((user) => {
     const password = req.body.password;
     if (!user.length || !bcrypt.compareSync(password, user[0].password)) {
       res.status(400);
     }
-    res.json(user[0]);
+
+    getFavorite(user[0].id).then((brews) => {
+      const data = { user: user[0], fav: [...brews] };
+
+      res.json(data);
+    });
   });
 });
 

@@ -5,7 +5,6 @@ const { editBrewer } = require("../db/queries/brewers");
 /* GET brewers listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
-  console.log("got ya")
 });
 
 router.post("/edit", function (req, res) {
@@ -21,12 +20,10 @@ router.post("/edit", function (req, res) {
     phone: req.body.phone,
   };
   editBrewer(newBrewer).then((e) => {
-    console.log(e[0].id);
     req.session.brewer_id = e[0].id;
     res.json(e[0]);
   });
 });
-
 
 router.post("/logout", (req, res) => {
   req.session = null;
