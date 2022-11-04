@@ -14,13 +14,32 @@
           text-center text-3xl text-neutral-50
 }
 
-.listings {
-  @apply bg-neutral-50 pb-2 
+/* Holds all the listing cards */
+.sidebar .listings {
+  @apply  overflow-scroll h-5/6 /* MUST have height attached for overflow to work */
+        bg-neutral-50 pb-2 
 }
 
-/* .listing-item {
-  @apply
-} */
+/* Each listing card */
+.listing-item {
+  @apply  h-1/6 p-5 flex flex-col justify-center items-center
+          border-b-2 border-slate-400 
+}
 
+.listings::-webkit-scrollbar {
+  @apply w-1 h-5 border-l-0 bg-neutral-200
+}
+
+.listings::-webkit-scrollbar-track {
+  @apply bg-none
+}
+
+.listings::-webkit-scrollbar-thumb {
+  @apply bg-[#feb47b] rounded-none
+}
+
+/* .listing-item > h3 {
+
+}
 
 /* bg-gradient-to-r from-[#FF8001] to-[#feb47b] hover:from-[#2193b0] hover:to-[#6dd5ed]  */
