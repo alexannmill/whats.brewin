@@ -7,7 +7,7 @@ const LogOut = () => {
 
   const logout = (e) => {
     e.preventDefault();
-    axios.post("/users/logout", user).then(() => {
+    axios.post("/favorites", user).then(() => {
       // setShowUser(false);
       // setUser({});
     });
