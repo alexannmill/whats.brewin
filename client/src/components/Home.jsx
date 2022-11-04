@@ -12,7 +12,7 @@ export default function App() {
     <motion.div className="App"
     initial={{opacity: 0 }}
     animate={{opacity: 1 }}
-    exit={{opacity: 0, transition: {duration: 0.25} }}
+    exit={{opacity: 0.5, transition: {duration: 0.15} }}
     >
       <Hero />
     </motion.div>
