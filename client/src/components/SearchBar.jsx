@@ -88,6 +88,7 @@ export default function SearchBar(props) {
           See <span className="text-neutral-50">What's</span>{" "}
           <span className="text-neutral-50">Brewin'</span>
         </h1>
+        
       )}
         <form className="search-with-buttons" >
             {/* <FontAwesomeIcon icon={faLocationCrosshairs} className="set-current"/> */}

@@ -33,7 +33,7 @@ const Event = (props) => {
           </h6>
         </div>
         <div className="event-right">
-          <h4 className="event-title">{event.event}</h4>
+          <h4 className="event-title">{event.event_name}</h4>
           <h6 className="event-address">
             {event.location}, {props.brewery.city} {props.brewery.state} USA</h6>
           <h6 className="event-likes">{event.description}</h6>

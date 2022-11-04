@@ -83,10 +83,10 @@ export default function BreweryProfile() {
               <Event key={brewery_id} brewery={brewery} id={2}></Event>
             </div>
             <div>
-              <Event key={brewery_id} brewery={brewery} id={3}></Event>
+              <Event key={brewery_id} brewery={brewery} id={1}></Event>
             </div>
             <div>
-              <Event key={brewery_id} brewery={brewery} id={1}></Event>
+              <Event key={brewery_id} brewery={brewery} id={3}></Event>
             </div>
         </div>
       </div>
