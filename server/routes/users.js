@@ -9,9 +9,11 @@ router.get("/", function (req, res, next) {
 });
 router.post("/login", function (req, res) {
   getUserByEmail(req.body.email).then((user) => {
-    console.log("user", user);
     const password = req.body.password;
-    res.json("hey!");
+    if (!user.length || !bcrypt.compareSync(password, user[0].password)) {
+      res.status(400);
+    }
+    res.json(user[0]);
   });
 });
 

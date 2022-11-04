@@ -35,7 +35,6 @@ const App = () => {
   // For React Spring Transition
   //
   const location = useLocation(); // From react-router-dom, allows us to keep track of page changes
-  console.log(location);
 
   // useTransitions take 3 params
   const transitions = useTransition(location, {
