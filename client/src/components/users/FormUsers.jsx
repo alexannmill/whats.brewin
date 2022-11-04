@@ -9,6 +9,7 @@ const FormUsers = (props) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [alert, setAlert] = useState("");
+  const [checked, setChecked] = useState("");
 
   const { setUser, setShowUser } = useContext(LoginContext);
 
@@ -21,6 +22,7 @@ const FormUsers = (props) => {
           name,
           email,
           password,
+          brewery: checked,
         })
         .then((data) => {
           setUser({ ...data.data, favoritedBreweries: [] });
@@ -63,7 +65,14 @@ const FormUsers = (props) => {
           <div className=" rounded flex flex-col items-center ">
             {props.children === "Register" && (
               <>
-                <label>User Name</label>
+                <label>Are you a brewery owner?</label>
+                <input
+                  type="checkbox"
+                  name="user"
+                  value={checked}
+                  onChange={() => setChecked(!checked)}
+                />
+                <label className="mt-3">User Name</label>
                 <input
                   type="text"
                   name="user"
