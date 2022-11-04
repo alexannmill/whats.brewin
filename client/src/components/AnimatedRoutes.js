@@ -36,6 +36,7 @@ export default function AnimatedRoutes() {
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <Footer />
     </AnimatePresence>
   );
 }
