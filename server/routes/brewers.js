@@ -8,6 +8,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/edit", function (req, res) {
+  console.log('req:', req.body)
   const newBrewer = {
     user_id: req.session.user_id,
     brewery: req.body.brewery,
