@@ -32,7 +32,7 @@ const Markers = (props) => {
     map.flyTo({
       center: [brewery.longitude, brewery.latitude],
       duration: 1500,
-      zoom: 14
+      zoom: 13
     });
   };
 
