@@ -1,0 +1,38 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+
+.edit-form {
+  background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  @apply flex p-10 flex-col h-screen bg-cover font-serif ;
+}
+
+.image-upload {
+  align-self: center;
+  @apply bg-[#b5b5b5ac]  rounded-md p-3 m-5 text-center text-xl
+}
+
+.upload-button {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] rounded-sm
+}
+
+.form-inputs {
+  align-self: center;
+ @apply  bg-[#b5b5b597] rounded-lg  m-5 text-xl p-8
+}
+
+input {
+  @apply rounded-md bg-[#f6f2f2d9]  mt-4 mb-4 p-2
+}
+
+.submit-button {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+  ml-96 text-neutral-100 text-2xl rounded-lg w-32 p-1 m-2 mt-8 text-center font-semibold
+}
+form div {
+  text-align: -webkit-center;
+}
+
+form label {
+  @apply text-2xl 
+}
