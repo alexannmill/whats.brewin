@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS brewers CASCADE;
+CREATE TABLE brewers(
+    id SERIAL PRIMARY KEY NOT NULL,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    brewery VARCHAR(255) NOT NULL,
+    street_number VARCHAR(255) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state_prov VARCHAR(255) NOT NULL,
+    post_zip VARCHAR(255) NOT NULL,
+    website VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL
+);

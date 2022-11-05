@@ -22,6 +22,21 @@ const getPostById = (id) => {
     .catch((err) => err);
 };
 
+
+const createPost = (post) => {
+  return client
+    .query(
+      `INSERT INTO post 
+      (caption, photo_url) 
+      values($1,$2) RETURNING *`,
+      [post.caption, post.date, post.photo_url]
+    )
+    .then((post) => {
+      return post.rows[0];
+    });
+};
+
 module.exports = {
   getPostById,
+  createPost,
 };

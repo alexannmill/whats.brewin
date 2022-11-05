@@ -3,11 +3,11 @@ import React, { useContext } from "react";
 import { LoginContext } from "../../Contexts/LoginContext";
 
 const LogOut = () => {
-  const { setUser, setShowUser } = useContext(LoginContext);
+  const { setUser, setShowUser, user } = useContext(LoginContext);
 
   const logout = (e) => {
     e.preventDefault();
-    axios.post("/users/logout").then(() => {
+    axios.post("/favorites", user).then(() => {
       setShowUser(false);
       setUser({});
     });

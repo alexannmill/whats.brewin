@@ -2,7 +2,7 @@
 import BreweryProfile from "./Brewery-Profile/BreweryProfile";
 import LikeButton from "./LikeButton";
 import Hero from "../components/Hero/Hero";
-import BreweryList from "./Breweries/BreweryList";
+import EditForm from "./Brewers/EditForm"
 import { motion } from "framer-motion"
 //
 // ----- App Component -----
