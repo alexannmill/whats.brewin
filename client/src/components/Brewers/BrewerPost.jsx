@@ -10,6 +10,7 @@ const BrewerPost = () => {
   const { brewer } = useContext(brewerContext);
 
   const date = new Date().toISOString().slice(0, 10);
+  // ---- ----- Will implement backend functionality after demo day 
   // ---- React route manual redirect to avoid link tag
   // const navigate = useNavigate();
   // const redirect = useCallback(() => navigate(`/brewer/${brewer.id}`, {replace: true}), [navigate])
@@ -17,13 +18,14 @@ const BrewerPost = () => {
   const submitPost = (e) => {
     e.preventDefault();
     return axios
-      .post("/brewers/post", {
+      .post("posts/new", {
         brewer_id: brewer.id,
         caption,
         selectedImage,
         date,
       })
       .then((res) => {
+        console.log('res:', res)
         // redirect()
       });
   };
@@ -34,7 +36,7 @@ const BrewerPost = () => {
           submitPost(e);
         }}
       >
-        <div className="image-upload">
+        <div className="image-post">
           <h1 className="text-2xl">Create a Post</h1>
             {selectedImage && (
               <div>
