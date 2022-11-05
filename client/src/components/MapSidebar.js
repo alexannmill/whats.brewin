@@ -4,14 +4,19 @@ import "./sidebar.css";
 import { cityContext } from "../Contexts/CityContext";
 import { breweriesContext } from "../Contexts/BreweriesContext";
 import BreweryListing from "./BreweryListing";
+import { oneBreweryContext } from "../Contexts/OneBreweryContext";
 // ----- Components -----
 
-function MapSidebar() {
+function MapSidebar(props) {
   const { city } = useContext(cityContext);
   const { breweries } = useContext(breweriesContext);
+  const { setBrewery } = useContext(oneBreweryContext);
 
   const buildListings = breweries.map((b) => {
-    return <BreweryListing key={b.id} brewery={b} />;
+    return (
+      // Click func here sets brewery in context-scope, and it's called by child comp
+      <BreweryListing key={b.id} brewery={b} onClick={() => setBrewery(b)} /> 
+    );
   });
 
   return (
