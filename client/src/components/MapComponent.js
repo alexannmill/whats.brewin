@@ -51,7 +51,7 @@ const MapComponent = () => {
         <MapProvider>
           <MapSidebar className="w-1/3 h-auto" />
           <Map
-            id="main-map"
+            id="mainMap"
             // Prevents re-mounting map each time
             reuseMaps
             {...viewState}
