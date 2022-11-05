@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { editBrewer } = require("../db/queries/brewers");
+const { editBrewer, getBrewerByUserID } = require("../db/queries/brewers");
 
 /* GET brewers listing. */
 router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+  getBrewerByUserID(req.body).then((data) => {
+    res.send(data);
+  });
 });
 
 router.post("/edit", function (req, res) {
-  console.log('req:', req.body)
+  console.log("req:", req.body);
   const newBrewer = {
     user_id: req.session.user_id,
     brewery: req.body.brewery,

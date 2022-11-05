@@ -30,12 +30,22 @@ const Navbar = () => {
               <p className="mt-5 text-neutral-50 inline-block">
                 {user.username ? user.username : "Ducky loco"}
               </p>
-              <Link
-                to="/favourites"
-                className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
-              >
-                My Favourites
-              </Link>
+              {user.brewery ? (
+                <Link
+                  to="/brewer/edit"
+                  className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
+                >
+                  My Brewery
+                </Link>
+              ) : (
+                <Link
+                  to="/favourites"
+                  className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
+                >
+                  My Favourites
+                </Link>
+              )}
+
               <LogOut />
             </div>
           </>

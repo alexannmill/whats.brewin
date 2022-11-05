@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useContext } from "react";
+import BrewerProvider, { brewerContext } from "../../Contexts/BrewerContext";
 import { LoginContext } from "../../Contexts/LoginContext";
 
 const LogOut = () => {
   const { setUser, setShowUser, user } = useContext(LoginContext);
+  const { brewer, setBrewer } = useContext(brewerContext);
 
   const logout = (e) => {
     e.preventDefault();
     axios.post("/favorites", user).then(() => {
       setShowUser(false);
       setUser({});
+      setBrewer({});
     });
   };
   return (
