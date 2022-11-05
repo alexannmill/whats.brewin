@@ -9,7 +9,7 @@ const usersRouter = require("./routes/users");
 const citiesRouter = require("./routes/cities");
 const postsRouter = require("./routes/posts");
 const eventsRouter = require("./routes/events");
-const brewerRouter = require("./routes/brewer");
+const brewersRouter = require("./routes/brewers");
 const favoritesRouter = require("./routes/favorites");
 const PORT = process.env.PORT;
 const app = express();
@@ -35,7 +35,7 @@ app.use("/users", usersRouter);
 app.use("/cities", citiesRouter);
 app.use("/posts", postsRouter);
 app.use("/events", eventsRouter);
-app.use("/brewer", brewerRouter);
+app.use("/brewers", brewersRouter);
 app.use("/favorites", favoritesRouter);
 
 app.listen(PORT, () => {
