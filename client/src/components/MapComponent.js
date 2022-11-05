@@ -2,7 +2,11 @@ import "./sidebar.css";
 // ----- React and Utils -----
 import { useState, useContext } from "react";
 // ----- For react-map-gl -----
-import Map, { GeolocateControl, NavigationControl } from "react-map-gl";
+import Map, {
+  GeolocateControl,
+  NavigationControl,
+  MapProvider,
+} from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // ----- Contexts -----
 import { breweriesContext } from "../Contexts/BreweriesContext";
@@ -44,21 +48,23 @@ const MapComponent = () => {
           transition: { ease: "easeInOut", duration: 0.75 },
         }}
       >
-        <MapSidebar className="w-1/3 h-auto" />
-        <Map
-          id="main-map"
-          // Prevents re-mounting map each time
-          reuseMaps
-          {...viewState}
-          className="w-2/3 h-auto"
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-          onMove={(e) => setViewState(e.viewState)}
-          scrollZoom={false}
-        >
-          <GeolocateControl />
-          <NavigationControl />
-          <Markers breweries={breweries} />
-        </Map>
+        <MapProvider>
+          <MapSidebar className="w-1/3 h-auto" />
+          <Map
+            id="main-map"
+            // Prevents re-mounting map each time
+            reuseMaps
+            {...viewState}
+            className="w-2/3 h-auto"
+            mapStyle="mapbox://styles/mapbox/streets-v11"
+            onMove={(e) => setViewState(e.viewState)}
+            scrollZoom={false}
+          >
+            <GeolocateControl />
+            <NavigationControl />
+            <Markers breweries={breweries} />
+          </Map>
+        </MapProvider>
       </motion.div>
       <button className="view-all-button">
         <NavLink to={"/brewery_list"} element={<BrewerieList />}>
@@ -69,4 +75,4 @@ const MapComponent = () => {
   );
 };
 
-export default MapComponent;
+export default MapComponent; 
