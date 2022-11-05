@@ -14,8 +14,8 @@ export default function App() {
     animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
     exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
     >
-      {/* <Hero /> */}
-      <EditForm />
+      <Hero />
+      {/* <EditForm /> */}
     </motion.div>
   );
 }
