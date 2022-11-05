@@ -38,6 +38,7 @@ export default function App() {
         <div className="brewery-title">
           <h1>{brewer.brewery}</h1>
         </div>
+        <div className="row">
         <div className="left-side">
           <div className="brewer-image">
             <img className="brewer-img" src={Logo} alt="Brewery Img"></img>
@@ -71,8 +72,9 @@ export default function App() {
             <button className="edit-button">Edit Brewery Info</button>
           </Link>
         </div>
-        <div>
+        <div className="right-side">
           <BrewerPost />
+        </div>
         </div>
       </div>
     </motion.div>

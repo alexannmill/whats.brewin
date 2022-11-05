@@ -35,39 +35,41 @@ const BrewerPost = () => {
         }}
       >
         <div className="image-upload">
-          <h1 className="text-lg">Upload an Image</h1>
-          {selectedImage && (
-            <div>
-              <img
-                alt="not fount"
-                width={"250px"}
-                src={URL.createObjectURL(selectedImage)}
+          <h1 className="text-2xl">Create a Post</h1>
+            {selectedImage && (
+              <div>
+                <img
+                  alt="not fount"
+                  width={"250px"}
+                  src={URL.createObjectURL(selectedImage)}
+                />
+                <br />
+                <button
+                  className="upload-button"
+                  onClick={() => setSelectedImage(null)}
+                >Remove</button>
+              </div>
+            )}
+            <br />
+            <p className="text-xl">Upload a Photo:</p>
+            <input
+              className="bg-[#f6f2f2d9] text-lg"
+              type="file"
+              name="myImage"
+              onChange={(event) => {
+                console.log(event.target.files[0]);
+                setSelectedImage(event.target.files[0]);
+              }}
+            />
+            <div className="caption-input">
+              <label className="post-caption">Caption: </label>
+              <input
+                className="caption-input"
+                type="text"
+                name="caption"
+                onChange={(e) => setCaption(e.target.value)}
               />
-              <br />
-              <button
-                className="upload-button"
-                onClick={() => setSelectedImage(null)}
-              >
-                Remove
-              </button>
-            </div>
-          )}
-          <br />
-
-          <input
-            className="bg-[#f6f2f2d9]"
-            type="file"
-            name="myImage"
-            onChange={(event) => {
-              console.log(event.target.files[0]);
-              setSelectedImage(event.target.files[0]);
-            }}
-          />
-          <input
-            type="text"
-            name="caption"
-            onChange={(e) => setCaption(e.target.value)}
-          ></input>
+          </div>
         </div>
       </form>
     </div>

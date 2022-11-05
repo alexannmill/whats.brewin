@@ -13,12 +13,17 @@
   @apply w-full h-auto rounded-2xl border-[#f6f2f2b9] border-4;
 }
 
+.row {
+  justify-content: space-evenly;
+  @apply flex flex-row 
+}
 .left-side {
-  width: 40%;
+  width: 50%;
   align-items: center;
   @apply flex h-screen flex-col mt-10;
 }
 
+/* Info */
 .brewer-contact {
   @apply border-t-slate-400 border-t-2 pt-2
 }
@@ -35,11 +40,25 @@
   @apply mb-1 pb-1 text-[#1b252d];
 }
 
+/* Post */
+.right-side {
+  width: 50%
+}
+
+.post-caption {
+  align-items: center;
+  @apply  text-xl flex flex-row inline-flex text-center
+}
+
+.caption-input {
+  @apply text-center h-16 w-9/12
+}
+
 
 /* Edit Form */
 .image-upload {
   align-self: center;
-  @apply bg-[#b5b5b5ac]  rounded-md p-3 m-5 text-center text-xl
+  @apply bg-[#b5b5b5ac]  rounded-md p-5 m-5 text-center text-xl
 }
 
 .upload-button {
@@ -52,7 +71,7 @@
 }
 
 input {
-  @apply rounded-md bg-[#f6f2f2d9]  mt-4 mb-4 p-2
+  @apply rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2
 }
 
 .submit-button {
