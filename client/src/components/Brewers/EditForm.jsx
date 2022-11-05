@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { brewerContext } from "../../Contexts/BrewerContext";
 import { LoginContext } from "../../Contexts/LoginContext";
 import { motion } from "framer-motion";
-import  LogoImage  from "./LogoImage"
+import  UploadImage  from "./UploadImage"
 import "./Brewers.css"
 
 
@@ -65,11 +65,11 @@ export default function EditForm() {
     animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
     exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
     >
-      <div className="edit-form">
+      <div className="home-page">
         <div className="brewery-title ">
           <h1 >Brewery Information</h1>
         </div>
-          <LogoImage />
+          <UploadImage />
           <div className="form-inputs">
           <form onSubmit={(e) => submitForm(e)}>
             <div className="columns-2">

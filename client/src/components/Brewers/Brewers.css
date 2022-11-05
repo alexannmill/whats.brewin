@@ -2,11 +2,41 @@
 @tailwind utilities;
 @tailwind base;
 
-.edit-form {
+/* All Brewer Pages */
+.home-page {
   background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
   @apply flex p-10 flex-col h-screen bg-cover font-serif ;
 }
 
+/* Home Page */
+.brewer-img {
+  @apply w-full h-auto rounded-2xl border-[#f6f2f2b9] border-4;
+}
+
+.left-side {
+  width: 40%;
+  align-items: center;
+  @apply flex h-screen flex-col mt-10;
+}
+
+.brewer-contact {
+  @apply border-t-slate-400 border-t-2 pt-2
+}
+
+.edit-button {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]  text-neutral-100 text-2xl rounded-lg w-64 p-1 m-2 mt-8 text-center font-semibold
+}
+
+.info-container {
+  @apply text-center mb-6 text-xl border-8 border-[#f6f2f2b9] text-[#1b252d] flex flex-row justify-start items-center bg-neutral-200 rounded-xl p-5;
+}
+
+.brewer-address {
+  @apply mb-1 pb-1 text-[#1b252d];
+}
+
+
+/* Edit Form */
 .image-upload {
   align-self: center;
   @apply bg-[#b5b5b5ac]  rounded-md p-3 m-5 text-center text-xl

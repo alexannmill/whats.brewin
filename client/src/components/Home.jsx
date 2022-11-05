@@ -1,9 +1,8 @@
 // ----- Components -----
-import BreweryProfile from "./Brewery-Profile/BreweryProfile";
-import LikeButton from "./LikeButton";
 import Hero from "../components/Hero/Hero";
-import EditForm from "./Brewers/EditForm"
+import BrewerHomepage from "./Brewers/BrewerHomepage"
 import { motion } from "framer-motion"
+import EditForm from "./Brewers/EditForm";
 //
 // ----- App Component -----
 //
@@ -14,8 +13,9 @@ export default function App() {
     animate={{translateY: "0%", transition: {ease:"easeInOut", duration: 0.5}}}
     exit={{translateY: "-200%", transition: {ease: "easeInOut", duration: 0.75}}}
     >
-      <Hero />
-      {/* <EditForm /> */}
+      {/* <Hero /> */}
+      <EditForm />
+      <BrewerHomepage />
     </motion.div>
   );
 }

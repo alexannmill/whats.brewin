@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Brewers.css"
 
 
-const LogoImage = () => {
+const UploadImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
@@ -30,4 +30,4 @@ const LogoImage = () => {
   );
 };
 
-export default LogoImage;
+export default UploadImage;

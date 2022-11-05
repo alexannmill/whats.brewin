@@ -14,6 +14,8 @@ import BreweryList from "./Breweries/BreweryList";
 import Favourites from "./Breweries/Favourites";
 import Home from "./Home";
 import FormUsers from "./users/FormUsers";
+import EditForm from "./Brewers/EditForm";
+import BrewerHomepage from "./Brewers/BrewerHomepage"
 
 export default function AnimatedRoutes() {
   const { showUser } = useContext(LoginContext);
@@ -34,6 +36,8 @@ export default function AnimatedRoutes() {
         <Route path="/brewery_list" element={<BreweryList />} />
         <Route path="/favorites_list" element={<Favourites />} />
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
+        <Route path="/brewer/home" element={<BrewerHomepage/>} />
+        <Route path="/brewer/edit" element={<EditForm />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
