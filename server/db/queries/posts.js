@@ -27,11 +27,12 @@ const createPost = (post) => {
   return client
     .query(
       `INSERT INTO post 
-      (caption, photo_url) 
-      values($1,$2) RETURNING *`,
-      [post.caption, post.date, post.photo_url]
+      (brewer_id, caption, date, photo_url) 
+      values($1,$2,$3,$4) RETURNING *`,
+      [post.brewer_id, post.caption, post.date, post.photo_url]
     )
     .then((post) => {
+      console.log('post:', post)
       return post.rows[0];
     });
 };

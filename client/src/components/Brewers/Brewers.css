@@ -51,7 +51,13 @@
 }
 
 .caption-input {
-  @apply text-center h-16 w-9/12
+  align-items: center;
+  @apply text-center h-16 w-11/12 flex flex-row mt-3 ml-2
+}
+
+.image-post {
+  align-self: center;
+  @apply bg-[#b5b5b5c1]  rounded-md p-5 m-5 text-center text-xl h-auto
 }
 
 
