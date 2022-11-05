@@ -44,15 +44,16 @@ export default function EditForm() {
         phone,
       })
       .then((res) => {
+        console.log(res);
         setBrewer({
-          brewery,
-          street_number,
-          street,
-          city,
-          state_prov,
-          post_zip,
-          website,
-          phone,
+          brewery: res.data.brewery,
+          street_number: res.data.street_number,
+          street: res.data.street,
+          city: res.data.city,
+          state_prov: res.data.state_prov,
+          post_zip: res.data.post_zip,
+          website: res.data.website,
+          phone: res.data.phone,
         });
         redirect();
       });
