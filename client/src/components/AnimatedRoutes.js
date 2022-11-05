@@ -40,8 +40,8 @@ export default function AnimatedRoutes() {
         <Route path="/brewery_list" element={<BreweryList />} />
         <Route path="/favorites_list" element={<Favourites />} />
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
-        <Route path="/brewer/home" element={<BrewerHomepage />} />
-        <Route path="/brewer/edit" element={<EditForm />} />
+        <Route path="/brewers/home" element={<BrewerHomepage />} />
+        <Route path="/brewers/edit" element={<EditForm />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>

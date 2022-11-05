@@ -18,8 +18,8 @@ const BrewerPost = () => {
   const submitPost = (e) => {
     e.preventDefault();
     return axios
-      .post("posts/new", {
-        brewer_id: brewer.id,
+      .post("/posts/new", {
+        brewer_id: 3,
         caption,
         selectedImage,
         date,
@@ -41,6 +41,7 @@ const BrewerPost = () => {
             {selectedImage && (
               <div>
                 <img
+                  className="rounded-md"
                   alt="not fount"
                   width={"250px"}
                   src={URL.createObjectURL(selectedImage)}
@@ -72,6 +73,9 @@ const BrewerPost = () => {
                 onChange={(e) => setCaption(e.target.value)}
               />
           </div>
+          <button onClick={(e) => {
+          submitPost(e);
+        }}>send it</button>
         </div>
       </form>
     </div>

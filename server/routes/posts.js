@@ -26,7 +26,7 @@ router.post("/new", (req, res) => {
     photo_url: data.selectedImage,
     date: data.date,
   }
-  console.log('post:', post)
+  console.log('postROUTE:', post)
   createPost(post)
   .then((result) => {
     res.send(result);
