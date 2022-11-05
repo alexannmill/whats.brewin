@@ -31,6 +31,7 @@ export default function AnimatedRoutes() {
         )}
         {!showUser && (
           <>
+            <Route path="/" element={<Home />} />
             <Route path="/register" element={<FormUsers>Register</FormUsers>} />
             <Route path="/login" element={<FormUsers>Login</FormUsers>} />{" "}
           </>
