@@ -11,13 +11,17 @@ import {
 import Logo from "../nav & footer/imgs/logo3.png"
 import "./Brewers.css"
 import { Link } from "react-router-dom";
+import BrewerPost from "./BrewerPost";
+import { LoginContext } from "../../Contexts/LoginContext";
 
 
 export default function App() {
 
+  const {user} = useContext(LoginContext)
   const { brewer } = useContext(brewerContext)
   console.log('brewer:', brewer)
 
+  console.log('user:', user)
 
   return (
     <motion.div className="App"
@@ -47,10 +51,13 @@ export default function App() {
             </div>
         </div>
       </div>
-            <Link to="brewer/edit">
-            <button className="edit-button">Edit Brewery Info</button>
-            </Link>
-    </div> 
+          <Link to="brewer/edit">
+          <button className="edit-button">Edit Brewery Info</button>
+          </Link>
+      </div> 
+      <div>
+        <BrewerPost />
+      </div>
     </div>
     </motion.div>
   );

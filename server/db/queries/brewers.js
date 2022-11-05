@@ -1,5 +1,16 @@
 const client = require("../index");
 
+
+const getBrewerByUserID = (userID) => {
+    return client
+    .query("SELECT * FROM brewers WHERE user_id = $1", [userID])
+    .then((brewer) => {
+      return brewer.rows;
+    });
+};
+
+
+
 const editBrewer = (brewer) => {
   return client
     .query(
@@ -15,6 +26,7 @@ const editBrewer = (brewer) => {
 
 module.exports = {
   editBrewer,
+  getBrewerByUserID
 };
 
 
