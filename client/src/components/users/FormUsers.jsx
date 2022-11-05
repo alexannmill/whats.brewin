@@ -58,7 +58,7 @@ const FormUsers = (props) => {
 
   return (
     <motion.div
-      className="FormUsers"
+      className="FormUsers overflow-scroll"
       initial={{ translateY: "100%" }}
       animate={{
         translateY: "0%",
@@ -69,9 +69,11 @@ const FormUsers = (props) => {
         transition: { ease: "easeInOut", duration: 0.75 },
       }}
     >
-      <div className=" rounded flex flex-col items-center ">
+      <div className="overflow-scroll rounded flex flex-col items-center ">
         <form className="form" onSubmit={(e) => formhandle(e)}>
-          <h1 className="title mb-6">Please {props.children}</h1>
+          <h1 className="title mb-6 font-bold text-3xl">
+            Please {props.children}
+          </h1>
           {alert && <>opps it looks like something is wrong.</>}
           <div className=" rounded flex flex-col items-center ">
             {props.children === "Register" && (
@@ -120,6 +122,7 @@ const FormUsers = (props) => {
               </>
             )}
             <button
+              style={{ backgroundColor: "#0568A0" }}
               type="submit"
               className="bg-sky-500 border-black rounded-full p-2 text-white hover:bg-sky-700 m-3 w-1/2"
             >
