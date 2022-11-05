@@ -49,4 +49,11 @@
 }
 
 
-/* bg-  */
+/* View All button */
+.view-all-button {
+  @apply  fixed z-10 bottom-5 right-5 p-5 rounded-full 
+        bg-[#1B252E] border border-neutral-50 text-neutral-50
+        hover:bg-[#e8b476] 
+        transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110
+        drop-shadow-sm 
+}
