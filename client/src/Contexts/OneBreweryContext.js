@@ -4,7 +4,7 @@ export const oneBreweryContext = createContext();
 
 function OneBreweryProvider(props) {
 
-  const [brewery, setBrewery] = useState({});
+  const [brewery, setBrewery] = useState(null);
 
   const breweryData = { brewery, setBrewery };
   return (
