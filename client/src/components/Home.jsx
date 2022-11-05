@@ -1,5 +1,5 @@
 // ----- Components -----
-import BrewerHomePage from "./Brewers/BrewerHomepage"
+import BrewerHomePage from "./Brewers/BrewerHomepage";
 import Hero from "../components/Hero/Hero";
 import { motion } from "framer-motion";
 //
@@ -19,8 +19,7 @@ export default function App() {
         transition: { ease: "easeInOut", duration: 0.75 },
       }}
     >
-      <BrewerHomePage />
-      {/* <Hero /> */}
+      <Hero />
     </motion.div>
   );
 }
