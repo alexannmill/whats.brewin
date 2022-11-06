@@ -57,7 +57,7 @@
 
 .image-post {
   align-self: center;
-  @apply bg-[#b5b5b5c1]  rounded-md p-5 m-5 text-center text-xl h-auto
+  @apply  bg-neutral-200   rounded-md p-5 m-5 text-center text-xl h-auto
 }
 
 

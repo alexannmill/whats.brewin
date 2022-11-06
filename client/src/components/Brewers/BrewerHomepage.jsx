@@ -69,7 +69,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <Link to="brewer/edit">
+          <Link to="brewers/edit">
             <button className="edit-button">Edit Brewery Info</button>
           </Link>
         </div>
