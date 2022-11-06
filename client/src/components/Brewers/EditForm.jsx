@@ -84,6 +84,7 @@ export default function EditForm() {
       phone,
       image,
     })
+    console.log('brewerFORM:', brewer)
     redirect()
   }
   return (
@@ -107,7 +108,7 @@ export default function EditForm() {
           action="edit" 
           method="post" 
           encType="multipart/form-data"
-          // onSubmit={(e) => {}} 
+          onSubmit={(e) => submitForm()} 
           >
           {image.preview && <img src={image.preview} alt="upload" width='100' height='100' />}
             <input 

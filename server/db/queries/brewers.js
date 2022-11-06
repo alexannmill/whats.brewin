@@ -4,6 +4,7 @@ const getBrewerByUserID = (userID) => {
   return client
     .query("SELECT * FROM brewers_img WHERE user_id = $1", [userID])
     .then((brewer) => {
+      console.log('brewer.rows[0]:', brewer.rows[0])
       return brewer.rows[0];
     });
 };

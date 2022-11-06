@@ -9,9 +9,17 @@ const upload = multer({
 
 
 /* GET brewers listing. */
-router.get("/", function (req, res, next) {
-  getBrewerByUserID(req.body).then((data) => {
-    res.send(data);
+router.get("/home", function (req, res, next) {
+  const id = req.session.user_id
+  console.log('id:', id)
+  getBrewerByUserID(id).then((data) => {
+   if(data) { const dirname = path.resolve();
+    console.log('dirname:', dirname)
+    const fullfilepath = path.join(dirname, "images/" + data.filename )
+    console.log('data:', data)
+    res.sendFile(fullfilepath)
+  }
+    res.json(data);
   });
 });
 
@@ -41,7 +49,7 @@ router.post("/edit", upload.single('logo'),function (req, res) {
   console.log('newBrewer:', newBrewer)
   editBrewer(newBrewer).then((e) => {
     req.session.brewer_id = e[0].id;
-    res.send(200)
+    res.status(200)
   });
 });
 
