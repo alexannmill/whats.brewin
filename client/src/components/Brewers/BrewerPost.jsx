@@ -37,7 +37,7 @@ const BrewerPost = () => {
         }}
       >
         <div className="image-post">
-          <h1 className="text-2xl">Create a Post</h1>
+          <h1 className="text-2xl underline underline-offset-8">Create a Post</h1>
             {selectedImage && (
               <div>
                 <img
