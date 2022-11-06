@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path')
 const multer  = require('multer')
 const upload = multer({
   dest: 'images',
@@ -34,7 +35,7 @@ router.get('/:filename', function(req, res, next) {
   getImage(filename)
   .then((result) => {
     console.log('resultR:', result)
-    const fullFilePath = (__dirname + "/images/" + filename);
+    const fullFilePath = path.join(__dirname, "../images/", filename);
     console.log('fullFilePath:', fullFilePath)
     return res.type(result.mimetype).sendFile(fullFilePath);
   })

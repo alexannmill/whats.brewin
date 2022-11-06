@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path')
 const { getPostById, createPost } = require("../db/queries/posts");
 const multer  = require('multer')
 const upload = multer({
@@ -25,12 +26,13 @@ router.get("/:id", (req, res) => {
 
 router.post("/new", upload.single('image'), (req, res) => {
   const data = req.body
+  console.log('data:', data)
   const imgdata = req.file
+  console.log('imgdata:', imgdata)
   const post = {
-    brewer_id: 1,
+    user_id: 1,
     caption: data.caption,
-    photo_url: data.selectedImage,
-    date: data.date,
+    date: new Date().toISOString().slice(0, 10),
     filename: imgdata.filename,
     mimetype: imgdata.mimetype,
     filepath: imgdata.path,
@@ -39,7 +41,7 @@ router.post("/new", upload.single('image'), (req, res) => {
   console.log('postROUTE:', post)
   createPost(post)
   .then((result) => {
-    res.send(result);
+    res.status(200);
   });
 });
 

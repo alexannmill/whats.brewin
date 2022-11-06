@@ -10,7 +10,7 @@ const getPostById = (id) => {
   return client
   .query(
     `SELECT *
-    FROM posts
+    FROM posts_img
     WHERE id = $1 
       `,
       [id]
@@ -26,10 +26,10 @@ const getPostById = (id) => {
 const createPost = (post) => {
   return client
     .query(
-      `INSERT INTO posts 
-      (brewer_id, caption, date, filename, filepath, mimetype, size) 
+      `INSERT INTO posts_img
+      (user_id, caption, date, filename, filepath, mimetype, size) 
       values($1,$2,$3,$4, $5, $6, $7) RETURNING *`,
-      [post.brewer_id, post.caption, post.date, post.filename, post.filepath, post.mimetype, post.size]
+      [post.user_id, post.caption, post.date, post.filename, post.filepath, post.mimetype, post.size]
     )
     .then((post) => {
       console.log('postQ:', post)

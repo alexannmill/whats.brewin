@@ -1,7 +1,7 @@
 drop table if EXISTS posts_img CASCADE;
 create table posts_img (
 	id SERIAL PRIMARY KEY NOT NULL,
-	brewer_id REFERENCES brewers(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 	caption VARCHAR(500),
 	date VARCHAR(250),
 	likes INT,
