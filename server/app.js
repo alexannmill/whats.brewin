@@ -11,6 +11,7 @@ const postsRouter = require("./routes/posts");
 const eventsRouter = require("./routes/events");
 const brewersRouter = require("./routes/brewers");
 const favoritesRouter = require("./routes/favorites");
+const imagesRouter = require("./routes/images");
 const PORT = process.env.PORT;
 const app = express();
 const cookieSession = require("cookie-session");
@@ -37,6 +38,7 @@ app.use("/posts", postsRouter);
 app.use("/events", eventsRouter);
 app.use("/brewers", brewersRouter);
 app.use("/favorites", favoritesRouter);
+app.use("/images", imagesRouter);
 
 app.listen(PORT, () => {
   console.log(`listening.. ${PORT}`);

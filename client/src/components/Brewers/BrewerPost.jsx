@@ -1,68 +1,62 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { brewerContext } from "../../Contexts/BrewerContext";
 
 const BrewerPost = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [image, setImage] = useState({ preview: '', data: '' })
   const [caption, setCaption] = useState("");
 
   const { brewer } = useContext(brewerContext);
 
-  const date = new Date().toISOString().slice(0, 10);
+  // const date = new Date().toISOString().slice(0, 10);
   // ---- ----- Will implement backend functionality after demo day 
   // ---- React route manual redirect to avoid link tag
-  // const navigate = useNavigate();
-  // const redirect = useCallback(() => navigate(`/brewer/${brewer.id}`, {replace: true}), [navigate])
+  const navigate = useNavigate();
+  const redirect = useCallback(() => navigate(`/brewer/home`, {replace: true}), [navigate])
 
   const submitPost = (e) => {
     e.preventDefault();
+    console.log('image:', image)
     return axios
-      .post("posts/new", {
-        brewer_id: brewer.id,
+      .post("/posts/new", {
+        user_id: 3,
         caption,
-        selectedImage,
-        date,
+        image,
       })
       .then((res) => {
         console.log('res:', res)
         // redirect()
       });
   };
+
+  const handleFileChange = (e) => {
+    console.log('e.target.files:', e.target.files)
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
+
+
   return (
     <div className="">
       <form
-        onSubmit={(e) => {
-          submitPost(e);
-        }}
+        action="/posts/new" 
+        method="post" 
+        encType="multipart/form-data" 
+        // onSubmit={(e) => {
+        //   submitPost(e);
+        // }}
       >
-        <div className="image-post">
-          <h1 className="text-2xl">Create a Post</h1>
-            {selectedImage && (
-              <div>
-                <img
-                  alt="not fount"
-                  width={"250px"}
-                  src={URL.createObjectURL(selectedImage)}
-                />
-                <br />
-                <button
-                  className="upload-button"
-                  onClick={() => setSelectedImage(null)}
-                >Remove</button>
-              </div>
-            )}
-            <br />
-            <p className="text-xl">Upload a Photo:</p>
-            <input
-              className="bg-[#f6f2f2d9] text-lg"
-              type="file"
-              name="myImage"
-              onChange={(event) => {
-                console.log(event.target.files[0]);
-                setSelectedImage(event.target.files[0]);
-              }}
-            />
+        {image.preview && <img src={image.preview} alt="upload" width='100' height='100' />}
+        <input 
+        name="image" 
+        type="file"
+        onChange={(e) => handleFileChange(e)}
+        ></input>
             <div className="caption-input">
               <label className="post-caption">Caption: </label>
               <input
@@ -72,7 +66,12 @@ const BrewerPost = () => {
                 onChange={(e) => setCaption(e.target.value)}
               />
           </div>
-        </div>
+          <button type="submit" onClick={(e) => {
+            setCaption("")
+            setImage({ preview: '', data: '' })
+            redirect()
+          }}
+        >send it</button>
       </form>
     </div>
   );
