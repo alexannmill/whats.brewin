@@ -76,7 +76,11 @@ export default function EditForm() {
         </div>
         <UploadImage />
         <div className="form-inputs">
-          <form onSubmit={(e) => submitForm(e)}>
+          <form 
+           action="/posts/new" 
+           method="post" 
+           encType="multipart/form-data" 
+           >
             <div className="columns-2">
               <div>
                 <label>Brewery: </label>
