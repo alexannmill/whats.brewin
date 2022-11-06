@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 // ----- Contexts -----
-import { brewerContext } from "../../Contexts/BrewerContext";
+// import { brewerContext } from "../../Contexts/BrewerContext";
 import { LoginContext } from "../../Contexts/LoginContext";
 
 function BrewerEvent() {
   const { user } = useContext(LoginContext);
-  const { brewer, setBrewer } = useContext(brewerContext);
+  // const { brewer, setBrewer } = useContext(brewerContext);
   const [eventName, setEventName] = useState("");
   const [eventLocation, setEventLocation] = useState("");
   const [eventTicketPrice, setEventTicketPrice] = useState(0);
@@ -19,7 +19,6 @@ function BrewerEvent() {
     return axios
       .post("events/new", {
       user_id: user.id,
-      brewer_id: brewer.id,
       eventName,
       eventLocation,
       eventTicketPrice,
