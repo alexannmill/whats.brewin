@@ -2,16 +2,12 @@ import "./Brewers.css";
 import axios from "axios";
 import React, { useContext, useState } from "react";
 // ----- Contexts -----
-// import { brewerContext } from "../../Contexts/BrewerContext";
 import { LoginContext } from "../../Contexts/LoginContext";
 
 function BrewerEvent() {
+  // ----- Contexts
   const { user } = useContext(LoginContext);
-  // const { brewer, setBrewer } = useContext(brewerContext);
-  // const [eventName, setEventName] = useState("");
-  // const [eventLocation, setEventLocation] = useState("");
-  // const [eventTicketPrice, setEventTicketPrice] = useState(0);
-  // const [eventDescription, setEventDescription] = useState("");
+  // ----- States
   const [formValues, setFormValues] = useState({
     eventName: "",
     eventLocation: "",
@@ -20,6 +16,7 @@ function BrewerEvent() {
   });
   const date = new Date().toISOString().slice(0, 10);
 
+  // ----- Send form input to DB
   const submitEventForm = (e) => {
     e.preventDefault();
 
@@ -34,10 +31,8 @@ function BrewerEvent() {
         ticket_link: "exampleticketlink.com",
       })
       .then((res) => {
-        //
-        // ----- Can pull this data if needed
-        //
-        console.log("Coming back from events db: ", res);
+        // ----- Reset Form Values
+        console.log("Successfully added Events to DB: ", res);
         setFormValues((prev) => ({
           ...prev,
           eventName: "",
