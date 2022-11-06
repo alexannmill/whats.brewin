@@ -17,7 +17,7 @@ function BrewerEvent() {
     e.preventDefault();
 
     return axios
-      .post("events/new", {
+      .post("/events/new", {
       user_id: user.id,
       eventName,
       eventLocation,
@@ -26,8 +26,11 @@ function BrewerEvent() {
       date,
       ticket_link: "exampleticketlink.com",
     }).then((res) => {
-      console.log("Coming back from events router: ", res);
-    })
+      // 
+      // ----- Can pull this data if needed
+      // 
+      console.log("Coming back from events db: ", res);
+    });
   };
 
   return (
