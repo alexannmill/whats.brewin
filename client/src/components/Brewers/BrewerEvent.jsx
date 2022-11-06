@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useState } from "react";
 // ----- Contexts -----
 import { brewerContext } from "../../Contexts/BrewerContext";
@@ -15,7 +16,8 @@ function BrewerEvent() {
   const submitEventForm = (e) => {
     e.preventDefault();
 
-    console.log({
+    return axios
+      .post("events/new", {
       user_id: user.id,
       brewer: brewer.id,
       eventName,
@@ -24,7 +26,9 @@ function BrewerEvent() {
       eventDescription,
       date,
       ticket_link: "exampleticketlink.com",
-    });
+    }).then((res) => {
+      console.log("Coming back from events router: ", res);
+    })
   };
 
   return (
