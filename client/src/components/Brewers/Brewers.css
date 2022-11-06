@@ -64,7 +64,7 @@
 /* Edit Form */
 .image-upload {
   align-self: center;
-  @apply bg-[#b5b5b5ac]  rounded-md p-5 m-5 text-center text-xl
+  @apply bg-[#b5b5b5ac]  rounded-md p-5 m-5 text-center text-xl w-2/3
 }
 
 .upload-button {
@@ -91,3 +91,24 @@ form div {
 form label {
   @apply text-2xl 
 }
+
+
+/* Events form */
+.create_events-form {
+  @apply bg-[#b5b5b5ac] rounded-md p-5 m-5 w-2/3
+          flex flex-col justify-start items-center
+}
+
+.create_events-form h1 {
+  @apply text-2xl text-center underline underline-offset-8
+}
+
+.create_events-form textarea {
+  @apply h-1/5 rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2 font-serif
+}
+
+#event-submit-button {
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]
+  rounded-lg text-center
+  text-neutral-100 text-xl font-semibold py-1 px-2
+} 
