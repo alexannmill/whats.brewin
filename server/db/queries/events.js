@@ -25,15 +25,19 @@ const getEventById = (id) => {
 const createEvent = (event) => {
   return client
     .query(
-      `INSERT INTO brewers 
-      (brewer_id, event_name, date, location, street, ticket_link, ticket_price, description)
-      values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`,
-      [brewer.brewer_id, brewer.event_name, brewer.date, brewer.location, brewer.street, brewer.ticket_link, brewer.ticket_price, brewer.description]
+      `INSERT INTO events 
+      (event_name, brewer_id, date, location, ticket_link, ticket_price, description)
+      values($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
+      [event.eventName, event.brewer_id, event.date, event.eventLocation, event.ticket_link, event.eventTicketPrice, event.eventDescription]
     )
     .then((event) => {
       return event.rows[0];
     });
 };
+
+
+
 module.exports = {
   getEventById,
+  createEvent
 };
