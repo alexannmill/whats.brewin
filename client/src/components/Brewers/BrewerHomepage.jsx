@@ -13,6 +13,7 @@ import "./Brewers.css";
 import { Link } from "react-router-dom";
 import BrewerPost from "./BrewerPost";
 import { LoginContext } from "../../Contexts/LoginContext";
+import BrewerEvent from "./BrewerEvent";
 
 export default function App() {
   const { user } = useContext(LoginContext);
@@ -74,6 +75,7 @@ export default function App() {
         </div>
         <div className="right-side">
           <BrewerPost />
+          {/* <BrewerEvent /> */}
         </div>
         </div>
       </div>
