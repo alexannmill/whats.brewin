@@ -7,7 +7,17 @@ const UploadImage = () => {
 
   return (
     <div className="image-upload">
-      <h1 className="text-2xl">Upload Brewery Logo: </h1>
+      <form 
+        action="/images" 
+        method="post" 
+        enctype="multipart/form-data" 
+        
+        >
+          <input name="image" type="file"></input>
+
+      </form>
+
+      {/* <h1 className="text-2xl">Upload Brewery Logo: </h1>
       {selectedImage && (
         <div>
         <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
@@ -25,7 +35,7 @@ const UploadImage = () => {
           console.log(event.target.files[0]);
           setSelectedImage(event.target.files[0]);
         }}
-      />
+      /> */}
     </div>
   );
 };
