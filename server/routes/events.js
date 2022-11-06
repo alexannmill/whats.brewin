@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getEventById } = require("../db/queries/events");
+const { getEventById, createEvent } = require("../db/queries/events");
 
 // ---- Initial page render
 router.get("/", (req, res) => {
@@ -19,7 +19,11 @@ router.get("/:id", (req, res) => {
 router.post("/new", (req, res) => {
   console.log("From EventsRouter, req.body: ", req.body);
   console.log("From EventsRouter, req.params: ", req.params);
+  console.log("From EventsRouter, req.session: ", req.session);
 
-  res.send("Reached events router okay")
-})
+  createEvent(req.body).then((dbRes) => {
+    console.log("In events routes, dbRes: ", dbRes);
+    res.send(dbRes);
+  });
+});
 module.exports = router;

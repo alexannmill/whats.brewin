@@ -26,9 +26,9 @@ const createEvent = (event) => {
   return client
     .query(
       `INSERT INTO events 
-      (event_name, brewer_id, date, location, ticket_link, ticket_price, description)
+      (event_name, user_id, date, location, ticket_link, ticket_price, description)
       values($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
-      [event.eventName, event.brewer_id, event.date, event.eventLocation, event.ticket_link, event.eventTicketPrice, event.eventDescription]
+      [event.eventName, event.user_id, event.date, event.eventLocation, event.ticket_link, event.eventTicketPrice, event.eventDescription]
     )
     .then((event) => {
       return event.rows[0];
