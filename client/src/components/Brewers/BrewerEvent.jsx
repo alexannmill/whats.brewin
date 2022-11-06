@@ -8,10 +8,16 @@ import { LoginContext } from "../../Contexts/LoginContext";
 function BrewerEvent() {
   const { user } = useContext(LoginContext);
   // const { brewer, setBrewer } = useContext(brewerContext);
-  const [eventName, setEventName] = useState("");
-  const [eventLocation, setEventLocation] = useState("");
-  const [eventTicketPrice, setEventTicketPrice] = useState(0);
-  const [eventDescription, setEventDescription] = useState("");
+  // const [eventName, setEventName] = useState("");
+  // const [eventLocation, setEventLocation] = useState("");
+  // const [eventTicketPrice, setEventTicketPrice] = useState(0);
+  // const [eventDescription, setEventDescription] = useState("");
+  const [formValues, setFormValues] = useState({
+    eventName: "",
+    eventLocation: "",
+    eventTicketPrice: 0,
+    eventDescription: "",
+  });
   const date = new Date().toISOString().slice(0, 10);
 
   const submitEventForm = (e) => {
@@ -20,10 +26,10 @@ function BrewerEvent() {
     return axios
       .post("/events/new", {
         user_id: user.id,
-        eventName,
-        eventLocation,
-        eventTicketPrice,
-        eventDescription,
+        eventName: formValues.eventName,
+        eventLocation: formValues.eventLocation,
+        eventTicketPrice: formValues.eventTicketPrice,
+        eventDescription: formValues.eventDescription,
         date,
         ticket_link: "exampleticketlink.com",
       })
@@ -32,6 +38,13 @@ function BrewerEvent() {
         // ----- Can pull this data if needed
         //
         console.log("Coming back from events db: ", res);
+        setFormValues((prev) => ({
+          ...prev,
+          eventName: "",
+          eventLocation: "",
+          eventTicketPrice: 0,
+          eventDescription: "",
+        }));
       });
   };
 
@@ -41,16 +54,18 @@ function BrewerEvent() {
         <div>
           <h1>Create an Event</h1>
         </div>
-           <br></br>
+        <br></br>
         <div className="create_events_labels-form">
           <label>Event name: </label>
           <br></br>
           <input
             id="event-name"
-            name="event-name"
             type="text"
             required
-            onChange={(e) => setEventName(e.target.value)}
+            value={formValues.eventName}
+            onChange={(e) =>
+              setFormValues((prev) => ({ ...prev, eventName: e.target.value }))
+            }
           />
         </div>
         <div className="create_events_labels-form">
@@ -58,10 +73,15 @@ function BrewerEvent() {
           <br></br>
           <input
             id="event-location"
-            name="event-location"
             type="text"
             required
-            onChange={(e) => setEventLocation(e.target.value)}
+            value={formValues.eventLocation}
+            onChange={(e) =>
+              setFormValues((prev) => ({
+                ...prev,
+                eventLocation: e.target.value,
+              }))
+            }
           />
         </div>
         <div className="create_events_labels-form">
@@ -69,11 +89,16 @@ function BrewerEvent() {
           <br></br>
           <input
             id="event-ticket-price"
-            name="event-ticket-price"
             type="number"
             min="0"
             required
-            onChange={(e) => setEventTicketPrice(e.target.value)}
+            value={formValues.eventTicketPrice}
+            onChange={(e) =>
+              setFormValues((prev) => ({
+                ...prev,
+                eventTicketPrice: e.target.value,
+              }))
+            }
           />
         </div>
         <div className="create_events_labels-form">
@@ -81,10 +106,15 @@ function BrewerEvent() {
           <br></br>
           <textarea
             id="event-description"
-            name="event-description"
             type="text"
             required
-            onChange={(e) => setEventDescription(e.target.value)}
+            value={formValues.eventDescription}
+            onChange={(e) =>
+              setFormValues((prev) => ({
+                ...prev,
+                eventDescription: e.target.value,
+              }))
+            }
           />
         </div>
         <div className="create_events_labels-form">
