@@ -15,4 +15,8 @@ router.get("/:id", (req, res) => {
   });
 });
 
+// ---- Creating new Event
+router.post("/new", (req, res) => {
+  console.log("From server, req: ", req);
+})
 module.exports = router;
