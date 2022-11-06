@@ -3,8 +3,7 @@ import { useContext } from "react";
 // react-router-dom
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 // framer-motion
-// import { AnimatePresence } from "framer-motion/dist/framer-motion";
-import { AnimatePresence, useReducedMotion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 // Contexts
 import { LoginContext } from "../Contexts/LoginContext";
 // Components
@@ -16,7 +15,6 @@ import Home from "./Home";
 import FormUsers from "./users/FormUsers";
 import EditForm from "./Brewers/EditForm";
 import BrewerHomepage from "./Brewers/BrewerHomepage";
-import BrewerEvent from "./Brewers/BrewerEvent";
 
 export default function AnimatedRoutes() {
   const { showUser, user } = useContext(LoginContext);
@@ -44,8 +42,6 @@ export default function AnimatedRoutes() {
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
         <Route path="/brewer/home" element={<BrewerHomepage />} />
         <Route path="/brewer/edit" element={<EditForm />} />
-        {/* vvv temporary vvv*/}
-        <Route path="/eventform" element={<BrewerEvent />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
