@@ -21,7 +21,7 @@ const BreweryPopup = (props) => {
       6
     )}-${phoneNum.substring(6)}`;
   };
-
+  const url = `https://google.com/maps/search/?api=1&query=${brewery.name}`;
   // NOTE: We actually can put an image in here if we wanted to
   return (
     <>
@@ -36,15 +36,17 @@ const BreweryPopup = (props) => {
       </header>
 
       <section className="brewery-details-container">
-        <button className="brewery-detail group ">
-          <FontAwesomeIcon
-            icon={faMapLocationDot}
-            className="detail-icons group-hover:text-[#2193b0]"
-          />
-          <p className="brewery-detail-text">
-            {brewery.street}, {brewery.city}, {brewery.state}
-          </p>
-        </button>
+        <a href={url} target="_blank" rel="noreferer">
+          <button className="brewery-detail group ">
+            <FontAwesomeIcon
+              icon={faMapLocationDot}
+              className="detail-icons group-hover:text-[#2193b0]"
+            />
+            <p className="brewery-detail-text">
+              {brewery.street}, {brewery.city}, {brewery.state}
+            </p>
+          </button>
+        </a>
 
         <button className="brewery-detail group ">
           <a
