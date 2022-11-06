@@ -5,6 +5,7 @@ import { Marker, Popup, useMap } from "react-map-gl";
 // ----- Contexts -----
 import { cityContext } from "../Contexts/CityContext";
 import { LoginContext } from "../Contexts/LoginContext";
+import { oneBreweryContext } from "../Contexts/OneBreweryContext";
 // ----- Components -----
 import BreweryPopup from "./BreweryPopup";
 import LikeButton from "./LikeButton";
@@ -17,16 +18,10 @@ const Markers = (props) => {
   const { city } = useContext(cityContext);
   const { current: map } = useMap();
   const { showUser, user } = useContext(LoginContext);
+  const { brewery } = useContext(oneBreweryContext);
 
-  useEffect(() => {
-    map.flyTo({
-      center: [city.long, city.lat],
-      duration: 3000,
-    });
-  }, [map, city]);
-
-  const handleClick = (event, brewery) => {
-    event.originalEvent.stopPropagation();
+  // Sets local popupInfo state to whatever singular brewery (either from Context or Local scope)
+  const openPopup = (brewery) => {
     // center takes [long, lat]
     setPopupInfo(brewery);
     map.flyTo({
@@ -34,7 +29,31 @@ const Markers = (props) => {
       duration: 1500,
       zoom: 13
     });
+  }
+
+  // Handling clicking on Marker directly on map (Not from sidebar)
+  const handleClick = (event, brewery) => {
+    event.originalEvent.stopPropagation();
+    openPopup(brewery);
   };
+
+
+  // For Flying ciy to city, either on init or on city change from searchbar/context scope
+  useEffect(() => {
+    map.flyTo({
+      center: [city.long, city.lat],
+      duration: 3000,
+    });
+  }, [map, city]);
+
+  // Purely for handling single brewery info coming in from context scope
+  useEffect(() => {
+    if (brewery) {
+      openPopup(brewery);
+    }
+  }, [brewery]) // not sure why it's angry here but it works 
+
+
 
   const renderMarker = props.breweries.map((brewery) => {
     return (
