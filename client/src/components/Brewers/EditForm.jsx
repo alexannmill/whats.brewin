@@ -1,10 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState, useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { brewerContext } from "../../Contexts/BrewerContext";
 import { LoginContext } from "../../Contexts/LoginContext";
 import { motion } from "framer-motion";
-import UploadImage from "./UploadImage";
 import "./Brewers.css";
 
 export default function EditForm() {
@@ -21,44 +20,72 @@ export default function EditForm() {
   const [post_zip, setPost_zip] = useState(brewer.post_zip);
   const [website, setWebsite] = useState(brewer.website);
   const [phone, setPhone] = useState(brewer.phone);
+  const [image, setImage] = useState({ preview: '', data: '' })
+
 
   // ---- React route manual redirect to avoid link tag
   const navigate = useNavigate();
   const redirect = useCallback(
-    () => navigate("/brewer/home", { replace: true }),
+    () => navigate("/brewers/home", { replace: true }),
     [navigate]
   );
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    return axios
-      .post("/brewers/edit", {
-        user_id: user.id,
-        brewery,
-        street_number,
-        street,
-        city,
-        state_prov,
-        post_zip,
-        website,
-        phone,
-      })
-      .then((res) => {
-        console.log(res);
-        setBrewer({
-          brewery: res.data.brewery,
-          street_number: res.data.street_number,
-          street: res.data.street,
-          city: res.data.city,
-          state_prov: res.data.state_prov,
-          post_zip: res.data.post_zip,
-          website: res.data.website,
-          phone: res.data.phone,
-        });
-        redirect();
-      });
-  };
+  // ---- Cannot figure out how to use axios for form with 
+  // ---- image ATM will need to comeback and config
+  // const submitForm = (e) => {
+  //   e.preventDefault();
+  //   return axios
+  //     .post("/brewers/edit", {
+  //       user_id: user.id,
+  //       brewery,
+  //       street_number,
+  //       street,
+  //       city,
+  //       state_prov,
+  //       post_zip,
+  //       website,
+  //       phone,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //       setBrewer({
+  //         brewery: res.data.brewery,
+  //         street_number: res.data.street_number,
+  //         street: res.data.street,
+  //         city: res.data.city,
+  //         state_prov: res.data.state_prov,
+  //         post_zip: res.data.post_zip,
+  //         website: res.data.website,
+  //         phone: res.data.phone,
+  //       });
+  //       redirect();
+  //     });
+  // };
 
+
+  const handleFileChange = (e) => {
+    console.log('e.target.files:', e.target.files)
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
+  const submitForm = () => {
+    setBrewer({
+      user_id: user.id,
+      brewery,
+      street_number,
+      street,
+      city,
+      state_prov,
+      post_zip,
+      website,
+      phone,
+      image,
+    })
+    redirect()
+  }
   return (
     <motion.div
       initial={{ translateY: "100%" }}
@@ -75,14 +102,20 @@ export default function EditForm() {
         <div className="brewery-title ">
           <h1>Brewery Information</h1>
         </div>
-        <UploadImage />
         <div className="form-inputs">
           <form 
-           action="/posts/new" 
-           method="post" 
-           encType="multipart/form-data" 
-           >
-            <div className="columns-2">
+          action="edit" 
+          method="post" 
+          encType="multipart/form-data"
+          // onSubmit={(e) => {}} 
+          >
+          {image.preview && <img src={image.preview} alt="upload" width='100' height='100' />}
+            <input 
+            name="logo" 
+            type="file"
+            onChange={(e) => handleFileChange(e)}
+            ></input>
+              <div className="columns-2">
               <div>
                 <label>Brewery: </label>
                 <input
@@ -123,7 +156,7 @@ export default function EditForm() {
                 <label>State/Province: </label>
                 <input
                   type="text"
-                  name="sate_prov"
+                  name="state_prov"
                   onChange={(e) => setState_prov(e.target.value)}
                   required
                 />
@@ -166,7 +199,11 @@ export default function EditForm() {
               </div>
             </div>
             <div className="submit-button">
-              <button id="submit-button" type="Submit">
+              <button 
+                id="submit-button" 
+                type="Submit"
+                onClick={(e) => submitForm()}
+                >
                 Submit
               </button>
             </div>
