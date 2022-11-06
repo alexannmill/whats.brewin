@@ -19,7 +19,7 @@ function BrewerEvent() {
     return axios
       .post("events/new", {
       user_id: user.id,
-      brewer: brewer.id,
+      brewer_id: brewer.id,
       eventName,
       eventLocation,
       eventTicketPrice,
