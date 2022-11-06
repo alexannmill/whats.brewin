@@ -75,7 +75,7 @@ export default function App() {
         </div>
         <div className="right-side">
           <BrewerPost />
-          {/* <BrewerEvent /> */}
+          <BrewerEvent />
         </div>
         </div>
       </div>
