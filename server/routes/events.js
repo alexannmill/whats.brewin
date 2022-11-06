@@ -17,6 +17,9 @@ router.get("/:id", (req, res) => {
 
 // ---- Creating new Event
 router.post("/new", (req, res) => {
-  console.log("From server, req: ", req);
+  console.log("From EventsRouter, req.body: ", req.body);
+  console.log("From EventsRouter, req.params: ", req.params);
+
+  res.send("Reached events router okay")
 })
 module.exports = router;
