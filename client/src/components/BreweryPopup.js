@@ -72,13 +72,13 @@ const BreweryPopup = (props) => {
         </button>
 
         <button className="brewery-detail group flex-row group-hover:text-[#2193b0]">
-          <a href={phone} className="brewery-detail group flex-row">
+          <a href={phone}>
             <FontAwesomeIcon
               icon={faPhone}
               className="detail-icons group-hover:text-[#2193b0]"
             />
           </a>
-          <a href={phone} className="brewery-detail group flex-row">
+          <a href={phone}>
             <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
           </a>
         </button>
