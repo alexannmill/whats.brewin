@@ -1,15 +1,37 @@
 const express = require("express");
 const router = express.Router();
 const { editBrewer, getBrewerByUserID } = require("../db/queries/brewers");
+const multer = require("multer")
+const fs = require("fs");
+const { path } = require("../app");
+
+
+const storage = multer.diskStorage ({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/")
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  },
+
+})
+
+const uploads = multer({storage})
 
 /* GET brewers listing. */
 router.get("/", function (req, res, next) {
-  getBrewerByUserID(req.body).then((data) => {
-    res.send(data);
-  });
+  const uploadsDir = path.join('uploads')
+  fs.readdir(uploadsDir, (err, files) => {
+    return res.json({files})
+  })
+  // getBrewerByUserID(req.body).then((data) => {
+  //   res.send(data);
+  // });
 });
 
-router.post("/edit", function (req, res) {
+router.post("/edit",  uploads.single('image'), (req, res) => {
+  const img = req.file.path
+  console.log('img:', img)
   console.log("req:", req.body);
   const newBrewer = {
     user_id: req.session.user_id,
