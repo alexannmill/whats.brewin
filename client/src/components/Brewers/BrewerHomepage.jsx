@@ -13,6 +13,7 @@ import Logo from "../nav & footer/imgs/logo3.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import BrewerPost from "./BrewerPost";
+import BrewerEvent from "./BrewerEvent";
 
 export default function App() {
   const { user } = useContext(LoginContext);
@@ -102,6 +103,7 @@ export default function App() {
         </div>
         <div className="right-side">
           <BrewerPost />
+          <BrewerEvent />
         </div>
         </div>
       </div>
