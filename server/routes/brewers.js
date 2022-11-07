@@ -3,17 +3,25 @@ const router = express.Router();
 const { editBrewer, getBrewerByUserID } = require("../db/queries/brewers");
 const path = require('path')
 const multer  = require('multer')
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'images');
-    },
-    filename: function (req, file, cb) {
-        console.log(file);
-        cb(null , file.originalname );
+const upload = multer({
+  storage: multer.diskStorage(
+    {
+        destination: function (req, file, cb) {
+            cb(null, 'public/');
+        },
+        filename: function (req, file, cb) {
+            cb(
+                null,
+                new Date().valueOf() + 
+                '_' +
+                file.filename
+            );
+        }
     }
-});
-
-const upload = multer({ storage: storage })
+), 
+// const upload = multer({
+//   dest: 'images',
+ });
 
 /* GET brewers listing. */
 router.get("/home", function (req, res, next) {
@@ -21,14 +29,8 @@ router.get("/home", function (req, res, next) {
   console.log('id:', id)
   getBrewerByUserID(id).then((data) => {
    if(data) { 
-    const dirname = path.resolve();
-    console.log('dirname:', dirname)
-    const type = data.mimetype
-    console.log('type:', type)
-    const fullfilepath = path.join(dirname, "images" + data.filename )
-    console.log('data:', data)
-    res.type(type).sendFile(fullfilepath)
-    res.json({...data, fullfilepath});
+    res.type("jpeg").sendFile(data.filepath)
+    res.json({...data});
   }
   });
   res.status(200)
@@ -39,6 +41,7 @@ router.get("/home", function (req, res, next) {
 router.post("/edit", upload.single('logo'),function (req, res) {
   const imgdata = req.file
   const data = req.body
+  const path = `${req.protocol}://${req.host}/${req.file.path}` 
   console.log('data:', data)
   console.log('imgdata:', imgdata)
   console.log('req.session.user_id:', req.session.user_id)
@@ -54,7 +57,7 @@ router.post("/edit", upload.single('logo'),function (req, res) {
     phone: data.phone,
     filename: imgdata.filename,
     mimetype: imgdata.mimetype,
-    filepath: imgdata.path,
+    filepath: path,
     size: imgdata.size
   };
   console.log('newBrewer:', newBrewer)
