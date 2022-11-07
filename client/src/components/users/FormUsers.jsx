@@ -26,6 +26,8 @@ const FormUsers = (props) => {
           brewery: checked,
         })
         .then((data) => {
+          console.log("register");
+
           setUser({ ...data.data, favoritedBreweries: [] });
           setShowUser(true);
           setName("");
@@ -38,12 +40,13 @@ const FormUsers = (props) => {
         });
     }
     // users Loging in
-    axios
+    return axios
       .post("/users/login", {
         email,
         password,
       })
       .then((data) => {
+        console.log("login");
         setUser({ ...data.data.user, favoritedBreweries: [...data.data.fav] });
         setShowUser(true);
         setName("");

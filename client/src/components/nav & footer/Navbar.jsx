@@ -32,10 +32,10 @@ const Navbar = () => {
               </p>
               {user.brewery ? (
                 <Link
-                  to="/brewers/home"
+                  to="/brewers/edit"
                   className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
                 >
-                  My Brewery
+                  Edit My Brewery
                 </Link>
               ) : (
                 <Link

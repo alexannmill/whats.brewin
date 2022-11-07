@@ -24,7 +24,11 @@ export default function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {user.brewery ? (
-          <Route path="/" element={<BrewerHomepage />} />
+          <>
+            <Route path="/" element={<BrewerHomepage />} />
+            <Route path="/brewers/home" element={<BrewerHomepage />} />
+            <Route path="/brewers/edit" element={<EditForm />} />
+          </>
         ) : (
           <Route path="/" element={<Home />} />
         )}
@@ -38,10 +42,7 @@ export default function AnimatedRoutes() {
         {showUser && <Route path="/favourites" element={<Favourites />} />}
         <Route path="/maps" element={<MapComponent />} />
         <Route path="/brewery_list" element={<BreweryList />} />
-        <Route path="/favorites_list" element={<Favourites />} />
         <Route path="/brewery/:brewery_id" element={<BreweryProfile />} />
-        <Route path="/brewers/home" element={<BrewerHomepage />} />
-        <Route path="/brewers/edit" element={<EditForm />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
