@@ -10,7 +10,7 @@ const UploadImage = () => {
       <form 
         action="/images" 
         method="post" 
-        enctype="multipart/form-data" 
+        encType="multipart/form-data" 
         
         >
           <input name="image" type="file"></input>

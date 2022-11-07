@@ -30,7 +30,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/edit",  uploads.single('image'), (req, res) => {
-  const img = req.file.path
+  const img = req.file
   console.log('img:', img)
   console.log("req:", req.body);
   const newBrewer = {

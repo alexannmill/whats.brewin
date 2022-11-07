@@ -78,7 +78,7 @@ export default function EditForm() {
         <UploadImage />
         <div className="form-inputs">
           <form 
-           action="/posts/new" 
+           action="edit" 
            method="post" 
            encType="multipart/form-data" 
            >
@@ -87,6 +87,7 @@ export default function EditForm() {
                 <label>Brewery: </label>
                 <input
                   type="text"
+                  value="test"
                   name="brewery"
                   onChange={(e) => setBrewery(e.target.value)}
                   required
@@ -96,6 +97,7 @@ export default function EditForm() {
                 <label>Street #: </label>
                 <input
                   type="text"
+                  value="test"
                   name="street_number"
                   onChange={(e) => setStreet_number(e.target.value)}
                   required
@@ -106,6 +108,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="street"
+                  value="test"
                   onChange={(e) => setStreet(e.target.value)}
                   required
                 />
@@ -115,6 +118,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="city"
+                  value="test"
                   onChange={(e) => setCity(e.target.value)}
                   required
                 />
@@ -124,6 +128,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="sate_prov"
+                  value="test"
                   onChange={(e) => setState_prov(e.target.value)}
                   required
                 />
@@ -133,6 +138,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="post_zip"
+                  value="test"
                   onChange={(e) => setPost_zip(e.target.value)}
                   id="post-zip"
                   size="6"
@@ -145,6 +151,7 @@ export default function EditForm() {
                   type="url"
                   name="website"
                   id="url"
+                  value="https://test.com"
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="https://example.com"
                   pattern="https://.*"
@@ -158,6 +165,7 @@ export default function EditForm() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value="000-000-0000"
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="(000)-000-0000"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
