@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 router.get("/:select", (req, res, next) => {
   const search = req.params.select;
   getCitiesBySearch(search).then((result) => {
-    res.send(result);
+    res.status(200).send(result);
   });
 });
 

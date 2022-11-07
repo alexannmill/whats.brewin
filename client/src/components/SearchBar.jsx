@@ -2,9 +2,9 @@ import { useEffect, useState, useContext, useCallback  } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-// ---- Datalikst Drop Down
+// ---- Datalist Drop Down
 import DatalistInput from 'react-datalist-input';
-import 'react-datalist-input/dist/styles.css'
+import 'react-datalist-input/dist/styles.css';
 
 // ---- Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,7 +38,7 @@ export default function SearchBar(props) {
 // ---- Input - onChange axios  to cities db for drop down
   useEffect(() => {
     // ---- For empty form
-        if (select === "") return
+        if (!select) return
     axios
       .get(`/cities/${select}`)
       .then((res) => {
