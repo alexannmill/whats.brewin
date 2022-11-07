@@ -1,11 +1,10 @@
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
 
 /* All Brewer Pages */
 .home-page {
-  background-image: url('http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600');
-  @apply flex p-10 flex-col h-screen bg-cover font-serif ;
+  background-image: url("http://images.pexels.com/photos/10192663/pexels-photo-10192663.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  @apply flex p-10 flex-col h-screen bg-cover font-serif;
 }
 
 /* Home Page */
@@ -15,7 +14,7 @@
 
 .row {
   justify-content: space-evenly;
-  @apply flex flex-row 
+  @apply flex flex-row;
 }
 .left-side {
   width: 50%;
@@ -25,11 +24,11 @@
 
 /* Info */
 .brewer-contact {
-  @apply border-t-slate-400 border-t-2 pt-2
+  @apply border-t-slate-400 border-t-2 pt-2;
 }
 
 .edit-button {
-  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]  text-neutral-100 text-2xl rounded-lg w-64 p-1 m-2 mt-8 text-center font-semibold
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]  text-neutral-100 text-2xl rounded-lg w-64 p-1 m-2 mt-8 text-center font-semibold  hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001];
 }
 
 .info-container {
@@ -42,73 +41,72 @@
 
 /* Post */
 .right-side {
-  width: 50%
+  width: 50%;
 }
 
 .post-caption {
   align-items: center;
-  @apply  text-xl flex flex-row inline-flex text-center
+  @apply text-xl flex flex-row inline-flex text-center;
 }
 
 .caption-input {
   align-items: center;
-  @apply text-center h-16 w-11/12 flex flex-row mt-3 ml-2
+  @apply text-center h-16 w-11/12 flex flex-row mt-3 ml-2;
 }
 
 .image-post {
   align-self: center;
-  @apply  bg-neutral-200   rounded-md p-5 m-5 text-center text-xl h-auto
+  @apply bg-neutral-200   rounded-md p-5 m-5 text-center text-xl h-auto;
 }
-
 
 /* Edit Form */
 .image-upload {
   align-self: center;
-  @apply bg-[#b5b5b5ac]  rounded-md p-5 m-5 text-center text-xl w-2/3
+  @apply bg-[#b5b5b5ac]  rounded-md p-5 m-5 text-center text-xl w-2/3;
 }
 
 .upload-button {
-  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] rounded-sm
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] rounded-sm  hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001];
 }
 
 .form-inputs {
   align-self: center;
- @apply  bg-[#b5b5b597] rounded-lg  m-5 text-xl p-8
+  @apply bg-[#b5b5b597] rounded-lg  m-5 text-xl p-8;
 }
 
 input {
-  @apply rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2
+  @apply rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2;
 }
 
 .submit-button {
-  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
-  ml-96 text-neutral-100 text-2xl rounded-lg w-32 p-1 m-2 mt-8 text-center font-semibold
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]  hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001] 
+  ml-96 text-neutral-100 text-2xl rounded-lg w-32 p-1 m-2 mt-8 text-center font-semibold;
 }
 form div {
   text-align: -webkit-center;
 }
 
 form label {
-  @apply text-2xl 
+  @apply text-2xl;
 }
-
 
 /* Events form */
 .create_events-form {
   @apply bg-[#b5b5b5ac] rounded-md p-5 m-5 w-2/3
-          flex flex-col justify-start items-center
+          flex flex-col justify-start items-center;
 }
 
 .create_events-form h1 {
-  @apply text-2xl text-center underline underline-offset-8
+  @apply text-2xl text-center underline underline-offset-8;
 }
 
 .create_events-form textarea {
-  @apply h-1/5 rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2 font-serif
+  @apply h-1/5 rounded-md bg-[#f6f2f2d9]  mt-2 mb-4 p-2 font-serif;
 }
 
 #event-submit-button {
-  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b]
+  @apply bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+   hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001] 
   rounded-lg text-center
-  text-neutral-100 text-xl font-semibold py-1 px-2
-} 
+  text-neutral-100 text-xl font-semibold py-1 px-2;
+}

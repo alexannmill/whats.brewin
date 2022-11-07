@@ -33,14 +33,16 @@ const Navbar = () => {
               {user.brewery ? (
                 <Link
                   to="/brewers/edit"
-                  className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
+                  className=" text-white bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+            hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001]  rounded-3xl p-3 ml-2"
                 >
                   Edit My Brewery
                 </Link>
               ) : (
                 <Link
                   to="/favourites"
-                  className=" text-white hover:bg-[#e8b476] rounded-3xl p-3 ml-2"
+                  className=" text-white bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+            hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001]  rounded-3xl p-3 ml-2"
                 >
                   My Favourites
                 </Link>
@@ -66,13 +68,15 @@ const Navbar = () => {
             <div>
               <Link
                 to="/register"
-                className="m-10 text-white hover:bg-[#e8b476] rounded-3xl p-3"
+                className="m-10 text-white bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+            hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001]  rounded-3xl p-3"
               >
                 Register
               </Link>
               <Link
                 to="/login"
-                className="text-white  hover:bg-[#e8b476] rounded-3xl p-3"
+                className="text-white  bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+            hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001]  rounded-3xl p-3"
               >
                 Login
               </Link>

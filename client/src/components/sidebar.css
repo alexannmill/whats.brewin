@@ -1,59 +1,59 @@
 .sidebar {
-  @apply border-r-2 border-slate-400 overflow-hidden p-0 m-0
+  @apply border-r-2 border-slate-400 overflow-hidden p-0 m-0;
 }
 
 .sidebar > .heading {
-  @apply  h-1/6 p-5 flex justify-center items-center
+  @apply h-1/6 p-5 flex justify-center items-center
           bg-gradient-to-r from-[#FF8001] to-[#feb47b]
           border-b-2 border-gray-300 
           drop-shadow-lg
-          cursor-auto
+          cursor-auto;
 }
 .sidebar > .heading > h1 {
-  @apply  font-serif font-extrabold tracking-wide leading-tight 
-          text-center text-3xl text-neutral-50
+  @apply font-serif font-extrabold tracking-wide leading-tight 
+          text-center text-3xl text-neutral-50;
 }
 
 /* Holds all the listing cards */
 .sidebar .listings {
-  @apply  overflow-y-scroll h-5/6 /* MUST have height attached for overflow to work */
-        bg-neutral-50 pb-1
+  @apply overflow-y-scroll h-5/6 /* MUST have height attached for overflow to work */
+        bg-neutral-50 pb-1;
 }
 
 /* Each listing card */
 .listing-item {
-  @apply  h-1/6 p-5 flex flex-col justify-center items-center
-          border-b-2 border-slate-400 last:border-b-0
+  @apply h-1/6 p-5 flex flex-col justify-center items-center
+          border-b-2 border-slate-400 last:border-b-0;
 }
 
 .listing-item > h3 {
-  @apply  font-sans font-semibold tracking-wider leading-tight
+  @apply font-sans font-semibold tracking-wider leading-tight
           text-center text-xl text-[#FF8001] hover:text-sky-400
-          pt-2
+          pt-2;
 }
 
 .listing-item > p {
-  @apply font-sans font-medium tracking-wide leading-normal pt-2 pb-2
+  @apply font-sans font-medium tracking-wide leading-normal pt-2 pb-2;
 }
 
 .listings::-webkit-scrollbar {
-  @apply w-1 h-5 border-l-0 bg-neutral-200
+  @apply w-1 h-5 border-l-0 bg-neutral-200;
 }
 
 .listings::-webkit-scrollbar-track {
-  @apply bg-none
+  @apply bg-none;
 }
 
 .listings::-webkit-scrollbar-thumb {
-  @apply bg-[#feb47b] rounded-none
+  @apply bg-[#feb47b] rounded-none;
 }
-
 
 /* View All button */
 .view-all-button {
-  @apply  fixed z-10 bottom-5 right-5 p-5 rounded-full 
-        bg-[#1B252E] border border-neutral-50 text-neutral-50
-        hover:bg-[#e8b476] 
+  @apply fixed z-10 bottom-5 right-5 p-5 rounded-full 
+         border border-neutral-50 text-neutral-50
+        bg-gradient-to-r from-[#FF8001] to-[#feb47b] 
+            hover:bg-gradient-to-r hover:from-[#feb47b]  hover:to-[#FF8001] 
         transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110
-        drop-shadow-sm 
+        drop-shadow-sm;
 }
