@@ -83,7 +83,7 @@ export default function EditForm() {
       post_zip,
       website,
       phone,
-      image,
+      // logo: `http://${window.location.host}/image/${image.data.name}`
     })
     console.log('brewerFORM:', brewer)
     redirect()

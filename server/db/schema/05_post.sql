@@ -3,7 +3,7 @@
 drop table if EXISTS posts CASCADE;
 create table posts (
 	id SERIAL PRIMARY KEY NOT NULL,
-	brewer_id REFERENCES brewers(id) ON DELETE CASCADE,
+	brewer_id INTEGER REFERENCES brewers(id) ON DELETE CASCADE,
 	caption VARCHAR(500),
 	date VARCHAR(250),
 	likes INT,
