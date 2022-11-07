@@ -6,7 +6,6 @@ const multer  = require('multer')
 const upload = multer({
   dest: 'images',
  });
-const { uploadImage, getImage } = require("../db/queries/images")
 
 // ---- Initial page render
 router.get("/", (req, res) => {
