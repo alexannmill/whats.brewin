@@ -37,46 +37,46 @@ export default function App() {
     >
       <div className="overflow-scroll home-page bg-cover bg-center">
         <div className="brewery-title">
-          <h1>{brewer.brewery}</h1>
+          <h1>{brewer.brewery} Dashboard</h1>
         </div>
         <div className="row">
-        <div className="left-side">
-          <div className="brewer-image">
-            <img className="brewer-img" src={Logo} alt="Brewery Img"></img>
-          </div>
-          <br />
-          <div className="info-container">
-            <div>
-              <div className="brewer-address">
-                <h1>
-                  <FontAwesomeIcon icon={faMapLocationDot} />{" "}
-                  {brewer.street_number}
-                  {brewer.street}
-                </h1>
-                <h1>
-                  {brewer.state_prov}, USA, {brewer.post_zip}
-                </h1>
-              </div>
-              <br />
-              <div className="brewer-contact">
-                <a target="_blank" href={brewer.website}>
-                  <FontAwesomeIcon icon={faGlobe} /> {brewer.website}
-                </a>
-                <h1>
-                  {" "}
-                  <FontAwesomeIcon icon={faPhone} /> {brewer.phone}
-                </h1>
+          <div className="left-side">
+            <div className="brewer-image">
+              <img className="brewer-img" src={Logo} alt="Brewery Img"></img>
+            </div>
+            <br />
+            <div className="info-container">
+              <div>
+                <div className="brewer-address">
+                  <h1>
+                    <FontAwesomeIcon icon={faMapLocationDot} />{" "}
+                    {brewer.street_number}
+                    {brewer.street}
+                  </h1>
+                  <h1>
+                    {brewer.state_prov}, USA, {brewer.post_zip}
+                  </h1>
+                </div>
+                <br />
+                <div className="brewer-contact">
+                  <a target="_blank" href={brewer.website}>
+                    <FontAwesomeIcon icon={faGlobe} /> {brewer.website}
+                  </a>
+                  <h1>
+                    {" "}
+                    <FontAwesomeIcon icon={faPhone} /> {brewer.phone}
+                  </h1>
+                </div>
               </div>
             </div>
+            <Link to="brewers/edit">
+              <button className="edit-button">Edit Brewery Info</button>
+            </Link>
           </div>
-          <Link to="brewers/edit">
-            <button className="edit-button">Edit Brewery Info</button>
-          </Link>
-        </div>
-        <div className="right-side">
-          <BrewerPost />
-          <BrewerEvent />
-        </div>
+          <div className="right-side">
+            <BrewerPost />
+            <BrewerEvent />
+          </div>
         </div>
       </div>
     </motion.div>
