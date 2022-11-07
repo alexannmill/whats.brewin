@@ -18,15 +18,16 @@ export default function App() {
   const { user } = useContext(LoginContext);
   const { brewer, setBrewer } = useContext(brewerContext);
 
-  console.log("user:", user.id);
+  const [image, setImage] = useState(Logo)
+
 
     // Find breweries for map by brewery
     useEffect(() => {
       axios
         .get(`/brewers/home`)
         .then((res) => {
-          console.log('resAX:', res.data.rootPath.root)
-          console.log('res.data.filename:', res.data.filename)
+          const imgPath = `${res.data.filepath}/${res.data.filename}`
+          setImage(imgPath)
           const incomingData = res.data
           setBrewer({
             user_id: user.id,
@@ -47,8 +48,6 @@ export default function App() {
         });
       }, []);
       
-      console.log('brewer.path, brewer.filename:', brewer.filepath, brewer.filename)
-
 
   return (
     <motion.div
@@ -70,7 +69,7 @@ export default function App() {
         <div className="row">
         <div className="left-side">
           <div className="brewer-image">
-            <img className="brewer-img" src={brewer.filepath} alt="Brewery Img"></img>
+            <img className="brewer-img" src={image} alt="Brewery Img"></img>
           </div>
           <br />
           <div className="info-container">

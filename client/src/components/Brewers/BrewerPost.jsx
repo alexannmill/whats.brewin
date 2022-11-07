@@ -10,7 +10,6 @@ const BrewerPost = () => {
 
   // const { brewer } = useContext(brewerContext);
 
-  // const date = new Date().toISOString().slice(0, 10);
   // ---- ----- Will implement backend functionality after demo day 
   // ---- React route manual redirect to avoid link tag
   const navigate = useNavigate();

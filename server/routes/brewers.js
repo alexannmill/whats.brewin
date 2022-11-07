@@ -3,35 +3,46 @@ const router = express.Router();
 const { editBrewer, getBrewerByUserID } = require("../db/queries/brewers");
 const path = require('path')
 const multer  = require('multer')
+let imageName = "";
+const storage = multer.diskStorage({
+  destination: path.join("./image"),
+  filename: function (req, file, cb) {
+    imageName = Date.now() + path.extname(file.originalname);
+    cb(null, imageName);
+  },
+});
 const upload = multer({
-  storage: multer.diskStorage(
-    {
-        destination: function (req, file, cb) {
-            cb(null, 'public/');
-        },
-        filename: function (req, file, cb) {
-            cb(
-                null,
-                new Date().valueOf() + 
-                '_' +
-                file.originalname
-            );
-        }
-    }
-), 
+  storage: storage,
+  limits: { fileSize: 3000000 },
+});
+
 // const upload = multer({
-//   dest: 'images',
- });
+// //   storage: multer.diskStorage(
+// //     {
+// //         destination: function (req, file, cb) {
+// //             cb(null, 'public/');
+// //         },
+// //         filename: function (req, file, cb) {
+// //             cb(
+// //                 null,
+// //                 new Date().valueOf() + 
+// //                 '_' +
+// //                 file.originalname
+// //             );
+// //         }
+// //     }
+// // ), 
+// // // const upload = multer({
+// // //   dest: 'images',
+// //  });
 
 /* GET brewers listing. */
 router.get("/home", function (req, res, next) {
   const id = req.session.user_id
-  console.log('id:', id)
   getBrewerByUserID(id).then((data) => {
    if(data) { 
     const rootPath =  {root: path.join(__dirname, "public")}
-    console.log('rootPath:', rootPath)
-    res.type("jpeg").sendFile(data.filename, {root: path.join(__dirname, "public")})
+    res.type("jpeg").sendFile(data.filename, {root: path.join(__dirname, "image")})
     res.json({...data, rootPath});
   }
   });
@@ -43,10 +54,7 @@ router.get("/home", function (req, res, next) {
 router.post("/edit", upload.single('logo'),function (req, res) {
   const imgdata = req.file
   const data = req.body
-  const path = `${req.protocol}://${req.host}:3001/${req.file.path}` 
-  console.log('data:', data)
-  console.log('imgdata:', imgdata)
-  console.log('req.session.user_id:', req.session.user_id)
+  const path = `${req.protocol}://${req.host}:${process.env.PORT}/image` 
   const newBrewer = {
     user_id: req.session.user_id,
     brewery: data.brewery,
@@ -59,10 +67,9 @@ router.post("/edit", upload.single('logo'),function (req, res) {
     phone: data.phone,
     filename: imgdata.filename,
     mimetype: imgdata.mimetype,
-    filepath: imgdata.filepath,
+    filepath: path,
     size: imgdata.size
   };
-  console.log('newBrewer:', newBrewer)
   editBrewer(newBrewer).then((e) => {
     req.session.brewer_id = e[0].id;
     res.status(200)
