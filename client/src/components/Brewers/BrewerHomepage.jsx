@@ -31,6 +31,7 @@ export default function App() {
       axios
         .get(`/brewers/home`)
         .then((res) => {
+          console.log('res:', res.data.result)
           const incomingData = res.data
           setBrewer({
             user_id: user.id,
@@ -44,12 +45,11 @@ export default function App() {
             phone: incomingData.phone,
             filename: incomingData.filename,
             mimetype: incomingData.mimetype,
-            filepath: incomingData.path,
+            filepath: incomingData.fullfilepath,
             size: incomingData.size
           });
           console.log('brewerPOSTAXIOS:', brewer)
-          const imgpath = (`${__dirname}server/${incomingData.filepath}`)
-          console.log('imgpath:', imgpath)
+
         });
     }, []);
         
@@ -73,7 +73,7 @@ export default function App() {
         <div className="row">
         <div className="left-side">
           <div className="brewer-image">
-            <img className="brewer-img" src={`/server/${brewer.filepath}`} alt="Brewery Img"></img>
+            <img className="brewer-img" src={brewer.filepath} alt="Brewery Img"></img>
           </div>
           <br />
           <div className="info-container">

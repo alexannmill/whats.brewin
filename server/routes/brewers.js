@@ -3,24 +3,35 @@ const router = express.Router();
 const { editBrewer, getBrewerByUserID } = require("../db/queries/brewers");
 const path = require('path')
 const multer  = require('multer')
-const upload = multer({
-  dest: 'images',
- });
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'images');
+    },
+    filename: function (req, file, cb) {
+        console.log(file);
+        cb(null , file.originalname );
+    }
+});
 
+const upload = multer({ storage: storage })
 
 /* GET brewers listing. */
 router.get("/home", function (req, res, next) {
   const id = req.session.user_id
   console.log('id:', id)
   getBrewerByUserID(id).then((data) => {
-   if(data) { const dirname = path.resolve();
+   if(data) { 
+    const dirname = path.resolve();
     console.log('dirname:', dirname)
-    const fullfilepath = path.join(dirname, "images/" + data.filename )
+    const type = data.mimetype
+    console.log('type:', type)
+    const fullfilepath = path.join(dirname, "images" + data.filename )
     console.log('data:', data)
-    res.sendFile(fullfilepath)
+    res.type(type).sendFile(fullfilepath)
+    res.json({...data, fullfilepath});
   }
-    res.json(data);
   });
+  res.status(200)
 });
 
 
