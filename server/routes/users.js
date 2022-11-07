@@ -16,6 +16,7 @@ router.post("/login", function (req, res) {
       res.status(400);
     }
 
+    req.session.user_id = user[0].id;
     getFavorite(user[0].id).then((brews) => {
       const data = { user: user[0], fav: [...brews] };
 
