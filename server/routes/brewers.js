@@ -14,7 +14,7 @@ const upload = multer({
                 null,
                 new Date().valueOf() + 
                 '_' +
-                file.filename
+                file.originalname
             );
         }
     }
@@ -29,8 +29,10 @@ router.get("/home", function (req, res, next) {
   console.log('id:', id)
   getBrewerByUserID(id).then((data) => {
    if(data) { 
-    res.type("jpeg").sendFile(data.filepath)
-    res.json({...data});
+    const rootPath =  {root: path.join(__dirname, "public")}
+    console.log('rootPath:', rootPath)
+    res.type("jpeg").sendFile(data.filename, {root: path.join(__dirname, "public")})
+    res.json({...data, rootPath});
   }
   });
   res.status(200)
@@ -41,7 +43,7 @@ router.get("/home", function (req, res, next) {
 router.post("/edit", upload.single('logo'),function (req, res) {
   const imgdata = req.file
   const data = req.body
-  const path = `${req.protocol}://${req.host}/${req.file.path}` 
+  const path = `${req.protocol}://${req.host}:3001/${req.file.path}` 
   console.log('data:', data)
   console.log('imgdata:', imgdata)
   console.log('req.session.user_id:', req.session.user_id)
@@ -57,7 +59,7 @@ router.post("/edit", upload.single('logo'),function (req, res) {
     phone: data.phone,
     filename: imgdata.filename,
     mimetype: imgdata.mimetype,
-    filepath: path,
+    filepath: imgdata.filepath,
     size: imgdata.size
   };
   console.log('newBrewer:', newBrewer)
