@@ -22,6 +22,7 @@ const BreweryPopup = (props) => {
     )}-${phoneNum.substring(6)}`;
   };
   const url = `https://google.com/maps/search/?api=1&query=${brewery.name}`;
+  const phone = `tel:${brewery.phone}`;
   // NOTE: We actually can put an image in here if we wanted to
   return (
     <>
@@ -36,17 +37,19 @@ const BreweryPopup = (props) => {
       </header>
 
       <section className="brewery-details-container">
-        <a href={url} target="_blank" rel="noreferer">
-          <button className="brewery-detail group ">
+        <button className="brewery-detail group ">
+          <a href={url} target="_blank" rel="noreferer">
             <FontAwesomeIcon
               icon={faMapLocationDot}
               className="detail-icons group-hover:text-[#2193b0]"
             />
+          </a>
+          <a href={url} target="_blank" rel="noreferer">
             <p className="brewery-detail-text">
               {brewery.street}, {brewery.city}, {brewery.state}
             </p>
-          </button>
-        </a>
+          </a>
+        </button>
 
         <button className="brewery-detail group ">
           <a
@@ -68,12 +71,16 @@ const BreweryPopup = (props) => {
           </a>
         </button>
 
-        <button className="brewery-detail group flex-row">
-          <FontAwesomeIcon
-            icon={faPhone}
-            className="detail-icons group-hover:text-[#2193b0]"
-          />
-          <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
+        <button className="brewery-detail group flex-row group-hover:text-[#2193b0]">
+          <a href={phone} className="brewery-detail group flex-row">
+            <FontAwesomeIcon
+              icon={faPhone}
+              className="detail-icons group-hover:text-[#2193b0]"
+            />
+          </a>
+          <a href={phone} className="brewery-detail group flex-row">
+            <p className="brewery-detail-text">{formatPhone(brewery.phone)}</p>
+          </a>
         </button>
 
         <Link
