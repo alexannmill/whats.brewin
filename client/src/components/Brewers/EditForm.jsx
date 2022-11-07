@@ -75,6 +75,7 @@ export default function EditForm() {
   const submitForm = () => {
     setBrewer({
       user_id: user.id,
+      filepath: `http://${window.location.host}/image/${image.data.name}`,
       brewery,
       street_number,
       street,
@@ -83,7 +84,6 @@ export default function EditForm() {
       post_zip,
       website,
       phone,
-      // logo: `http://${window.location.host}/image/${image.data.name}`
     })
     console.log('brewerFORM:', brewer)
     redirect()
@@ -123,7 +123,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="brewery"
-                  value="test"
+                  
                   onChange={(e) => setBrewery(e.target.value)}
                   required
                 />
@@ -132,7 +132,7 @@ export default function EditForm() {
                 <label>Street #: </label>
                 <input
                   type="text"
-                  value="test"
+                  
                   name="street_number"
                   onChange={(e) => setStreet_number(e.target.value)}
                   required
@@ -143,7 +143,7 @@ export default function EditForm() {
                 <input
                   type="text"
                   name="street"
-                  value="test"
+                  
                   onChange={(e) => setStreet(e.target.value)}
                   required
                 />
@@ -152,7 +152,7 @@ export default function EditForm() {
                 <label>City: </label>
                 <input
                   type="text"
-                  value="test"
+                  
                   name="city"
                   onChange={(e) => setCity(e.target.value)}
                   required
@@ -162,7 +162,7 @@ export default function EditForm() {
                 <label>State/Province: </label>
                 <input
                   type="text"
-                  value="test"
+                  
                   name="state_prov"
                   onChange={(e) => setState_prov(e.target.value)}
                   required
@@ -172,7 +172,7 @@ export default function EditForm() {
                 <label>Zip/Postal Code: </label>
                 <input
                   type="text"
-                  value="test"
+                  
                   name="post_zip"
                   onChange={(e) => setPost_zip(e.target.value)}
                   id="post-zip"
@@ -186,7 +186,7 @@ export default function EditForm() {
                   type="url"
                   name="website"
                   id="url"
-                  value="https://test.com"
+                  
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="https://example.com"
                   pattern="https://.*"
@@ -200,7 +200,7 @@ export default function EditForm() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  value="000-000-0000"
+                  
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="(000)-000-0000"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

@@ -35,7 +35,7 @@ router.get("/home", function (req, res, next) {
 router.post("/edit", upload.single('logo'),function (req, res) {
   const imgdata = req.file
   const data = req.body
-  const path = `${req.protocol}://${req.host}:${process.env.PORT}/image` 
+  const path = `${req.protocol}://${req.hostname}:${process.env.PORT}/image` 
   const newBrewer = {
     user_id: req.session.user_id,
     brewery: data.brewery,
@@ -55,6 +55,7 @@ router.post("/edit", upload.single('logo'),function (req, res) {
     req.session.brewer_id = e[0].id;
     res.status(200)
   });
+  res.status(200)
 });
 
 

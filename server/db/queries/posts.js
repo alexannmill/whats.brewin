@@ -10,7 +10,7 @@ const getPostById = (id) => {
   return client
   .query(
     `SELECT *
-    FROM posts_img
+    FROM posts
     WHERE id = $1 
       `,
       [id]
