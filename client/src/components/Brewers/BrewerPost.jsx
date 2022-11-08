@@ -57,6 +57,7 @@ const BrewerPost = () => {
         <div>
           <h1>Create a Post</h1>
         </div>
+        <br />
         {image.preview && (
           <img src={image.preview} alt="upload" width="100" height="100" />
         )}
