@@ -10,7 +10,7 @@ const BrewerPost = () => {
 
   // const { brewer } = useContext(brewerContext);
 
-  // ---- ----- Will implement backend functionality after demo day 
+  // ---- ----- Will implement backend functionality after demo day
   // ---- React route manual redirect to avoid link tag
   const navigate = useNavigate();
   const redirect = useCallback(
@@ -18,8 +18,7 @@ const BrewerPost = () => {
     [navigate]
   );
 
-
-  // ---- Cannot figure out how to use axios for form with 
+  // ---- Cannot figure out how to use axios for form with
   // ---- image ATM will need to comeback and config
   // const submitPost = (e) => {
   //   e.preventDefault();
@@ -55,6 +54,9 @@ const BrewerPost = () => {
         //   submitPost(e);
         // }}
       >
+        <div>
+          <h1>Create a Post</h1>
+        </div>
         {image.preview && (
           <img src={image.preview} alt="upload" width="100" height="100" />
         )}
