@@ -4,8 +4,9 @@
   <br>
 </h1>
 
-<p align="center">
- <a href="#key-features">Abouts</a> •
+<p align="center"> •
+ <a href="#key-features">About</a> •
+   <a href="#key-features">Demo</a> •
    <a href="#key-features">Dependanciess</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
