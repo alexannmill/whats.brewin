@@ -12,32 +12,33 @@
   <a href="#license">License</a>
 </p>
 
-## Demo
-[What-s-Brewin-.webm](https://user-images.githubusercontent.com/106779840/201769356-08e81da9-ccf9-4c71-8992-fc50df91f443.webm)
 
 ## About
 What's Brewin' a centralized platform to discover new breweries. We love beer and travel and wanted to give back to the breweries in all areas giving them a space to be easily discovered. This is our final project for Web Development Program at Lighthouse Labs made possible with the help of <a href="https://www.openbrewerydb.org/"> Open Brewery DB. </a>
 
+## Demo
+[What-s-Brewin-.webm](https://user-images.githubusercontent.com/106779840/201769356-08e81da9-ccf9-4c71-8992-fc50df91f443.webm)
+
 ## Dependancies
-$ - React
-$ - Node
-$ - Express 
-$ - MapBox
-$ - Multer
-$ - Axios 
-$ - Postgress
-$ - Framer Motion 
+ - React
+ - Node
+ - Express 
+ - MapBox
+ - Multer
+ - Axios 
+ - Postgress
+ - Framer Motion 
 
 
 ## Key Features
 
-$ - Brewery lookup by city 
-$ - Interactive map with infromation pop-up cards 
-$ - Brewery profile with post and upcoming events 
-$ - Users profile with favorited breweries 
-$ - View search results by map or list view
-$ - Brewery accounts to share information, events, post and more
-$ - Smooth UI and responsive interactive UX 
+ - Brewery lookup by city 
+ - Interactive map with infromation pop-up cards 
+ - Brewery profile with post and upcoming events 
+ - Users profile with favorited breweries 
+ - View search results by map or list view
+ - Brewery accounts to share information, events, post and more
+ - Smooth UI and responsive interactive UX 
  
 
 ## How To Use
