@@ -35,7 +35,7 @@ What's Brewin' a centralized platform to discover new breweries. We love beer an
 ## Key Features
 
  - Brewery lookup by city 
- - Interactive map with infromation pop-up cards 
+ - Interactive map with information pop-up cards 
  - Brewery profile with post and upcoming events 
  - Users profile with favorited breweries 
  - View search results by map or list view
