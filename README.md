@@ -1,3 +1,7 @@
+
+# whats.brewin'
+This is a test of pull requests
+
 <h1 align="center">
 
   What's Brewin'
@@ -74,3 +78,4 @@ $ npm start
 MIT
 
 ---
+
