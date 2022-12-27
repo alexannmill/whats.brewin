@@ -1,9 +1,4 @@
 
-# whats.brewin'
-This is a test of pull requests
-
-<h1 align="center">
-
   What's Brewin'
   <br>
 </h1>
@@ -24,6 +19,7 @@ What's Brewin' a centralized platform to discover new breweries. We love beer an
 ## Demo
 
 [What-s-Brewin-.webm](https://user-images.githubusercontent.com/106779840/201775672-5c5c6437-bcf8-4ce4-8efb-b6f9abb09443.webm)
+https://whats-brewin.netlify.app/
 
 ## Dependancies
  - React
