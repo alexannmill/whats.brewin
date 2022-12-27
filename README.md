@@ -14,7 +14,7 @@
 
 
 ## About
-What's Brewin' a centralized platform to discover new breweries. We love beer and travel and wanted to give back to the breweries in all areas giving them a space to be easily discovered. This is our final project for Web Development Program at Lighthouse Labs made possible with the help of <a href="https://www.openbrewerydb.org/"> Open Brewery DB. </a>
+What's Brewin' is a centralized platform to discover new breweries. We love beer and travel and wanted to give back to the breweries in all areas giving them a space to be easily discovered. This is our final project for Web Development Program at Lighthouse Labs made possible with the help of <a href="https://www.openbrewerydb.org/"> Open Brewery DB. </a>
 
 <a href="https://whats-brewin.netlify.app/z" > Check it out here! </a>
 
