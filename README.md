@@ -16,10 +16,11 @@
 ## About
 What's Brewin' a centralized platform to discover new breweries. We love beer and travel and wanted to give back to the breweries in all areas giving them a space to be easily discovered. This is our final project for Web Development Program at Lighthouse Labs made possible with the help of <a href="https://www.openbrewerydb.org/"> Open Brewery DB. </a>
 
+<a href="https://whats-brewin.netlify.app/z" > Check it out here! </a>
+
 ## Demo
 
 [What-s-Brewin-.webm](https://user-images.githubusercontent.com/106779840/201775672-5c5c6437-bcf8-4ce4-8efb-b6f9abb09443.webm)
-https://whats-brewin.netlify.app/
 
 ## Dependancies
  - React
