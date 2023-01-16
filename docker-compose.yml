@@ -1,0 +1,12 @@
+version: '1.1'
+services: 
+  client: 
+    build: ./client
+  db:
+    build: ./server/db
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_PASSWORD=brewer
+      - POSTGRES_DB=brewhouse
+  server:
+    build: ./server

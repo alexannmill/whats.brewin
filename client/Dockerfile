@@ -1,6 +1,6 @@
 FROM node:16
 
-WORKDIR /server
+WORKDIR /client
 
 COPY package*.json ./
 
@@ -8,8 +8,8 @@ COPY . .
 
 RUN npm install
 
-ENV PORT=3001
+ENV PORT=7001
 
-EXPOSE 3001
+EXPOSE 7001
 
 CMD ["npm", "start"]
