@@ -1,0 +1,23 @@
+services:
+  # A Docker web service
+  - type: web
+    name: whatsbrewin
+    env: docker
+    repo: https://github.com/alexannmill/whatsbrewin.git # optional
+    region: oregon # optional (defaults to oregon)
+    plan: standard # optional (defaults to starter)
+    branch: master # optional (defaults to master)
+    rootDir: whatsbrewin
+    healthCheckPath: /
+    # envVars:
+    #   - key: REDIS_HOST
+    #     fromService:
+    #       type: redis
+    #       name: lightning
+    #       property: host # available properties are listed below
+    #   - key: REDIS_PORT
+    #     fromService:
+    #       type: redis
+    #       name: lightning
+    #       property: port
+    #   - fromGroup: conc-settings
